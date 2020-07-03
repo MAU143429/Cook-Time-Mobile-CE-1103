@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="CookTime.Views.RegisterPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="REGISTRATION PAGE" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+            <Grid VerticalOptions="CenterAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Label x:Name="text1" Text="Fill with your info:" Grid.Row="0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+                <Entry x:Name="nameEntry" Keyboard="Default" Grid.Row="1" Placeholder="Name and Lastnames" />
+                <Entry x:Name="ageEntry" Keyboard ="Numeric"   Grid.Row="2" Placeholder="Age"/>
+                <Entry x:Name="emailEntry" Keyboard ="Default"   Grid.Row="3" Placeholder="E-mail"/>
+                <Entry x:Name="passwordEntry" Keyboard ="Default"   Grid.Row="4" Placeholder="Password"/>
+                <Label x:Name="text2" Text="Are you a chef? If you are check the circle below!" Grid.Row="5" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+                <CheckBox x:Name="ChefBox" Color="White" Grid.Row="6" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                    <VisualStateManager.VisualStateGroups>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter Property="Color"
+                            Value="Red" />
+                                </VisualState.Setters>
+                            </VisualState>
+
+                            <VisualState x:Name="IsChecked">
+                                <VisualState.Setters>
+                                    <Setter Property="Color"
+                            Value="Green" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateManager.VisualStateGroups>
+                </CheckBox>
+                <Button Text="Register!" Clicked="Button_Clicked" Grid.Row="7"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

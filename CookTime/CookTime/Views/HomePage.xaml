@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="CookTime.Views.HomePage"
+             NavigationPage.HasNavigationBar = "false">
+    <ContentPage.Content>
+        <StackLayout Padding="0" BackgroundColor="#9AF5F2" 
+        Orientation="Horizontal"
+        VerticalOptions="End"
+        HorizontalOptions="Center">
+            <Button x:Name="Searchbtn"  BackgroundColor="#9AF5F2" WidthRequest="113" Image ="searchicon.png" ContentLayout="Top,1" Clicked="Search_Clicked"  />
+            <Button x:Name="Homebtn"  BackgroundColor="#9AF5F2" WidthRequest="113" Image ="homeicon.png" ContentLayout="Top,1" Clicked="Home_Clicked" />
+            <Button x:Name="Profilebtn" BackgroundColor="#9AF5F2" WidthRequest="113" Image ="usericon.png" ContentLayout="Top,1" Clicked="Profile_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

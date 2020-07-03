@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="CookTime.Views.LoginPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="info!"
+                 IconImageSource="infoicon.png"
+                 Order="Primary"
+                 Priority="1"
+                 Clicked="Info_Clicked"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout Padding="0" BackgroundColor="#76D7C4">
+            <Image Source="iconlogin.png"/>
+            <Grid VerticalOptions="CenterAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+               <Entry x:Name="userEntry" Keyboard="Default" Grid.Row="0" Placeholder="Email"/>
+                <Entry x:Name="pasEntry" IsPassword="True" Keyboard="Default" Grid.Row="1" Placeholder="Password"/>
+                <Button Text="LogIn" Clicked="Button_Clicked" Grid.Row="2"/>
+                <Button x:Name="registerbtn" Text="Register Here!" Grid.Row="3" Clicked="Go_Register"/>
+
+            </Grid>
+        </StackLayout>
+        
+    </ContentPage.Content>
+</ContentPage>

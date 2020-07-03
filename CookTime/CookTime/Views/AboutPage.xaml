@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="CookTime.Views.AboutPage">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+            <Label Text="INSTITUTO TECNOLÓGICO DE COSTA RICA"/>
+            <Label Text="Algoritmos y EStructuras de Datos I"/>
+            <Label Text="Proyecto #2: CookTime"/>
+            <Label Text="Autores:"/>
+            <Label Text="* Calderón Chavarría Mauricio Antonio"/>
+            <Label Text="* Espinzoza Chaves José Antonio"/>
+            <Label Text="* Herrera Monge Isaac Mauricio"/>
+            <Label Text="* Johnson Solís Naheem"/>
+            <Label Text="I Semestre 2020"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
