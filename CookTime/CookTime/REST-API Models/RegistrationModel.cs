@@ -17,6 +17,12 @@ namespace CookTime.REST_API_Models
 
     public partial class RegistrationModel
     {
+        [JsonProperty("newusers")]
+        public Newuser[] Newusers { get; set; }
+    }
+
+    public partial class Newuser
+    {
         [JsonProperty("name")]
         public string Name { get; set; }
 
@@ -29,11 +35,9 @@ namespace CookTime.REST_API_Models
         [JsonProperty("password")]
         public string Password { get; set; }
 
-        [JsonProperty("ischef")]
-        public bool Chef
-        {
-            get; set;
-        }
+        [JsonProperty("chef")]
+        public bool Chef { get; set; }
+    }
 
     public partial class RegistrationModel
     {
@@ -57,5 +61,37 @@ namespace CookTime.REST_API_Models
             },
         };
     }
+
+    internal class ParseStringConverter : JsonConverter
+    {
+        public override bool CanConvert(Type t) => t == typeof(long) || t == typeof(long?);
+
+        public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
+        {
+            if (reader.TokenType == JsonToken.Null) return null;
+            var value = serializer.Deserialize<string>(reader);
+            long l;
+            if (Int64.TryParse(value, out l))
+            {
+                return l;
+            }
+            throw new Exception("Cannot unmarshal type long");
+        }
+
+        public override void WriteJson(JsonWriter writer, object untypedValue, JsonSerializer serializer)
+        {
+            if (untypedValue == null)
+            {
+                serializer.Serialize(writer, null);
+                return;
+            }
+            var value = (long)untypedValue;
+            serializer.Serialize(writer, value.ToString());
+            return;
+        }
+
+        public static readonly ParseStringConverter Singleton = new ParseStringConverter();
+    }
 }
+
 
