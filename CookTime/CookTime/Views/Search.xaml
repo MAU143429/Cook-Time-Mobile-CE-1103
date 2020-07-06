@@ -116,16 +116,20 @@
 
             <!--#region Labels Centrales-->
             <StackLayout>
-                <Label Text="Recommendations" FontAttributes="Bold" HorizontalTextAlignment="Center"  VerticalTextAlignment="Center" WidthRequest="800" HeightRequest="80" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" FontSize="Title" />
+                <Frame OutlineColor="Black">
+                    <Label Text="Recommendations" FontAttributes="Bold" HorizontalTextAlignment="Center"  VerticalTextAlignment="Center" WidthRequest="800" HeightRequest="80" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" FontSize="Title" />
+                </Frame>
             </StackLayout>
 
             <StackLayout Padding="0"  
              Orientation="Horizontal"
              VerticalOptions="End"
              HorizontalOptions="EndAndExpand" >
+
                 <Label Text="USERS" FontAttributes="Bold" HorizontalTextAlignment="Center"  VerticalTextAlignment="Center" WidthRequest="800" HeightRequest="60" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" FontSize="Default" />
                 <Label Text="RECIPES" FontAttributes="Bold" HorizontalTextAlignment="Center"  VerticalTextAlignment="Center" WidthRequest="800" HeightRequest="60" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" FontSize="Default" />
                 <Label Text="COMPANIES" FontAttributes="Bold" HorizontalTextAlignment="Center"  VerticalTextAlignment="Center" WidthRequest="800" HeightRequest="60" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" FontSize="Default" />
+               
             </StackLayout>
             <!--#endregion-->
 

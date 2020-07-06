@@ -5,13 +5,46 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="CookTime.Views.HomePage"
-             NavigationPage.HasNavigationBar = "false">
+             NavigationPage.HasNavigationBar = "false" >
     <ContentPage.Content>
         <StackLayout>
 
-            <StackLayout>
-                <Image HorizontalOptions="Center" Source="logocooktime.png"/>
-               
+            <StackLayout Spacing="0">
+                <Grid VerticalOptions="CenterAndExpand" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                </Grid>
+
+                <Image HorizontalOptions="Center" Source="homelogo.png" Grid.Row="0"/>
+                <Frame OutlineColor="Black" HasShadow="False">
+                    <Label Text="Username" WidthRequest="40" HeightRequest="25"  Grid.Row="1" FontSize="Large" />
+                </Frame>
+
+                <Frame OutlineColor="Black" HasShadow="False">
+                    <Label Text="RECIPE NAME" WidthRequest="40" HeightRequest="25"  Grid.Row="2" FontSize="Large" HorizontalTextAlignment="Center"/>
+                </Frame>
+                <Image HorizontalOptions="Center" Source="recipe1.png" Grid.Row="3" HeightRequest="180" WidthRequest="40"/>
+                <Frame OutlineColor="Black" HasShadow="False">
+                <Label Text="Stars" WidthRequest="40" HeightRequest="40"  Grid.Row="4" FontSize="Large" HorizontalTextAlignment="Center"/>
+                </Frame>
+                <Frame OutlineColor="Black" HasShadow="False">
+                    <Button Text="SHARE" WidthRequest="40" HeightRequest="80"  Grid.Row="5" FontSize="Large" BackgroundColor="Lime"/>
+                </Frame>
+        
+
+            </StackLayout>
+            <StackLayout Padding="0" BackgroundColor="#9AF5F2" 
+             Orientation="Horizontal"
+             VerticalOptions="End"
+             HorizontalOptions="EndAndExpand">
+                
+
             </StackLayout>
             <StackLayout Padding="0" BackgroundColor="#9AF5F2" 
              Orientation="Horizontal"

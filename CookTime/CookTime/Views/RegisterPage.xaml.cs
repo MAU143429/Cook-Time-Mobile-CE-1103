@@ -24,19 +24,19 @@ namespace CookTime.Views
         {
             Newuser user = new Newuser();
             user.Name = nameEntry.Text;
-            user.Age = ageEntry.Text;
+            user.Age = Int32.Parse(ageEntry.Text);
             user.Email = emailEntry.Text;
             user.Password = CreateMD5(passwordEntry.Text);
-            if (ChefBox.IsChecked)
+           /** if (ChefBox.IsChecked)
             {
                 user.Chef = true;
             }
             else
             {
                 user.Chef = false;
-            }
+            } */
             HttpClient cliente = new HttpClient();
-            string url = "http://localhost:6969/";
+            string url = "http://localhost:6969/newUser";
             String jsonNewUser = JsonConvert.SerializeObject(user);
             var result = await cliente.PostAsync(url, new StringContent(jsonNewUser));
             var json = result.Content.ReadAsStringAsync().Result;

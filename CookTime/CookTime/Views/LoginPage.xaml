@@ -14,7 +14,8 @@
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout Padding="0" BackgroundColor="#76D7C4">
-            <Image Source="iconlogin.png"/>
+            <Label BackgroundColor="#76D7C4" WidthRequest="40" HeightRequest="100" />
+            <Image Source="logocooktime.png" HorizontalOptions="Center" VerticalOptions="Center" />
             <Grid VerticalOptions="CenterAndExpand">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
