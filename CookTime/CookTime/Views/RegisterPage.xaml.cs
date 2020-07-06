@@ -22,7 +22,7 @@ namespace CookTime.Views
         }
         private async void RegisterRequest()
         {
-            RegistrationModel user = new RegistrationModel();
+            Newuser user = new Newuser();
             user.Name = nameEntry.Text;
             user.Age = ageEntry.Text;
             user.Email = emailEntry.Text;
@@ -50,8 +50,9 @@ namespace CookTime.Views
             var ageValidate = ageEntry.Text;
             var emailValidate = emailEntry.Text;
             var passValidate = passwordEntry.Text;
-            if (!string.IsNullOrEmpty(nameValidate)&& !string.IsNullOrEmpty(ageValidate) && !string.IsNullOrEmpty(emailValidate) && !string.IsNullOrEmpty(passValidate))
+            if (!string.IsNullOrEmpty(nameValidate) && !string.IsNullOrEmpty(ageValidate) && !string.IsNullOrEmpty(emailValidate) && !string.IsNullOrEmpty(passValidate))
             {
+                RegisterRequest();
                 DisplayAlert("REGISTRATION COMPLETE", "ENJOY COOKTIME!", "ACCEPT");
                 Navigation.PushAsync(new HomePage());
             }
