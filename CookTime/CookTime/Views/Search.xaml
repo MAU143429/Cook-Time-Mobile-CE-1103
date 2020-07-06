@@ -7,13 +7,211 @@
              x:Class="CookTime.Views.Search"
              NavigationPage.HasNavigationBar = "false">
     <ContentPage.Content>
-        <StackLayout Padding="0" BackgroundColor="#9AF5F2" 
-        Orientation="Horizontal"
-        VerticalOptions="End"
-        HorizontalOptions="Center" >
-            <Button x:Name="Searchbtn"  BackgroundColor="#9AF5F2" WidthRequest="135" Image ="searchicon.png" ContentLayout="Top,1" Clicked="Search_Clicked"  />
-            <Button x:Name="Homebtn"  BackgroundColor="#9AF5F2" WidthRequest="135" Image ="homeicon.png" ContentLayout="Top,1" Clicked="Home_Clicked"  />
-            <Button x:Name="Profilebtn" BackgroundColor="#9AF5F2" WidthRequest="135" Image ="usericon.png" ContentLayout="Top,1" Clicked="Profile_Clicked"/>
+        <StackLayout>
+            
+            
+            
+            <!--#region Busqueda parte superior-->
+            <StackLayout Padding="0" BackgroundColor="#FFFFFF" 
+            Orientation="Horizontal"
+            VerticalOptions="StartAndExpand"
+            HorizontalOptions="StartAndExpand">
+                <Entry x:Name="search1" Keyboard="Default" Placeholder="Enter a username or company name" />
+                <Button x:Name="uploadlogo" Text="Search" BackgroundColor="#9AF5F2" WidthRequest="100" HeightRequest="60" ContentLayout="Top,1" />
+
+            </StackLayout>
+            <!--#endregion-->
+
+            <!--#region Tipo de busqueda-->
+            <StackLayout Padding="0" BackgroundColor="#FFFFFF" 
+             Orientation="Horizontal"
+             VerticalOptions="Start"
+             HorizontalOptions="Start" >
+
+
+                <Label Text="SORT BY:" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+                <Picker x:Name="DishesS"
+                    Title="Type of Dish" 
+                    TitleColor="Blue" >
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Breakfast</x:String>
+                            <x:String>Lunch</x:String>
+                            <x:String>Snack</x:String>
+                            <x:String>Dinner</x:String>
+                            <x:String>Brunch</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+
+                </Picker>
+                <Picker x:Name="DurationS"
+                Title="Duration" 
+                TitleColor="Blue" >
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Less than an hour</x:String>
+                            <x:String>1 - 3 hours</x:String>
+                            <x:String>3 hours - 1 days</x:String>
+                            <x:String>More than a day</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+
+                </Picker>
+                <Picker x:Name="ServingsS"
+                Title="Servings" 
+                TitleColor="Blue" >
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>1</x:String>
+                            <x:String>2</x:String>
+                            <x:String>3</x:String>
+                            <x:String>4</x:String>
+                            <x:String>5</x:String>
+                            <x:String>6</x:String>
+                            <x:String>7</x:String>
+                            <x:String>8</x:String>
+                            <x:String>9</x:String>
+                            <x:String>10</x:String>
+
+                        </x:Array>
+                    </Picker.ItemsSource>
+
+                </Picker>
+            </StackLayout>
+            <!--#endregion-->
+            
+            <!--#region Matriz de resultados-->
+            <StackLayout Padding="0"
+                      Orientation ="Horizontal"
+                      VerticalOptions="Center"
+                      HorizontalOptions="CenterAndExpand">
+
+                <Grid VerticalOptions="CenterAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                
+
+                    <Label Text="Img" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" WidthRequest="80" HeightRequest="80" BackgroundColor="LightGray" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand" Grid.Row="0" Grid.Column="0" />
+                    <Label Text="Img" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" WidthRequest="80" HeightRequest="80" BackgroundColor="LightGray" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand" Grid.Row="1" Grid.Column="1" />
+                    <Label Text="Img" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" WidthRequest="80" HeightRequest="80" BackgroundColor="LightGray" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand" Grid.Row="0" Grid.Column="2" />
+                    <Label Text="Img" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" WidthRequest="80" HeightRequest="80" BackgroundColor="LightGray" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand" Grid.Row="1" Grid.Column="3" />
+                    <Label Text="Img" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" WidthRequest="80" HeightRequest="80" BackgroundColor="LightGray" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand" Grid.Row="0" Grid.Column="4" />
+                    <Label Text="Img" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" WidthRequest="80" HeightRequest="80" BackgroundColor="LightGray" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand" Grid.Row="1" Grid.Column="0" />
+                    <Label Text="Img" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" WidthRequest="80" HeightRequest="80" BackgroundColor="LightGray" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand" Grid.Row="0" Grid.Column="1" />
+                    <Label Text="Img" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" WidthRequest="80" HeightRequest="80" BackgroundColor="LightGray" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand" Grid.Row="1" Grid.Column="2" />
+                    <Label Text="Img" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" WidthRequest="80" HeightRequest="80" BackgroundColor="LightGray" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand" Grid.Row="0" Grid.Column="3" />
+                    <Label Text="Img" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" WidthRequest="80" HeightRequest="80" BackgroundColor="LightGray" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand" Grid.Row="1" Grid.Column="4" />
+                </Grid>
+
+            </StackLayout>
+
+            <!--#endregion-->
+
+            <!--#region Labels Centrales-->
+            <StackLayout>
+                <Label Text="Recommendations" FontAttributes="Bold" HorizontalTextAlignment="Center"  VerticalTextAlignment="Center" WidthRequest="800" HeightRequest="80" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" FontSize="Title" />
+            </StackLayout>
+
+            <StackLayout Padding="0"  
+             Orientation="Horizontal"
+             VerticalOptions="End"
+             HorizontalOptions="EndAndExpand" >
+                <Label Text="USERS" FontAttributes="Bold" HorizontalTextAlignment="Center"  VerticalTextAlignment="Center" WidthRequest="800" HeightRequest="60" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" FontSize="Default" />
+                <Label Text="RECIPES" FontAttributes="Bold" HorizontalTextAlignment="Center"  VerticalTextAlignment="Center" WidthRequest="800" HeightRequest="60" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" FontSize="Default" />
+                <Label Text="COMPANIES" FontAttributes="Bold" HorizontalTextAlignment="Center"  VerticalTextAlignment="Center" WidthRequest="800" HeightRequest="60" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" FontSize="Default" />
+            </StackLayout>
+            <!--#endregion-->
+
+            <!--#region Matriz recomendaciones-->
+            <StackLayout Padding="0"
+             Orientation="Horizontal"
+             VerticalOptions="Center"
+             HorizontalOptions="Center" >
+                <StackLayout Padding="0"
+                      Orientation ="Horizontal"
+                      VerticalOptions="Center"
+                      HorizontalOptions="CenterAndExpand">
+                    <Grid VerticalOptions="CenterAndExpand">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="Img" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" WidthRequest="60" HeightRequest="60" BackgroundColor="LightGray" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand" Grid.Column="0" Grid.Row="0"/>
+                        <Label Text="Img" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" WidthRequest="60" HeightRequest="60" BackgroundColor="LightGray" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand" Grid.Column="1" Grid.Row="0"/>
+                        <Label Text="Img" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" WidthRequest="60" HeightRequest="60" BackgroundColor="LightGray" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand" Grid.Column="0" Grid.Row="1"/>
+                        <Label Text="Img" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" WidthRequest="60" HeightRequest="60" BackgroundColor="LightGray" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand" Grid.Column="1" Grid.Row="1"/>
+                        <Label  BackgroundColor="#ffffff" Grid.Column="3" Grid.Row="0"/>
+                    </Grid>
+                </StackLayout>
+
+                <StackLayout Padding="0"
+                      Orientation ="Horizontal"
+                      VerticalOptions="Center"
+                      HorizontalOptions="CenterAndExpand">
+                    <Grid VerticalOptions="CenterAndExpand">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="Img" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" WidthRequest="60" HeightRequest="60" BackgroundColor="LightGray" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand" Grid.Column="0" Grid.Row="0"/>
+                        <Label Text="Img" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" WidthRequest="60" HeightRequest="60" BackgroundColor="LightGray" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand" Grid.Column="1" Grid.Row="0"/>
+                        <Label Text="Img" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" WidthRequest="60" HeightRequest="60" BackgroundColor="LightGray" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand" Grid.Column="0" Grid.Row="1"/>
+                        <Label Text="Img" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" WidthRequest="60" HeightRequest="60" BackgroundColor="LightGray" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand" Grid.Column="1" Grid.Row="1"/>
+                        <Label  BackgroundColor="#ffffff" Grid.Column="3" Grid.Row="0"/>
+                    </Grid>
+                </StackLayout>
+                <StackLayout Padding="0"
+                      Orientation ="Horizontal"
+                      VerticalOptions="Center"
+                      HorizontalOptions="CenterAndExpand">
+                    <Grid VerticalOptions="CenterAndExpand">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="Img" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" WidthRequest="100" HeightRequest="60" BackgroundColor="LightGray" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand" Grid.Column="0" Grid.Row="0"/>
+                        <Label Text="Img" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" WidthRequest="100" HeightRequest="60" BackgroundColor="LightGray" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand" Grid.Column="0" Grid.Row="1"/>
+                        </Grid>
+                </StackLayout>
+            </StackLayout>
+            <!--#endregion-->
+
+            <!--#region Botones principales-->
+            <StackLayout Padding="0" BackgroundColor="#9AF5F2" 
+             Orientation="Horizontal"
+             VerticalOptions="End"
+             HorizontalOptions="EndAndExpand" >
+                <Button x:Name="Searchbtn"  BackgroundColor="#9AF5F2" WidthRequest="135" Image ="searchicon.png" ContentLayout="Top,1" Clicked="Search_Clicked"  />
+                <Button x:Name="Homebtn"  BackgroundColor="#9AF5F2" WidthRequest="135" Image ="homeicon.png" ContentLayout="Top,1" Clicked="Home_Clicked"  />
+                <Button x:Name="Profilebtn" BackgroundColor="#9AF5F2" WidthRequest="135" Image ="usericon.png" ContentLayout="Top,1" Clicked="Profile_Clicked"/>
+            </StackLayout>
+            <!--#endregion-->
+
         </StackLayout>
 
     </ContentPage.Content>

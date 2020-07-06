@@ -7,9 +7,29 @@
              x:Class="CookTime.Views.CreateC">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text=" WELCOME!! CREATE COMPANY HERE!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Grid VerticalOptions="CenterAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+
+                </Grid.RowDefinitions>
+                <Entry x:Name="companyname" Keyboard="Default" Grid.Row="0" Placeholder="Company Name" />
+                <Entry x:Name="companyemail" Keyboard="Default" Grid.Row="1" Placeholder="Company E-mail"/>
+                <Entry x:Name="companynumber" Keyboard="Numeric" Grid.Row="2" Placeholder="Company Number" />
+                <Entry x:Name="companyschedule" Keyboard="Default" Grid.Row="3" Placeholder="Company Schedule"/>
+
+            </Grid>
+            <StackLayout Padding="0" BackgroundColor="#FFFFFF" 
+            Orientation="Vertical"
+            VerticalOptions="Center"
+            HorizontalOptions="Center">
+                <Button x:Name="uploadlogo" Text="UPLOAD COMPANY LOGO" BackgroundColor="#9AF5F2" WidthRequest="190" HeightRequest="60" ContentLayout="Top,1" />
+                <Button x:Name="location" Text="COMPANY LOCATION" BackgroundColor="#9AF5F2" WidthRequest="190" HeightRequest="60" ContentLayout="Top,1" />
+                <Button x:Name="createcompany" Text="CREATE COMPANY" BackgroundColor="#9AF5F2" WidthRequest="190" HeightRequest="60" ContentLayout="Top,1" />
+
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
