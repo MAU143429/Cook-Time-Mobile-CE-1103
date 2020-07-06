@@ -9,6 +9,7 @@
         <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
             <Label Text="INSTITUTO TECNOLÓGICO DE COSTA RICA"/>
             <Label Text="Algoritmos y EStructuras de Datos I"/>
+            <Label Text="Profesor: Luis Diego Noguera Mena"/>
             <Label Text="Proyecto #2: CookTime"/>
             <Label Text="Autores:"/>
             <Label Text="* Calderón Chavarría Mauricio Antonio"/>
