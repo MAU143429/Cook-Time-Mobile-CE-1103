@@ -21,7 +21,7 @@
                 </Grid.RowDefinitions>
                 <Label x:Name="text1" Text="Fill with your info:" Grid.Row="0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
                 <Entry x:Name="nameEntry" Keyboard="Default" Grid.Row="1" Placeholder="Name and Lastnames" />
-                <Entry x:Name="ageEntry" Keyboard ="Numeric"   Grid.Row="2" Placeholder="Age"/>
+                <Entry x:Name="ageEntry" Keyboard ="Default"   Grid.Row="2" Placeholder="Age"/>
                 <Entry x:Name="emailEntry" Keyboard ="Default"   Grid.Row="3" Placeholder="E-mail"/>
                 <Entry x:Name="passwordEntry" Keyboard ="Default"   Grid.Row="4" Placeholder="Password"/>
                 <Label x:Name="text2" Text="Are you a chef? If you are check the circle below!" Grid.Row="5" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
