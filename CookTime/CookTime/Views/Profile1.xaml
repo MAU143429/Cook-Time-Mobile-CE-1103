@@ -5,12 +5,20 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="CookTime.Views.Profile1"
-             NavigationPage.HasNavigationBar = "false" 
-             BackgroundColor="Green">
+             NavigationPage.HasNavigationBar = "false" >
            
     <ContentPage.Content>
-        <StackLayout VerticalOptions="End">
-           
+        <StackLayout>
+
+            <StackLayout Padding="0" BackgroundColor="#9AF5F2" 
+                Orientation="Horizontal"
+                VerticalOptions="End"
+                HorizontalOptions="Center" >
+                
+                
+                
+            </StackLayout>
+
             <StackLayout Orientation="Horizontal"
              VerticalOptions="Center"
              HorizontalOptions="Center">
