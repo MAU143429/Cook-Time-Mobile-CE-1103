@@ -21,7 +21,7 @@ namespace CookTime.REST_API_Models
         public string Name { get; set; }
 
         [JsonProperty("age")]
-        public long Age { get; set; }
+        public string Age { get; set; }
 
         [JsonProperty("email")]
         public string Email { get; set; }
