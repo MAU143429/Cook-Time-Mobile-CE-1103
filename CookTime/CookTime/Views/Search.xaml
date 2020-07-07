@@ -17,7 +17,7 @@
             VerticalOptions="StartAndExpand"
             HorizontalOptions="StartAndExpand">
                 <Entry x:Name="search1" Keyboard="Default" Placeholder="Enter a username or company name" />
-                <Button x:Name="uploadlogo" Text="Search" BackgroundColor="#9AF5F2" WidthRequest="100" HeightRequest="60" ContentLayout="Top,1" />
+                <Button x:Name="uploadlogo" Text="Search" BackgroundColor="#9AF5F2" WidthRequest="100" HeightRequest="60" ContentLayout="Top,1" Clicked="Searching" />
 
             </StackLayout>
             <!--#endregion-->
@@ -32,7 +32,8 @@
                 <Label Text="SORT BY:" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
                 <Picker x:Name="DishesS"
                     Title="Type of Dish" 
-                    TitleColor="Blue" >
+                    TitleColor="Blue"
+                    SelectedItem ="{Binding SelectedDepartment}">
                     <Picker.ItemsSource>
                         <x:Array Type="{x:Type x:String}">
                             <x:String>Breakfast</x:String>
