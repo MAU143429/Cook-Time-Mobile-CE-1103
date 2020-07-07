@@ -35,8 +35,7 @@ namespace CookTime.REST_API_Models
         [JsonProperty("password")]
         public string Password { get; set; }
 
-        [JsonProperty("chef")]
-        public bool Chef { get; set; }
+        
     }
 
     public partial class RegistrationModel

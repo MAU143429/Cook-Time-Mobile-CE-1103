@@ -35,12 +35,20 @@ namespace CookTime.Views
             {
                 user.Chef = false;
             } */
+
             HttpClient cliente = new HttpClient();
-            string url = "http://localhost:6969/newUser";
+            string url = "http://192.168.100.8:6969/newUser";
             String jsonNewUser = JsonConvert.SerializeObject(user);
-            var result = await cliente.PostAsync(url, new StringContent(jsonNewUser));
+            Console.WriteLine(jsonNewUser);
+            var datasent = new StringContent(jsonNewUser);
+            Console.WriteLine(datasent);
+            datasent.Headers.ContentType.MediaType = "application/json";
+            var result = await cliente.PostAsync(url, datasent);
             var json = result.Content.ReadAsStringAsync().Result;
             await DisplayAlert("Result", json, "ok");
+            
+           
+            
 
         }
         private void Button_Clicked(object sender, EventArgs e)
