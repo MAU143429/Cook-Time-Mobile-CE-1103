@@ -10,35 +10,55 @@
         <StackLayout>
 
             <StackLayout Spacing="0">
-                    <Image HorizontalOptions="Center" Source="homelogo.png" Grid.Row="0"/>
-                    <Frame OutlineColor="Black" HasShadow="False">
-                        <Label Text="Username" WidthRequest="40" HeightRequest="25"  Grid.Row="1" FontSize="Large" />
-                    </Frame>
+                <Image HorizontalOptions="Center" Source="homelogo.png" />
+                <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
+                <Label Text="Username" WidthRequest="40" HeightRequest="25"   FontSize="Large" />
+                <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
+                <StackLayout Padding="0"  
+                Orientation="Horizontal"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="CenterAndExpand">
+                    <Label Text="RECIPE NAME" WidthRequest="210" HeightRequest="40"   FontSize="Large" HorizontalTextAlignment="Center"/>
+                    <Label Text="4,5☆" WidthRequest="210" HeightRequest="40"   FontSize="Large" HorizontalTextAlignment="Center"/>
 
-                    <Frame OutlineColor="Black" HasShadow="False">
-                        <Label Text="RECIPE NAME" WidthRequest="40" HeightRequest="25"  Grid.Row="2" FontSize="Large" HorizontalTextAlignment="Center"/>
-                    </Frame>
-                    <Image HorizontalOptions="Center" Source="recipe1.png" Grid.Row="3" HeightRequest="180" WidthRequest="40"/>
-                    <Frame OutlineColor="Black" HasShadow="False">
-                        <Label Text="Stars" WidthRequest="40" HeightRequest="40"  Grid.Row="4" FontSize="Large" HorizontalTextAlignment="Center"/>
-                    </Frame>
-                    <Frame OutlineColor="Black" HasShadow="False">
-                        <Button Text="SHARE" WidthRequest="40" HeightRequest="80"  Grid.Row="5" FontSize="Large" BackgroundColor="Lime"/>
-                    </Frame>
-                
+                </StackLayout>
+                <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
+                <Image x:Name="mainimage" HorizontalOptions="Center" Source = "recipe1.png" WidthRequest="500" HeightRequest="280" Aspect="AspectFill"/>
+                <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
+                <StackLayout Padding="0" Spacing="0"
+                Orientation="Horizontal"
+                VerticalOptions="Center"
+                HorizontalOptions="CenterAndExpand">
+                    <Picker x:Name="rating"
+                Title="RATE THE DISH" 
+                TitleColor="White"
+                BackgroundColor="Fuchsia"
+                WidthRequest="210"            >
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>1 ☆ </x:String>
+                                <x:String>2 ☆</x:String>
+                                <x:String>3 ☆</x:String>
+                                <x:String>4 ☆</x:String>
+                                <x:String>5 ☆</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
 
+                    </Picker>
+                    <Button x:Name="NextRecipe"  Text=" NEXT ->" FontAttributes="Bold" FontSize="Title" BackgroundColor="Lavender" WidthRequest="210"  ContentLayout="Top,1" Clicked= "Next"  />
+
+                </StackLayout>
+               
+                <Button Text="VIEW RECIPE" WidthRequest="40" HeightRequest="60"   FontSize="Large" BackgroundColor="#FFB24B"/>
+                <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
+                <Button Text="SHARE" WidthRequest="40" HeightRequest="60"  FontSize="Large" BackgroundColor="#CCF47C"/>
+                <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
             </StackLayout>
-            <StackLayout Padding="0" BackgroundColor="#9AF5F2" 
+          
+            <StackLayout Padding="0" BackgroundColor="#9AF5F2" Margin="-6"
              Orientation="Horizontal"
              VerticalOptions="End"
-             HorizontalOptions="EndAndExpand">
-                
-
-            </StackLayout>
-            <StackLayout Padding="0" BackgroundColor="#9AF5F2" 
-             Orientation="Horizontal"
-             VerticalOptions="End"
-             HorizontalOptions="EndAndExpand">
+             HorizontalOptions="EndAndExpand"> 
                     <Button x:Name="Searchbtn"  BackgroundColor="#9AF5F2" WidthRequest="135" Image ="searchicon.png" ContentLayout="Top,1" Clicked="Search_Clicked"  />
                     <Button x:Name="Homebtn"  BackgroundColor="#9AF5F2" WidthRequest="135" Image ="homeicon.png" ContentLayout="Top,1" Clicked="Home_Clicked" />
                     <Button x:Name="Profilebtn" BackgroundColor="#9AF5F2" WidthRequest="135" Image ="usericon.png" ContentLayout="Top,1" Clicked="Profile_Clicked"/>
