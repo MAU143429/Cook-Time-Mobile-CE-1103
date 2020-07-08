@@ -27,7 +27,7 @@
             HorizontalOptions="Center">
                 <Button x:Name="uploadlogo" Text="UPLOAD COMPANY LOGO" BackgroundColor="#9AF5F2" WidthRequest="190" HeightRequest="60" ContentLayout="Top,1" />
                 <Button x:Name="location" Text="COMPANY LOCATION" BackgroundColor="#9AF5F2" WidthRequest="190" HeightRequest="60" ContentLayout="Top,1" />
-                <Button x:Name="createcompany" Text="CREATE COMPANY" BackgroundColor="#9AF5F2" WidthRequest="190" HeightRequest="60" ContentLayout="Top,1" />
+                <Button x:Name="createcompany" Text="CREATE COMPANY" BackgroundColor="#9AF5F2" WidthRequest="190" HeightRequest="60" ContentLayout="Top,1" Clicked="Share_Company" />
 
             </StackLayout>
         </StackLayout>
