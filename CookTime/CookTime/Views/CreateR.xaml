@@ -121,7 +121,7 @@
             VerticalOptions="End"
             HorizontalOptions="Center">
                 <Button x:Name="upload" Text="UPLOAD IMG" BackgroundColor="#9AF5F2" WidthRequest="170"  ContentLayout="Top,1"/>
-                <Button x:Name="share1" Text="SHARE RECIPE" BackgroundColor="#9AF5F2" WidthRequest="170" ContentLayout="Top,1" Clicked="Profile_Clicked" />
+                <Button x:Name="share1" Text="SHARE RECIPE" BackgroundColor="#9AF5F2" WidthRequest="170" ContentLayout="Top,1" Clicked="Share_Clicked" />
                 
             </StackLayout>
 
