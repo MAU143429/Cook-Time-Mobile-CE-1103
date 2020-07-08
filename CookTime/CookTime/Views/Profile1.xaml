@@ -9,15 +9,18 @@
            
     <ContentPage.Content>
         <StackLayout >
-
+            
+            <Image HorizontalOptions="Center" Source="homelogo.png"  HeightRequest="60"/>
+            <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
             <StackLayout Padding="0" 
                 Orientation="Horizontal"
                 VerticalOptions="Center"
                 HorizontalOptions="Center" >
-                <Label Text="Profile img" WidthRequest="100" HeightRequest="100"  HorizontalTextAlignment="Center"  BackgroundColor="LightYellow"/>
-
+                <Image HorizontalOptions="Center" Source="defaultimg.png"  HeightRequest="100" WidthRequest="100"/>
+                <Label  WidthRequest="40" HeightRequest="15"  BackgroundColor="White" />
                 <Grid VerticalOptions="CenterAndExpand" >
                     <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
@@ -28,36 +31,36 @@
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
 
-                    <Label Text="Posts" WidthRequest="70" HeightRequest="20"  Grid.Row="0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.Column="0" BackgroundColor="Cyan"/>
-                    <Label Text="int" WidthRequest="30" HeightRequest="20"  Grid.Row="1" HorizontalTextAlignment="Center" Grid.Column="0" BackgroundColor="Cyan"/>
-                    <Label Text="Followers" WidthRequest="70" HeightRequest="20"  Grid.Row="0" HorizontalTextAlignment="Center" Grid.Column="1" BackgroundColor="Cyan"/>
-                    <Label Text="int" WidthRequest="30" HeightRequest="20"  Grid.Row="1" HorizontalTextAlignment="Center" Grid.Column="1" BackgroundColor="Cyan"/>
-                    <Label Text="Following" WidthRequest="70" HeightRequest="20"  Grid.Row="0" HorizontalTextAlignment="Center" Grid.Column="2" BackgroundColor="Cyan"/>
-                    <Label Text="int" WidthRequest="30" HeightRequest="20"  Grid.Row="1" HorizontalTextAlignment="Center" Grid.Column="2" BackgroundColor="Cyan"/>
+                    <Label Text="Posts" FontSize="Subtitle" WidthRequest="70" HeightRequest="20"  Grid.Row="0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.Column="0" />
+                    <Label  WidthRequest="70" HeightRequest="15"  Grid.Row="1" Grid.Column="0" BackgroundColor="White" />
+                    <Label Text="0" FontAttributes="Bold" WidthRequest="30" HeightRequest="20"  Grid.Row="2" HorizontalTextAlignment="Center" Grid.Column="0" />
+                    <Label Text="Followers" FontSize="Subtitle" WidthRequest="70" HeightRequest="20"  Grid.Row="0" HorizontalTextAlignment="Center" Grid.Column="1" />
+                    <Label  WidthRequest="70" HeightRequest="15"  Grid.Row="1" Grid.Column="1" BackgroundColor="White" />
+                    <Label Text="0" FontAttributes="Bold" WidthRequest="30" HeightRequest="20"  Grid.Row="2" HorizontalTextAlignment="Center" Grid.Column="1" />
+                    <Label Text="Following" FontSize="Subtitle" WidthRequest="70" HeightRequest="20"  Grid.Row="0" HorizontalTextAlignment="Center" Grid.Column="2" />
+                    <Label  WidthRequest="70" HeightRequest="15"  Grid.Row="1" Grid.Column="2" BackgroundColor="White" />
+                    <Label Text="0" FontAttributes="Bold" WidthRequest="30" HeightRequest="20"  Grid.Row="2" HorizontalTextAlignment="Center" Grid.Column="2" />
 
                 </Grid>
             </StackLayout>
-
+            <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
             <StackLayout Padding="0"
                 Orientation="Horizontal"
                 VerticalOptions="Center"
                 HorizontalOptions="Center">
-
-                <Frame OutlineColor="Black" HasShadow="False">
-                    <Button x:Name="CreateRecipe" BackgroundColor="Gold" Text="Create Recipe" WidthRequest="135" Clicked="Create_Clicked" />
-                   
-                </Frame>
-                <Frame OutlineColor="Black" HasShadow="False">
-                <Button x:Name="CreateCompany" BackgroundColor="Silver" Text="Create Company" WidthRequest="135" Clicked="Create2_Clicked" />
-                </Frame>
+                <Label Text="Description" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+                <Button x:Name="CreateRecipe" BackgroundColor="#CCF47C" Text="Create Recipe" WidthRequest="135" Clicked="Create_Clicked" />
+                <Button x:Name="CreateCompany" BackgroundColor="#CCF47C" Text="Create Company" WidthRequest="150" Clicked="Create2_Clicked" />
+                
              </StackLayout>
 
-
+            <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
             <!--#region Tipo de busqueda-->
             <StackLayout Padding="0" BackgroundColor="#FFFFFF" 
              Orientation="Horizontal"
-             VerticalOptions="Start"
-             HorizontalOptions="Start" >
+             VerticalOptions="CenterAndExpand"
+             HorizontalOptions="CenterAndExpand"
+             Spacing="7">
 
 
                 <Label Text="SORT BY:" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
@@ -102,7 +105,8 @@
                 </Picker>
             </StackLayout>
             <!--#endregion-->
-
+            
+            <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
             <!--#region Matriz de MyMenu-->
             <StackLayout Padding="0"
                       Orientation ="Horizontal"
@@ -143,7 +147,7 @@
             </StackLayout>
 
             <!--#endregion-->
-
+            <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000" Margin="-6"/>
             <StackLayout Padding="0" BackgroundColor="#9AF5F2" 
                 Orientation="Horizontal"
                 VerticalOptions="End"
