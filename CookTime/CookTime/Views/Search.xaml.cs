@@ -38,6 +38,8 @@ namespace CookTime.Views
             var filter1 = DishesS.SelectedIndex;
             var filter2 = DurationS.SelectedIndex;
             var filter3 = ServingsS.SelectedIndex;
+            var f1 = DishesS.SelectedItem;
+            
             var searchValidate = search1.Text;
             Boolean v1, v2, v3;
             v1 = false;
@@ -47,7 +49,7 @@ namespace CookTime.Views
             {
                 DisplayAlert("COOKTIME", "SEARCHING...", "ACCEPT");
                 
-                if (filter1 >= 0 && filter1 <= 4) { v1 = true; }
+                if (filter1 >= 0 && filter1 <= 4) { v1 = true; Console.WriteLine(f1); }
                 if (filter2 >= 0 && filter2 <= 4) { v2 = true; }
                 if (filter3 >= 0 && filter3 <= 4) { v3 = true; }
 
@@ -55,6 +57,7 @@ namespace CookTime.Views
                 {
                     DisplayAlert("COOKTIME", "TODOS LOS FILTROS HAN SIDO UTILIZADOS", "ACCEPT");
                 }
+                Navigation.PushAsync(new ShowSearch());
 
             }
             else
