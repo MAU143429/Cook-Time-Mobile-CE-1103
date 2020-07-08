@@ -1,5 +1,7 @@
 ﻿using CookTime.REST_API_Models;
+using CookTime.User;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,18 +25,17 @@ namespace CookTime.Views
         private async void RegisterRequest()
         {
             Newuser user = new Newuser();
-            user.Name = nameEntry.Text;
             user.Age = Int32.Parse(ageEntry.Text);
             user.Email = emailEntry.Text;
             user.Password = CreateMD5(passwordEntry.Text);
-           /** if (ChefBox.IsChecked)
+            if (ChefBox.IsChecked)
             {
-                user.Chef = true;
+                user.Name = nameEntry.Text + "⍟";
             }
             else
             {
-                user.Chef = false;
-            } */
+                user.Name = nameEntry.Text;
+            } 
 
             HttpClient cliente = new HttpClient();
             string url = "http://192.168.0.17:6969/newUser";
@@ -43,9 +44,10 @@ namespace CookTime.Views
             var datasent = new StringContent(jsonNewUser);
             Console.WriteLine(datasent);
             datasent.Headers.ContentType.MediaType = "application/json";
-            /*var result = */await cliente.PostAsync(url, datasent);
-            //var json = result.Content.ReadAsStringAsync().Result;
-            //await DisplayAlert("Result", json, "ok");
+            var result = await cliente.PostAsync(url, datasent);
+            var json = result.Content.ReadAsStringAsync().Result;
+            await DisplayAlert("Result", json, "ok");
+            UserSelf user1 = JsonConvert.DeserializeObject<UserSelf>(json);
             
            
             

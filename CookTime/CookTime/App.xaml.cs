@@ -1,4 +1,5 @@
-﻿using CookTime.Views;
+﻿using CookTime.User;
+using CookTime.Views;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -7,6 +8,7 @@ namespace CookTime
 {
     public partial class App : Application
     {
+        
         public App()
         {
             InitializeComponent();
