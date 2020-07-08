@@ -2,79 +2,65 @@
 //
 // To parse this JSON data, add NuGet 'Newtonsoft.Json' then do:
 //
-//    using CookTime.REST_API_Recipe;
+//    using CookTime.REST_API_Company;
 //
-//    var registrationModel = RecipeModel.FromJson(jsonString);
+//    var CompanyModel = Company.FromJson(jsonString);
 
-namespace CookTime.REST_API_Recipe
+namespace CookTime.REST_API_Company
 {
     using System;
     using System.Collections.Generic;
-
     using System.Globalization;
     using Newtonsoft.Json;
     using Newtonsoft.Json.Converters;
 
-    public partial class RecipeModel
+    public partial class CompanyModel
     {
-        [JsonProperty("newrecipes")]
-        public Recipe[] Recipes { get; set; }
+        [JsonProperty("newcompanies")]
+        public Company[] Companies { get; set; }
     }
 
-    public partial class Recipe
+    public partial class Company
     {
         [JsonProperty("name")]
         public string Name { get; set; }
 
-        [JsonProperty("author")]
-        public string Author { get; set; }
+        [JsonProperty("email")]
+        public string Email { get; set; }
 
-        [JsonProperty("type")]
-        public string TypeOfDish { get; set; }
+        [JsonProperty("number")]
+        public int Number { get; set; }
 
-        [JsonProperty("servings")]
-        public int Servings { get; set; }
+        [JsonProperty("schedule")]
+        public string Schedule { get; set; }
 
-        [JsonProperty("duration")]
-        public string Duration { get; set; }
+        [JsonProperty("logo")]
+        public string Logo { get; set; }
 
-        [JsonProperty("time")]
-        public string Time { get; set; }
+        [JsonProperty("location")]
+        public string Location { get; set; }
 
-        [JsonProperty("difficulty")]
-        public string Difficulty { get; set; }
+        [JsonProperty("posts")]
+        public int Posts { get; set; }
 
-        [JsonProperty("diet")]
-        public string Diet { get; set; }
+        [JsonProperty("followers")]
+        public int Followers { get; set; }
 
-        [JsonProperty("ingredients")]
-        public string Ingredients { get; set; }
+        [JsonProperty("following")]
+        public int Following { get; set; }
 
-        [JsonProperty("steps")]
-        public string Steps { get; set; }
-
-        [JsonProperty("price")]
-        public int Price { get; set; }
-
-        [JsonProperty("image")]
-        public string ImageBase64 { get; set; }
-
-        [JsonProperty("date")]
-        public string Date { get; set; }
-
-        [JsonProperty("rating")]
-        public int Rating { get; set; }
-
+        [JsonProperty("members")]
+        public int Members { get; set; }
     }
 
-    public partial class RecipeModel
+    public partial class CompanyModel
     {
-        public static RecipeModel FromJson(string json) => JsonConvert.DeserializeObject<RecipeModel>(json, CookTime.REST_API_Recipe.Converter.Settings);
+        public static CompanyModel FromJson(string json) => JsonConvert.DeserializeObject<CompanyModel>(json, CookTime.REST_API_Company.Converter.Settings);
     }
 
     public static class Serialize
     {
-        public static string ToJson(this RecipeModel self) => JsonConvert.SerializeObject(self, CookTime.REST_API_Recipe.Converter.Settings);
+        public static string ToJson(this CompanyModel self) => JsonConvert.SerializeObject(self, CookTime.REST_API_Company.Converter.Settings);
     }
 
     internal static class Converter
@@ -84,9 +70,9 @@ namespace CookTime.REST_API_Recipe
             MetadataPropertyHandling = MetadataPropertyHandling.Ignore,
             DateParseHandling = DateParseHandling.None,
             Converters =
-            {
-                new IsoDateTimeConverter { DateTimeStyles = DateTimeStyles.AssumeUniversal }
-            },
+        {
+            new IsoDateTimeConverter { DateTimeStyles = DateTimeStyles.AssumeUniversal }
+        },
         };
     }
 
@@ -121,3 +107,5 @@ namespace CookTime.REST_API_Recipe
         public static readonly ParseStringConverter Singleton = new ParseStringConverter();
     }
 }
+
+
