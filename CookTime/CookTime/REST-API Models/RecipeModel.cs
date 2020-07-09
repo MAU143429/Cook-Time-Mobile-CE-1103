@@ -42,7 +42,7 @@ namespace CookTime.REST_API_Recipe
         public string Time { get; set; }
 
         [JsonProperty("difficulty")]
-        public string Difficulty { get; set; }
+        public int Difficulty { get; set; }
 
         [JsonProperty("diet")]
         public string Diet { get; set; }
@@ -57,7 +57,7 @@ namespace CookTime.REST_API_Recipe
         public int Price { get; set; }
 
         [JsonProperty("image")]
-        public string ImageBase64 { get; set; }
+        public string ImageURL { get; set; }
 
         [JsonProperty("date")]
         public string Date { get; set; }

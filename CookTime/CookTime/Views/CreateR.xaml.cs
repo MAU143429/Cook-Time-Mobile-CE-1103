@@ -33,23 +33,21 @@ namespace CookTime.Views
             var dish = Dishes.SelectedItem;
             var duration = Duration.SelectedItem;
             var time = Time.SelectedItem;
-            var difficulty = Difficulty.SelectedItem;
             var diets = Diet.SelectedItem;
             var date = DateTime.Now;
 
             Recipe recipe = new Recipe();
-            recipe.Name = namerecipe.Text;
-            recipe.Author = authorecipe.Text;
+            recipe.Author = "Automatic";
             recipe.TypeOfDish = dish.ToString();
             recipe.Servings = Int32.Parse(servings.Text);
             recipe.Duration = duration.ToString();
             recipe.Time = time.ToString();
-            recipe.Difficulty = difficulty.ToString();
+            recipe.Difficulty = Int32.Parse(Difficulty.Text);
             recipe.Diet = diets.ToString();
             recipe.Ingredients = Ingredients.Text;
             recipe.Steps = Steps.Text;
             recipe.Price = Int32.Parse(Price.Text);
-            recipe.ImageBase64 = "";
+            recipe.ImageURL = imageurl.Text;
             recipe.Date = DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss");
             recipe.Rating = 0;
 

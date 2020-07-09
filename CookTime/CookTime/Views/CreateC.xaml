@@ -18,23 +18,22 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <Entry x:Name="companyname" Keyboard="Default" Grid.Row="0" Placeholder="Company Name" />
                 <Entry x:Name="companyemail" Keyboard="Default" Grid.Row="1" Placeholder="Company E-mail"/>
                 <Entry x:Name="companynumber" Keyboard="Numeric" Grid.Row="2" Placeholder="Company Number" />
                 <Entry x:Name="companyschedule" Keyboard="Default" Grid.Row="3" Placeholder="Company Schedule"/>
+                <Entry x:Name="companyimg" Keyboard="Default" Grid.Row="4" Placeholder="Your logo image url here"/>
                 <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000" Grid.Row="4"/>
                 
 
             </Grid>
-            
+
             <StackLayout Padding="0" BackgroundColor="#FFFFFF" Spacing="10"
             Orientation="Horizontal"
             VerticalOptions="Center"
             HorizontalOptions="CenterAndExpand">
-                
-                <Button x:Name="uploadlogo"  WidthRequest="150" HeightRequest="150" ContentLayout="Top,1" ImageSource="upclogo.png" BorderColor="Black" BorderWidth="10" Clicked="setLogo"/>
-                <Label  WidthRequest="40" HeightRequest="25" BackgroundColor="Transparent"/>
                 <Button x:Name="location"  WidthRequest="150" HeightRequest="150" ContentLayout="Top,1" ImageSource="mapl.png" BorderColor="Black" BorderWidth="10" Clicked="setLocation"/>
             </StackLayout>
 

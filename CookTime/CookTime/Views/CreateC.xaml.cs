@@ -33,12 +33,13 @@ namespace CookTime.Views
             company.Email = companyemail.Text;
             company.Number = Int32.Parse(companynumber.Text);
             company.Schedule = companyschedule.Text;
-            company.Logo = "";
+            company.Logo = companyimg.Text;
             company.Location = "";
             company.Posts = 0;
             company.Followers = 0;
             company.Following = 0;
             company.Members = 1;
+
             
             HttpClient client = new HttpClient();
             string url = "http://192.168.0.17:6969/test";

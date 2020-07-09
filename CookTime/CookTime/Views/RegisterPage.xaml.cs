@@ -20,6 +20,7 @@ namespace CookTime.Views
         public RegisterPage()
         {
             InitializeComponent();
+            
 
         }
         private async void RegisterRequest()
@@ -35,7 +36,7 @@ namespace CookTime.Views
             else
             {
                 user.Name = nameEntry.Text;
-            } 
+            }
 
             HttpClient cliente = new HttpClient();
             string url = "http://192.168.0.17:6969/newUser";
@@ -47,10 +48,11 @@ namespace CookTime.Views
             var result = await cliente.PostAsync(url, datasent);
             var json = result.Content.ReadAsStringAsync().Result;
             await DisplayAlert("Result", json, "ok");
-            UserSelf user1 = JsonConvert.DeserializeObject<UserSelf>(json);
-            
-           
-            
+            //RegisterPage.user1 = JsonConvert.DeserializeObject<UserSelf>(json);
+            //HomePage. = new UserSelf(JsonConvert.DeserializeObject<UserSelf>(json));
+
+
+
 
         }
         private void Button_Clicked(object sender, EventArgs e)

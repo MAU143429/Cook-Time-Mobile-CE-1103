@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CookTime.User;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices.ComTypes;
@@ -18,7 +19,8 @@ namespace CookTime.Views
         {
             
             InitializeComponent();
-            
+            UserSelf CurrentUser;
+
         }
         private void Home_Clicked(object sender, EventArgs e)
         {
