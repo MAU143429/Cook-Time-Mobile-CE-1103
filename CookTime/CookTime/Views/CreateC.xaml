@@ -7,29 +7,44 @@
              x:Class="CookTime.Views.CreateC">
     <ContentPage.Content>
         <StackLayout>
-            <Grid VerticalOptions="CenterAndExpand">
+
+            <Image HorizontalOptions="Center" Source="CC.png" />
+            <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
+            
+            <Grid VerticalOptions="StartAndExpand">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
-
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <Entry x:Name="companyname" Keyboard="Default" Grid.Row="0" Placeholder="Company Name" />
                 <Entry x:Name="companyemail" Keyboard="Default" Grid.Row="1" Placeholder="Company E-mail"/>
                 <Entry x:Name="companynumber" Keyboard="Numeric" Grid.Row="2" Placeholder="Company Number" />
                 <Entry x:Name="companyschedule" Keyboard="Default" Grid.Row="3" Placeholder="Company Schedule"/>
+                <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000" Grid.Row="4"/>
+                
 
             </Grid>
-            <StackLayout Padding="0" BackgroundColor="#FFFFFF" 
-            Orientation="Vertical"
+            
+            <StackLayout Padding="0" BackgroundColor="#FFFFFF" Spacing="10"
+            Orientation="Horizontal"
             VerticalOptions="Center"
-            HorizontalOptions="Center">
-                <Button x:Name="uploadlogo" Text="UPLOAD COMPANY LOGO" BackgroundColor="#9AF5F2" WidthRequest="190" HeightRequest="60" ContentLayout="Top,1" />
-                <Button x:Name="location" Text="COMPANY LOCATION" BackgroundColor="#9AF5F2" WidthRequest="190" HeightRequest="60" ContentLayout="Top,1" />
-                <Button x:Name="createcompany" Text="CREATE COMPANY" BackgroundColor="#9AF5F2" WidthRequest="190" HeightRequest="60" ContentLayout="Top,1" Clicked="Share_Company" />
-
+            HorizontalOptions="CenterAndExpand">
+                
+                <Button x:Name="uploadlogo"  WidthRequest="150" HeightRequest="150" ContentLayout="Top,1" ImageSource="upclogo.png" BorderColor="Black" BorderWidth="10" Clicked="setLogo"/>
+                <Label  WidthRequest="40" HeightRequest="25" BackgroundColor="Transparent"/>
+                <Button x:Name="location"  WidthRequest="150" HeightRequest="150" ContentLayout="Top,1" ImageSource="mapl.png" BorderColor="Black" BorderWidth="10" Clicked="setLocation"/>
             </StackLayout>
+
+            <StackLayout Padding="0" BackgroundColor="#FFFFFF" Spacing="10"
+            Orientation="Horizontal"
+            VerticalOptions="Center"
+            HorizontalOptions="CenterAndExpand">
+                <Label Text="MAP VIEW HERE" WidthRequest="300" HeightRequest="80" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="Title" />
+            </StackLayout>
+            <Button x:Name="createcompany" Text="CREATE COMPANY" BackgroundColor="#BB52FF" WidthRequest="190" HeightRequest="60" ContentLayout="Top,1" Clicked="Share_Company" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

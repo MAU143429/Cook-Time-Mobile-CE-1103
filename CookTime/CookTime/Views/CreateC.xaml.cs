@@ -47,5 +47,15 @@ namespace CookTime.Views
             datasent.Headers.ContentType.MediaType = "application/json";
             await client.PostAsync(url, datasent);
         }
+        private void setLocation(object sender, EventArgs e)
+        {
+            DisplayAlert("Upload Location ", "Your location has been uploaded successfully!", "OK");
+           
+        }
+        private void setLogo(object sender, EventArgs e)
+        {
+            DisplayAlert("Upload Logo", "Your logo has been uploaded successfully!", "OK");
+
+        }
     }
 }
