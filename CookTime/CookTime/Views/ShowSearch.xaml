@@ -7,11 +7,7 @@
              x:Class="CookTime.Views.ShowSearch">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Aqui se mostraran los resultados de las busquedas"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-
-            <Button Text="View Recipe" WidthRequest="40" HeightRequest="60"  FontSize="Large" BackgroundColor="#CCF47C" Clicked="View_Recipe"/>
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
