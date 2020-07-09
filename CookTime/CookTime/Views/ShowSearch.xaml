@@ -5,9 +5,17 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="CookTime.Views.ShowSearch">
-    <ContentPage.Content>
+    <StackLayout>
         <StackLayout>
-            
+            <Label Text="Your search results:" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+            <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
+            <ListView x:Name="ListaUsers">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Label Text="{Binding Name}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
-    </ContentPage.Content>
+    </StackLayout>
 </ContentPage>
