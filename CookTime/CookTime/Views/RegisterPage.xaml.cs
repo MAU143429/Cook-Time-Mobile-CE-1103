@@ -48,8 +48,7 @@ namespace CookTime.Views
             var result = await cliente.PostAsync(url, datasent);
             var json = result.Content.ReadAsStringAsync().Result;
             await DisplayAlert("Result", json, "ok");
-            //RegisterPage.user1 = JsonConvert.DeserializeObject<UserSelf>(json);
-            //HomePage. = new UserSelf(JsonConvert.DeserializeObject<UserSelf>(json));
+
 
 
 
