@@ -4,7 +4,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using CookTime.REST_API_Models;
+using CookTime.REST_API_UserModel;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
@@ -28,10 +28,13 @@ namespace CookTime.Views
             string url = "http://192.168.0.17:6969/user";
             var result = await client.GetAsync(url);
             var json = result.Content.ReadAsStringAsync().Result;
-            Console.WriteLine(json);
-            RegistrationModel model = RegistrationModel.FromJson(json);
-            ListaUsers.ItemsSource = model.Newusers;
-            
+            //Console.WriteLine(json);
+            UserListModel model = UserListModel.FromJson(json);
+            var list = JsonConvert.DeserializeObject<List<UserListModel>>(json);
+            Console.WriteLine(list);
+            ListaUsers.ItemsSource = list;
+
+
 
 
 
