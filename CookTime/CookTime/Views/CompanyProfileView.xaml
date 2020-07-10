@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="CookTime.Views.CompanyProfileView">
+    <ContentPage.Content>
+        <StackLayout >
+
+            <Image HorizontalOptions="Center" Source="homelogo.png"  HeightRequest="60"/>
+            <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
+            <StackLayout Padding="0" 
+                Orientation="Horizontal"
+                VerticalOptions="Center"
+                HorizontalOptions="Center" >
+                <Image HorizontalOptions="Center" Source="defaultimg.png"  HeightRequest="100" WidthRequest="100"/>
+                <Label  WidthRequest="40" HeightRequest="15"  BackgroundColor="Transparent" />
+                <Grid VerticalOptions="CenterAndExpand" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="Posts" FontSize="Subtitle" WidthRequest="70" HeightRequest="20"  Grid.Row="0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.Column="0" />
+                    <Label  WidthRequest="70" HeightRequest="10"  Grid.Row="1" Grid.Column="0" BackgroundColor="Transparent" />
+                    <Label Text="0" FontAttributes="Bold" WidthRequest="30" HeightRequest="20"  Grid.Row="2" HorizontalTextAlignment="Center" Grid.Column="0" />
+                    <Label Text="Followers" FontSize="Subtitle" WidthRequest="70" HeightRequest="20"  Grid.Row="0" HorizontalTextAlignment="Center" Grid.Column="1" />
+                    <Label  WidthRequest="70" HeightRequest="10"  Grid.Row="1" Grid.Column="1" BackgroundColor="Transparent" />
+                    <Label Text="0" FontAttributes="Bold" WidthRequest="30" HeightRequest="20"  Grid.Row="2" HorizontalTextAlignment="Center" Grid.Column="1" />
+                    <Label Text="Following" FontSize="Subtitle" WidthRequest="70" HeightRequest="20"  Grid.Row="0" HorizontalTextAlignment="Center" Grid.Column="2" />
+                    <Label  WidthRequest="70" HeightRequest="10"  Grid.Row="1" Grid.Column="2" BackgroundColor="Transparent"/>
+                    <Label Text="0" FontAttributes="Bold" WidthRequest="30" HeightRequest="20"  Grid.Row="2" HorizontalTextAlignment="Center" Grid.Column="2" />
+
+                </Grid>
+            </StackLayout>
+            <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
+            
+            <!--#region Tipo de busqueda-->
+            <StackLayout Padding="0" BackgroundColor="#FFFFFF" 
+             Orientation="Horizontal"
+             VerticalOptions="CenterAndExpand"
+             HorizontalOptions="CenterAndExpand"
+             Spacing="7">
+
+
+                <Label Text="SORT BY:" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+                <Picker x:Name="Date"
+                    Title="Date" 
+                    TitleColor="Blue" >
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Recently</x:String>
+                            <x:String>Oldest</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+
+                </Picker>
+                <Picker x:Name="Rating"
+                Title="Rating" 
+                TitleColor="Blue" >
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>1 Star</x:String>
+                            <x:String>2 Star</x:String>
+                            <x:String>3 Star</x:String>
+                            <x:String>4 Star</x:String>
+                            <x:String>5 Star</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+
+                </Picker>
+                <Picker x:Name="DifficultyP"
+                Title="Difficulty" 
+                TitleColor="Blue" >
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>1</x:String>
+                            <x:String>2</x:String>
+                            <x:String>3</x:String>
+                            <x:String>4</x:String>
+                            <x:String>5</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+
+                </Picker>
+                <Button x:Name="ViewListMember" BackgroundColor="#CCF47C" Text="Member List" WidthRequest="115" Clicked="View_List" />
+            </StackLayout>
+            <!--#endregion-->
+
+            <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
+            <!--#region Matriz de MyMenu-->
+            <StackLayout Padding="0"
+                      Orientation ="Horizontal"
+                      VerticalOptions="Center"
+                      HorizontalOptions="CenterAndExpand" Spacing="4">
+
+                <Grid VerticalOptions="CenterAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+
+
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+
+                    <Image  Aspect="AspectFill" Source ="defaultrecipe"  WidthRequest="90" HeightRequest="90" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand"  Grid.Row="0" Grid.Column="0"/>
+                    <Image  Aspect="AspectFill" Source ="defaultrecipe"  WidthRequest="90" HeightRequest="90" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand"  Grid.Row="0" Grid.Column="1"/>
+                    <Image  Aspect="AspectFill" Source ="defaultrecipe"  WidthRequest="90" HeightRequest="90" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand"  Grid.Row="0" Grid.Column="2"/>
+                    <Image  Aspect="AspectFill" Source ="defaultrecipe"  WidthRequest="90" HeightRequest="90" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand"  Grid.Row="0" Grid.Column="3"/>
+                    <Image  Aspect="AspectFill" Source ="defaultrecipe"  WidthRequest="90" HeightRequest="90" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand"  Grid.Row="1" Grid.Column="0"/>
+                    <Image  Aspect="AspectFill" Source ="defaultrecipe"  WidthRequest="90" HeightRequest="90" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand"  Grid.Row="1" Grid.Column="1"/>
+                    <Image  Aspect="AspectFill" Source ="defaultrecipe"  WidthRequest="90" HeightRequest="90" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand"  Grid.Row="1" Grid.Column="2"/>
+                    <Image  Aspect="AspectFill" Source ="defaultrecipe"  WidthRequest="90" HeightRequest="90" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand"  Grid.Row="1" Grid.Column="3"/>
+                    <Image  Aspect="AspectFill" Source ="defaultrecipe"  WidthRequest="90" HeightRequest="90" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand"  Grid.Row="2" Grid.Column="0"/>
+                    <Image  Aspect="AspectFill" Source ="defaultrecipe"  WidthRequest="90" HeightRequest="90" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand"  Grid.Row="2" Grid.Column="1"/>
+                    <Image  Aspect="AspectFill" Source ="defaultrecipe"  WidthRequest="90" HeightRequest="90" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand"  Grid.Row="2" Grid.Column="2"/>
+                    <Image  Aspect="AspectFill" Source ="defaultrecipe"  WidthRequest="90" HeightRequest="90" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand"  Grid.Row="2" Grid.Column="3"/>
+                </Grid>
+
+            </StackLayout>
+
+            <!--#endregion-->
+
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
