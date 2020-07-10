@@ -4,10 +4,12 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="CookTime.Views.RegisterPage">
+             x:Class="CookTime.Views.RegisterPage"
+             BackgroundColor="#76D7C4">
     <ContentPage.Content>
         <StackLayout>
-            <Image HorizontalOptions="Center" Source="regimg.png"  HeightRequest="100" WidthRequest="200" Aspect="AspectFill"/>
+            <Label BackgroundColor="#76D7C4" WidthRequest="40" HeightRequest="70" />
+            <Image HorizontalOptions="Center" Source="regimg.png"  HeightRequest="100" WidthRequest="500" Aspect="AspectFill"/>
             <Grid VerticalOptions="CenterAndExpand">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
@@ -19,7 +21,7 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <Label x:Name="text1" Text="Fill with your info:" Grid.Row="0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+                <Label x:Name="text1" Text="Fill with your info:" Grid.Row="0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" FontSize="Large"/>
                 <Entry x:Name="nameEntry" Keyboard="Default" Grid.Row="1" Placeholder="Name and Lastnames" />
                 <Entry x:Name="ageEntry" Keyboard ="Numeric"   Grid.Row="2" Placeholder="Age"/>
                 <Entry x:Name="emailEntry" Keyboard ="Default"   Grid.Row="3" Placeholder="E-mail"/>

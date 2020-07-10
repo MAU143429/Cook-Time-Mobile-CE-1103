@@ -10,17 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace CookTime.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CompanyProfile : ContentPage
+    public partial class CompanyProfileView : ContentPage
     {
-        public CompanyProfile()
+        public CompanyProfileView()
         {
             InitializeComponent();
-        }
-
-        private void Create_Clicked(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new CreateR());
-
         }
         private void View_List(object sender, EventArgs e)
         {

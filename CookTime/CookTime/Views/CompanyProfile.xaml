@@ -46,8 +46,10 @@
                 Orientation="Horizontal"
                 VerticalOptions="Center"
                 HorizontalOptions="Center">
-                <Label Text="Description" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
-                <Button x:Name="CreateRecipe" BackgroundColor="#CCF47C" Text="Create Recipe" WidthRequest="135" Clicked="Create_Clicked" />
+                <Label Text="Description" VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand"/>
+                <Button x:Name="CreateRecipe" BackgroundColor="#CCF47C" Text="Create Recipe" WidthRequest="115" Clicked="Create_Clicked" />
+                <Button x:Name="AddMember" BackgroundColor="#CCF47C" Text="Add Member" WidthRequest="115" />
+                <Button x:Name="ViewListMember" BackgroundColor="#CCF47C" Text="Member List" WidthRequest="115" Clicked="View_List" />
                 
 
             </StackLayout>
@@ -127,19 +129,18 @@
                     </Grid.ColumnDefinitions>
 
 
-                    <Label Text="Img" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" WidthRequest="90" HeightRequest="90" BackgroundColor="LightGray" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand" Grid.Row="0" Grid.Column="0" />
-                    <Label Text="Img" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" WidthRequest="90" HeightRequest="90" BackgroundColor="LightGray" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand" Grid.Row="0" Grid.Column="1" />
-                    <Label Text="Img" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" WidthRequest="90" HeightRequest="90" BackgroundColor="LightGray" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand" Grid.Row="0" Grid.Column="2" />
-                    <Label Text="Img" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" WidthRequest="90" HeightRequest="90" BackgroundColor="LightGray" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand" Grid.Row="0" Grid.Column="3" />
-                    <Label Text="Img" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" WidthRequest="90" HeightRequest="90" BackgroundColor="LightGray" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand" Grid.Row="1" Grid.Column="0" />
-                    <Label Text="Img" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" WidthRequest="90" HeightRequest="90" BackgroundColor="LightGray" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand" Grid.Row="1" Grid.Column="1" />
-                    <Label Text="Img" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" WidthRequest="90" HeightRequest="90" BackgroundColor="LightGray" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand" Grid.Row="1" Grid.Column="2" />
-                    <Label Text="Img" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" WidthRequest="90" HeightRequest="90" BackgroundColor="LightGray" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand" Grid.Row="1" Grid.Column="3" />
-                    <Label Text="Img" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" WidthRequest="90" HeightRequest="90" BackgroundColor="LightGray" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand" Grid.Row="2" Grid.Column="0" />
-                    <Label Text="Img" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" WidthRequest="90" HeightRequest="90" BackgroundColor="LightGray" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand" Grid.Row="2" Grid.Column="1" />
-                    <Label Text="Img" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" WidthRequest="90" HeightRequest="90" BackgroundColor="LightGray" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand" Grid.Row="2" Grid.Column="2" />
-                    <Label Text="Img" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" WidthRequest="90" HeightRequest="90" BackgroundColor="LightGray" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand" Grid.Row="2" Grid.Column="3" />
-
+                    <Image  Aspect="AspectFill" Source ="defaultrecipe"  WidthRequest="90" HeightRequest="90" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand"  Grid.Row="0" Grid.Column="0"/>
+                    <Image  Aspect="AspectFill" Source ="defaultrecipe"  WidthRequest="90" HeightRequest="90" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand"  Grid.Row="0" Grid.Column="1"/>
+                    <Image  Aspect="AspectFill" Source ="defaultrecipe"  WidthRequest="90" HeightRequest="90" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand"  Grid.Row="0" Grid.Column="2"/>
+                    <Image  Aspect="AspectFill" Source ="defaultrecipe"  WidthRequest="90" HeightRequest="90" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand"  Grid.Row="0" Grid.Column="3"/>
+                    <Image  Aspect="AspectFill" Source ="defaultrecipe"  WidthRequest="90" HeightRequest="90" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand"  Grid.Row="1" Grid.Column="0"/>
+                    <Image  Aspect="AspectFill" Source ="defaultrecipe"  WidthRequest="90" HeightRequest="90" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand"  Grid.Row="1" Grid.Column="1"/>
+                    <Image  Aspect="AspectFill" Source ="defaultrecipe"  WidthRequest="90" HeightRequest="90" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand"  Grid.Row="1" Grid.Column="2"/>
+                    <Image  Aspect="AspectFill" Source ="defaultrecipe"  WidthRequest="90" HeightRequest="90" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand"  Grid.Row="1" Grid.Column="3"/>
+                    <Image  Aspect="AspectFill" Source ="defaultrecipe"  WidthRequest="90" HeightRequest="90" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand"  Grid.Row="2" Grid.Column="0"/>
+                    <Image  Aspect="AspectFill" Source ="defaultrecipe"  WidthRequest="90" HeightRequest="90" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand"  Grid.Row="2" Grid.Column="1"/>
+                    <Image  Aspect="AspectFill" Source ="defaultrecipe"  WidthRequest="90" HeightRequest="90" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand"  Grid.Row="2" Grid.Column="2"/>
+                    <Image  Aspect="AspectFill" Source ="defaultrecipe"  WidthRequest="90" HeightRequest="90" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand"  Grid.Row="2" Grid.Column="3"/>
                 </Grid>
 
             </StackLayout>

@@ -4,12 +4,10 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="CookTime.Views.Profile1"
-             NavigationPage.HasNavigationBar = "false">
-           
+             x:Class="CookTime.Views.CompanyProfileView">
     <ContentPage.Content>
         <StackLayout >
-            
+
             <Image HorizontalOptions="Center" Source="homelogo.png"  HeightRequest="60"/>
             <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
             <StackLayout Padding="0" 
@@ -44,17 +42,7 @@
                 </Grid>
             </StackLayout>
             <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
-            <StackLayout Padding="0"
-                Orientation="Horizontal"
-                VerticalOptions="Center"
-                HorizontalOptions="Center">
-                <Label Text="Description" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
-                <Button x:Name="CreateRecipe" BackgroundColor="#CCF47C" Text="Create Recipe" WidthRequest="135" Clicked="Create_Clicked" />
-                <Button x:Name="CreateCompany" BackgroundColor="#CCF47C" Text="Create Company" WidthRequest="150" Clicked="CompanyP" />
-                
-             </StackLayout>
-
-            <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
+            
             <!--#region Tipo de busqueda-->
             <StackLayout Padding="0" BackgroundColor="#FFFFFF" 
              Orientation="Horizontal"
@@ -103,9 +91,10 @@
                     </Picker.ItemsSource>
 
                 </Picker>
+                <Button x:Name="ViewListMember" BackgroundColor="#CCF47C" Text="Member List" WidthRequest="115" Clicked="View_List" />
             </StackLayout>
             <!--#endregion-->
-            
+
             <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
             <!--#region Matriz de MyMenu-->
             <StackLayout Padding="0"
@@ -118,7 +107,7 @@
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
-                        
+
 
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
@@ -127,6 +116,7 @@
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
+
 
                     <Image  Aspect="AspectFill" Source ="defaultrecipe"  WidthRequest="90" HeightRequest="90" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand"  Grid.Row="0" Grid.Column="0"/>
                     <Image  Aspect="AspectFill" Source ="defaultrecipe"  WidthRequest="90" HeightRequest="90" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand"  Grid.Row="0" Grid.Column="1"/>
@@ -140,24 +130,14 @@
                     <Image  Aspect="AspectFill" Source ="defaultrecipe"  WidthRequest="90" HeightRequest="90" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand"  Grid.Row="2" Grid.Column="1"/>
                     <Image  Aspect="AspectFill" Source ="defaultrecipe"  WidthRequest="90" HeightRequest="90" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand"  Grid.Row="2" Grid.Column="2"/>
                     <Image  Aspect="AspectFill" Source ="defaultrecipe"  WidthRequest="90" HeightRequest="90" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand"  Grid.Row="2" Grid.Column="3"/>
-                    
-
                 </Grid>
 
             </StackLayout>
 
             <!--#endregion-->
-            <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000" Margin="-6"/>
-            <StackLayout Padding="0" BackgroundColor="#9AF5F2" 
-                Orientation="Horizontal"
-                VerticalOptions="End"
-                HorizontalOptions="Center" >
-                <Button x:Name="Searchbtn"  BackgroundColor="#9AF5F2" WidthRequest="135" Image ="searchicon.png" ContentLayout="Top,1" Clicked="Search_Clicked"  />
-                <Button x:Name="Homebtn"  BackgroundColor="#9AF5F2" WidthRequest="135" Image ="homeicon.png" ContentLayout="Top,1" Clicked="Home_Clicked"  />
-                <Button x:Name="Profilebtn" BackgroundColor="#9AF5F2" WidthRequest="135" Image ="usericon.png" ContentLayout="Top,1" Clicked="Profile_Clicked"/>
-            </StackLayout>
-            
-            
+
+
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

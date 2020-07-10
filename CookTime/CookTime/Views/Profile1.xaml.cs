@@ -41,5 +41,10 @@ namespace CookTime.Views
             Navigation.PushAsync(new CreateC());
 
         }
+        private void CompanyP(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new CompanyProfile());
+
+        }
     }
 }
