@@ -56,6 +56,26 @@ namespace CookTime.Views
                // ListAdd(, next.Parse("next"));
             }
         }
+<<<<<<< Updated upstream
+=======
+        private void ListAddRest(CookTime.REST_API_UserModel.Head head)
+        {
+            if (head.Next!=null)
+            {
+                UserList.Add(head.Data);
+                ListAdd(head.Next);
+            }
+            else
+            {
+                ListReturn();
+            } 
+        }
+        public void ListReturn()
+        {
+            //ListaUsers.ItemsSource = UserList;
+            Console.WriteLine(UserList);
+        }
+>>>>>>> Stashed changes
         public void InitList(int size)
         {
             UserList = new List<Object>();
