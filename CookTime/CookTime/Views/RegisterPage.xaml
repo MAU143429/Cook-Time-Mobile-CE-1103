@@ -7,7 +7,7 @@
              x:Class="CookTime.Views.RegisterPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="REGISTRATION PAGE" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+            <Image HorizontalOptions="Center" Source="regimg.png"  HeightRequest="100" WidthRequest="200" Aspect="AspectFill"/>
             <Grid VerticalOptions="CenterAndExpand">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
