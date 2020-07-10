@@ -16,5 +16,29 @@ namespace CookTime.Views
         {
             InitializeComponent();
         }
+
+        private void DeleteR(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new ShowSearch());
+            DisplayAlert("COOKTIME", "RECIPE HAS BEEN DELETED", "ACCEPT");
+        }
+
+        private void CommentR(object sender, EventArgs e)
+        {
+
+
+            var commentValidate = Comment.Text;
+            if (!string.IsNullOrEmpty(commentValidate))
+            {
+                DisplayAlert("COOKTIME", "YOUR COMMENT HAS BEEN PUBLISHED", "ACCEPT");
+                Navigation.PushAsync(new ShowSearch());
+
+            }else
+            {
+                DisplayAlert("COOKTIME", "ENTER A COMMENT TO CONTINUE ", "ACCEPT");
+            }
+
+        }
+            
     }
 }

@@ -7,9 +7,34 @@
              x:Class="CookTime.Views.ViewRecipe">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Aqui se mostrara la receta en cuestion"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Image HorizontalOptions="Center" Source="recipe1.png"  HeightRequest="300" WidthRequest="350"/>
+            
+
+
+            <StackLayout>
+                
+                
+            </StackLayout>
+            <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000" />
+            <StackLayout Padding="0"  
+            Orientation="Horizontal"
+            VerticalOptions="Center"
+            HorizontalOptions="CenterAndExpand" >
+                <Entry x:Name="Comment" Placeholder="Enter a comment for recipe!" Keyboard="Default" />
+                <Button x:Name="Send"  BackgroundColor="#9AF5F2" WidthRequest="90"  ContentLayout="Top,1" Text="Send" FontSize ="Subtitle" Clicked="CommentR"/>
+            </StackLayout>
+            
+            <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000" Margin="-6"/>
+            <StackLayout Padding="0" 
+            Orientation="Horizontal"
+            VerticalOptions="EndAndExpand"
+            HorizontalOptions="Center" >
+                <Button x:Name="Delete"  BackgroundColor="Red" WidthRequest="410" Text="Delete Recipe!" ContentLayout="Top,1" FontSize ="Subtitle" Clicked="DeleteR" />
+            </StackLayout>
+
+         
+
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
