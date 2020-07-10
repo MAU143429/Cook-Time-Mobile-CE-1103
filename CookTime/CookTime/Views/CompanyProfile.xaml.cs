@@ -22,5 +22,10 @@ namespace CookTime.Views
             Navigation.PushAsync(new CreateR());
 
         }
+        private void View_List(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new CompanyMemberList());
+
+        }
     }
 }
