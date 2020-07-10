@@ -4,21 +4,20 @@
 //
 //    using CookTime.REST_API_UserModel;
 //
-//    var userListModel = UserListModel.FromJson(jsonString);
+//    var userModel = UserModel.FromJson(jsonString);
 
 namespace CookTime.REST_API_UserModel
 {
     using System;
     using System.Collections.Generic;
-
     using System.Globalization;
     using Newtonsoft.Json;
     using Newtonsoft.Json.Converters;
 
-    public partial class UserListModel
+    public partial class UserModel
     {
         [JsonProperty("length")]
-        public long Length { get; set; }
+        public int Length { get; set; }
 
         [JsonProperty("head")]
         public Head Head { get; set; }
@@ -51,24 +50,23 @@ namespace CookTime.REST_API_UserModel
         public string Name { get; set; }
 
         [JsonProperty("password")]
-        [JsonConverter(typeof(ParseStringConverter))]
-        public long Password { get; set; }
+        public string Password { get; set; }
 
         [JsonProperty("email")]
         public string Email { get; set; }
 
         [JsonProperty("age")]
-        public long Age { get; set; }
+        public int Age { get; set; }
     }
 
-    public partial class UserListModel
+    public partial class UserModel
     {
-        public static UserListModel FromJson(string json) => JsonConvert.DeserializeObject<UserListModel>(json, CookTime.REST_API_UserModel.Converter.Settings);
+        public static UserModel FromJson(string json) => JsonConvert.DeserializeObject<UserModel>(json, CookTime.REST_API_UserModel.Converter.Settings);
     }
 
     public static class Serialize
     {
-        public static string ToJson(this UserListModel self) => JsonConvert.SerializeObject(self, CookTime.REST_API_UserModel.Converter.Settings);
+        public static string ToJson(this UserModel self) => JsonConvert.SerializeObject(self, CookTime.REST_API_UserModel.Converter.Settings);
     }
 
     internal static class Converter
