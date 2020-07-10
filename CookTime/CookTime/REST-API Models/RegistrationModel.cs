@@ -17,7 +17,7 @@ namespace CookTime.REST_API_Models
 
     public partial class RegistrationModel
     {
-        [JsonProperty("newusers")]
+        [JsonProperty("users")]
         public Newuser[] Newusers { get; set; }
     }
 
