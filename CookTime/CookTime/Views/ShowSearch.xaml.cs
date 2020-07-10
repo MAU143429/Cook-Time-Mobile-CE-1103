@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -15,8 +16,9 @@ namespace CookTime.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ShowSearch : ContentPage
     {
-        List<Object> UserList;
-        List<Object> ShownList;
+        //List<Object> UserList;
+        //List<Object> ShownList;
+        ArrayList UserList;
         public ShowSearch()
         {
             InitializeComponent();
@@ -39,7 +41,7 @@ namespace CookTime.Views
         }
         private void ListAdd(CookTime.REST_API_UserModel.Next next)
         {
-            if (next.NextNext!=null)
+            if (next.NextNext != null)
             {
                 UserList.Add(next.Data);
                 ListAddRest(next.NextNext);
@@ -51,7 +53,7 @@ namespace CookTime.Views
         }
         private void ListAddRest(CookTime.REST_API_UserModel.Head head)
         {
-            if (head.Next!=null)
+            if (head.Next != null)
             {
                 UserList.Add(head.Data);
                 ListAdd(head.Next);
@@ -59,19 +61,21 @@ namespace CookTime.Views
             else
             {
                 ListReturn();
-            } 
+            }
         }
         public void ListReturn()
         {
             ListaUsers.ItemsSource = UserList;
+            Console.WriteLine(UserList[0]);
         }
         public void InitList(int size)
         {
-            UserList = new List<Object>();
+            UserList = new ArrayList();
         }
         private void View_Recipe(object sender, EventArgs e)
         {
             Navigation.PushAsync(new ViewRecipe());
         }
+    
     }
 }
