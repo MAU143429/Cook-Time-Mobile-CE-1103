@@ -16,11 +16,11 @@ namespace CookTime.Views
     public partial class ShowSearch : ContentPage
     {
         List<Object> UserList;
+        List<Object> ShownList;
         public ShowSearch()
         {
             InitializeComponent();
             Pull_Search_Request();
-            
         }
         private async void Pull_Search_Request()
         {
@@ -28,46 +28,50 @@ namespace CookTime.Views
             string url = "http://192.168.0.17:6969/user";
             var result = await client.GetAsync(url);
             var json = result.Content.ReadAsStringAsync().Result;
-            //Console.WriteLine(json);
-            UserListModel model = UserListModel.FromJson(json);
-            var list = JsonConvert.DeserializeObject<List<UserListModel>>(json);
-            Console.WriteLine(list);
-            ListaUsers.ItemsSource = list;
-
-
-
-
-
+            UserModel newmodel = UserModel.FromJson(json);
+            StartList(newmodel);
         }
-        public void createList()
+        public void StartList(UserModel model)
         {
-            InitList(5);
-            //ListAdd(head.data, head.next)
-
+            InitList(model.Length);
+            UserList.Add(model.Head.Data);
+            ListAdd(model.Head.Next);
         }
-        private void ListAdd(JObject data, JObject next)
+        private void ListAdd(CookTime.REST_API_UserModel.Next next)
         {
-            UserList.Add(data);//castear a newuser
-            if (next == null)
+            if (next.NextNext!=null)
             {
-                return;
+                UserList.Add(next.Data);
+                ListAddRest(next.NextNext);
             }
             else
             {
-               // JObject newdata = next.Parse("data");
-
-               // ListAdd(, next.Parse("next"));
+                ListReturn();
             }
+        }
+        private void ListAddRest(CookTime.REST_API_UserModel.Head head)
+        {
+            if (head.Next!=null)
+            {
+                UserList.Add(head.Data);
+                ListAdd(head.Next);
+            }
+            else
+            {
+                ListReturn();
+            } 
+        }
+        public void ListReturn()
+        {
+            ListaUsers.ItemsSource = UserList;
         }
         public void InitList(int size)
         {
             UserList = new List<Object>();
         }
-
         private void View_Recipe(object sender, EventArgs e)
         {
             Navigation.PushAsync(new ViewRecipe());
-
         }
     }
 }
