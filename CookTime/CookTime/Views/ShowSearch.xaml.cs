@@ -5,7 +5,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using CookTime.REST_API_UserModel;
+using CookTime.REST_API_UserListModel;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
@@ -30,16 +30,16 @@ namespace CookTime.Views
             string url = "http://192.168.0.17:6969/user";
             var result = await client.GetAsync(url);
             var json = result.Content.ReadAsStringAsync().Result;
-            UserModel newmodel = UserModel.FromJson(json);
+            UserListModel newmodel = UserListModel.FromJson(json);
             StartList(newmodel);
         }
-        public void StartList(UserModel model)
+        public void StartList(UserListModel model)
         {
             InitList(model.Length);
             UserList.Add(model.Head.Data);
             ListAdd(model.Head.Next);
         }
-        private void ListAdd(CookTime.REST_API_UserModel.Next next)
+        private void ListAdd(CookTime.REST_API_UserListModel.Next next)
         {
             if (next.NextNext != null)
             {
@@ -51,7 +51,7 @@ namespace CookTime.Views
                 ListReturn();
             }
         }
-        private void ListAddRest(CookTime.REST_API_UserModel.Head head)
+        private void ListAddRest(CookTime.REST_API_UserListModel.Head head)
         {
             if (head.Next != null)
             {
