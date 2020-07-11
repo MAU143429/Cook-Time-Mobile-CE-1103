@@ -6,7 +6,7 @@
 //
 //    var registrationModel = RegistrationModel.FromJson(jsonString);
 
-namespace CookTime.REST_API_UserModel
+namespace CookTime.REST_API_LoginModel
 {
     using System;
     using System.Collections;
@@ -16,7 +16,7 @@ namespace CookTime.REST_API_UserModel
     using Newtonsoft.Json;
     using Newtonsoft.Json.Converters;
 
-    public partial class UserModel
+    public partial class LoginModel
     {
         [JsonProperty("users")]
         public User[] Users { get; set; }
@@ -24,53 +24,22 @@ namespace CookTime.REST_API_UserModel
 
     public partial class User
     {
-        [JsonProperty("name")]
-        public string Name { get; set; }
-
-        [JsonProperty("age")]
-        public int Age { get; set; }
-
-        [JsonProperty("email")]
+       
         public string Email { get; set; }
 
         [JsonProperty("password")]
         public string Password { get; set; }
 
-        [JsonProperty("image")]
-        public string Image { get; set; }
-
-        [JsonProperty("followers")]
-        public ArrayList Followers { get; set; }
-
-        [JsonProperty("following")]
-        public ArrayList Following { get; set; }
-
-        [JsonProperty("posts")]
-        public int Posts { get; set; }
-
-        [JsonProperty("recipes")]
-        public ArrayList Recipes { get; set; }
-
-        [JsonProperty("hascompany")]
-        public Boolean Hascompany { get; set; }
-
-        [JsonProperty("ischef")]
-        public Boolean Ischef { get; set; }
-
-
-
-
-
     }
 
-    public partial class UserModel
+    public partial class LoginModel
     {
-        public static UserModel FromJson(string json) => JsonConvert.DeserializeObject<UserModel>(json, CookTime.REST_API_UserModel.Converter.Settings);
+        public static LoginModel FromJson(string json) => JsonConvert.DeserializeObject<LoginModel>(json, CookTime.REST_API_LoginModel.Converter.Settings);
     }
 
     public static class Serialize
     {
-        public static string ToJson(this UserModel self) => JsonConvert.SerializeObject(self, CookTime.REST_API_UserModel.Converter.Settings);
+        public static string ToJson(this LoginModel self) => JsonConvert.SerializeObject(self, CookTime.REST_API_LoginModel.Converter.Settings);
     }
 
     internal static class Converter

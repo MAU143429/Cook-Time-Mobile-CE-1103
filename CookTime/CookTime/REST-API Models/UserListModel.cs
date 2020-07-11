@@ -2,75 +2,71 @@
 //
 // To parse this JSON data, add NuGet 'Newtonsoft.Json' then do:
 //
-//    using CookTime.REST_API_Models;
+//    using CookTime.REST_API_UserModel;
 //
-//    var registrationModel = RegistrationModel.FromJson(jsonString);
+//    var userModel = UserModel.FromJson(jsonString);
 
-namespace CookTime.REST_API_UserModel
+namespace CookTime.REST_API_UserListModel
 {
     using System;
-    using System.Collections;
     using System.Collections.Generic;
-
     using System.Globalization;
     using Newtonsoft.Json;
     using Newtonsoft.Json.Converters;
 
-    public partial class UserModel
+    public partial class UserListModel
     {
-        [JsonProperty("users")]
-        public User[] Users { get; set; }
+        [JsonProperty("length")]
+        public int Length { get; set; }
+
+        [JsonProperty("head")]
+        public Head Head { get; set; }
+
+        [JsonProperty("last")]
+        public Head Last { get; set; }
     }
 
-    public partial class User
+    public partial class Next
+    {
+        [JsonProperty("data")]
+        public Data Data { get; set; }
+
+        [JsonProperty("next")]
+        public Head NextNext { get; set; }
+    }
+
+    public partial class Head
+    {
+        [JsonProperty("data")]
+        public Data Data { get; set; }
+
+        [JsonProperty("next")]
+        public Next Next { get; set; }
+    }
+
+    public partial class Data
     {
         [JsonProperty("name")]
         public string Name { get; set; }
 
-        [JsonProperty("age")]
-        public int Age { get; set; }
+        [JsonProperty("password")]
+        public string Password { get; set; }
 
         [JsonProperty("email")]
         public string Email { get; set; }
 
-        [JsonProperty("password")]
-        public string Password { get; set; }
-
-        [JsonProperty("image")]
-        public string Image { get; set; }
-
-        [JsonProperty("followers")]
-        public ArrayList Followers { get; set; }
-
-        [JsonProperty("following")]
-        public ArrayList Following { get; set; }
-
-        [JsonProperty("posts")]
-        public int Posts { get; set; }
-
-        [JsonProperty("recipes")]
-        public ArrayList Recipes { get; set; }
-
-        [JsonProperty("hascompany")]
-        public Boolean Hascompany { get; set; }
-
-        [JsonProperty("ischef")]
-        public Boolean Ischef { get; set; }
-
-
-
-
-
+        [JsonProperty("age")]
+        public int Age { get; set; }
     }
 
-    public partial class UserModel
+    public partial class UserListModel
     {
-        public static UserModel FromJson(string json) => JsonConvert.DeserializeObject<UserModel>(json, CookTime.REST_API_UserModel.Converter.Settings);
+        public static UserListModel FromJson(string json) => JsonConvert.DeserializeObject<UserListModel>(json, CookTime.REST_API_UserListModel.Converter.Settings);
     }
 
     public static class Serialize
     {
-        public static string ToJson(this UserModel self) => JsonConvert.SerializeObject(self, CookTime.REST_API_UserModel.Converter.Settings);
+        public static string ToJson(this UserListModel self) => JsonConvert.SerializeObject(self, CookTime.REST_API_UserListModel.Converter.Settings);
     }
 
     internal static class Converter
