@@ -53,8 +53,8 @@ namespace CookTime.Views
 
             HttpClient client = new HttpClient();
             string url = "http://192.168.0.17:6969/test";
-            String jsonNewUser = JsonConvert.SerializeObject(recipe);
-            var datasent = new StringContent(jsonNewUser);
+            String jsonNewRecipe = JsonConvert.SerializeObject(recipe);
+            var datasent = new StringContent(jsonNewRecipe);
             datasent.Headers.ContentType.MediaType = "application/json";
             /*var result = */
             await client.PostAsync(url, datasent);
