@@ -35,7 +35,7 @@ namespace CookTime.Views
         }
         public void StartList(UserListModel model)
         {
-            InitList(model.Length);
+            InitList();
             UserList.Add(model.Head.Data);
             ListAdd(model.Head.Next);
         }
@@ -48,6 +48,7 @@ namespace CookTime.Views
             }
             else
             {
+                UserList.Add(next.Data);
                 ListReturn();
             }
         }
@@ -60,6 +61,7 @@ namespace CookTime.Views
             }
             else
             {
+                UserList.Add(head.Data);
                 ListReturn();
             }
         }
@@ -68,7 +70,7 @@ namespace CookTime.Views
             ListaUsers.ItemsSource = UserList;
             Console.WriteLine(UserList[0]);
         }
-        public void InitList(int size)
+        public void InitList()
         {
             UserList = new ArrayList();
         }
