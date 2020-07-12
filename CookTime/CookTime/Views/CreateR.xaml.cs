@@ -1,4 +1,4 @@
-﻿using CookTime.REST_API_Recipe;
+﻿using CookTime.REST_API_RecipeModel;
 using System;
 using Newtonsoft.Json;
 using System.Net.Http;

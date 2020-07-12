@@ -74,12 +74,12 @@ namespace CookTime.REST_API_RecipeModel
 
     public partial class RecipeModel
     {
-        public static RecipeModel FromJson(string json) => JsonConvert.DeserializeObject<RecipeModel>(json, CookTime.REST_API_Recipe.Converter.Settings);
+        public static RecipeModel FromJson(string json) => JsonConvert.DeserializeObject<RecipeModel>(json, CookTime.REST_API_RecipeModel.Converter.Settings);
     }
 
     public static class Serialize
     {
-        public static string ToJson(this RecipeModel self) => JsonConvert.SerializeObject(self, CookTime.REST_API_Recipe.Converter.Settings);
+        public static string ToJson(this RecipeModel self) => JsonConvert.SerializeObject(self, CookTime.REST_API_RecipeModel.Converter.Settings);
     }
 
     internal static class Converter
