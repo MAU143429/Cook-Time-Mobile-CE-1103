@@ -45,8 +45,8 @@
                 </ListView.ItemTemplate>
             </ListView>
             <StackLayout>
-                
-                
+
+
             </StackLayout>
             <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000" />
             <StackLayout Padding="0"  
@@ -56,8 +56,8 @@
                 <Entry x:Name="Comment" Placeholder="Enter a comment for recipe!" Keyboard="Default" />
                 <Button x:Name="Send"  BackgroundColor="#9AF5F2" WidthRequest="90"  ContentLayout="Top,1" Text="Send" FontSize ="Subtitle" Clicked="CommentR"/>
             </StackLayout>
-            
-            
+
+
             <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000" Margin="-6"/>
             <StackLayout Padding="0" 
             Orientation="Horizontal"
@@ -66,7 +66,7 @@
                 <Button x:Name="Delete"  BackgroundColor="Red" WidthRequest="410" Text="Delete Recipe!" ContentLayout="Top,1" FontSize ="Subtitle" Clicked="DeleteR" />
             </StackLayout>
 
-         
+
 
 
         </StackLayout>

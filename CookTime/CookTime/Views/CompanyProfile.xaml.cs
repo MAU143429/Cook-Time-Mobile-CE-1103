@@ -1,4 +1,5 @@
 ﻿using CookTime.REST_API_CompanyListModel;
+using CookTime.User;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -92,5 +93,11 @@ namespace CookTime.Views
             Navigation.PushAsync(new CompanyMemberList());
 
         }
+        private void Send_Notification(object sender, EventArgs e)
+        {
+            DependencyService.Get<iNotification>().CreateNotification("CookTime", "Un usuario nuevo te ha seguido!");
+
+        }
+
     }
 }
