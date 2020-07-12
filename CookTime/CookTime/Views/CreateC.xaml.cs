@@ -1,4 +1,4 @@
-﻿using CookTime.REST_API_Company;
+﻿using CookTime.REST_API_CompanyModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,7 +30,7 @@ namespace CookTime.Views
         private async void Publish_Company() {
          
 
-            Data company = new Data();
+            Company company = new Company();
             company.Name = companyname.Text;
             company.Email = companyemail.Text;
             company.Number = Int32.Parse(companynumber.Text);

@@ -17,15 +17,19 @@ namespace CookTime.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Profile1 : ContentPage
     {
-        //List<Object> UserList;
-        //List<Object> ShownList;
-        ArrayList UserList;
         public Profile1()
         {
             InitializeComponent();
+            Update();
             
         }
-       
+        private void Update()
+        {
+            
+         
+
+        }
+
         private void Home_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new HomePage());

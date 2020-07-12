@@ -34,9 +34,17 @@ namespace CookTime.Views
         }
         public void StartList(CompanyListModel model)
         {
+            
             InitList();
-            CompanyList.Add(model.Head.Data);
-            ListAdd(model.Head.Next);
+            if(model.Head.Next != null) {
+                CompanyList.Add(model.Head.Data);
+                ListAdd(model.Head.Next);
+            }
+            else
+            {
+                CompanyList.Add(model.Head.Data);
+                ListReturn();   
+            }
         }
         private void ListAdd(CookTime.REST_API_CompanyListModel.Next next)
         {

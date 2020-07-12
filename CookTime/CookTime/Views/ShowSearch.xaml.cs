@@ -36,8 +36,16 @@ namespace CookTime.Views
         public void StartList(UserListModel model)
         {
             InitList();
-            UserList.Add(model.Head.Data);
-            ListAdd(model.Head.Next);
+            if (model.Head.Next != null)
+            {
+                UserList.Add(model.Head.Data);
+                ListAdd(model.Head.Next);
+            }
+            else
+            {
+                UserList.Add(model.Head.Data);
+                ListReturn();
+            }
         }
         private void ListAdd(CookTime.REST_API_UserListModel.Next next)
         {
