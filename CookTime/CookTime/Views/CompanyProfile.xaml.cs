@@ -74,7 +74,7 @@ namespace CookTime.Views
         }
         public void ListReturn()
         {
-            ListaRC.ItemsSource = CompanyList;
+            ListaRCP.ItemsSource = CompanyList;
             Console.WriteLine(CompanyList[0]);
         }
         public void InitList()

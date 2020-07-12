@@ -84,8 +84,11 @@ namespace CookTime.Views
         }
         private void View_Recipe(object sender, EventArgs e)
         {
+            
             Navigation.PushAsync(new ViewRecipe());
         }
-    
+
+       
+
     }
 }
