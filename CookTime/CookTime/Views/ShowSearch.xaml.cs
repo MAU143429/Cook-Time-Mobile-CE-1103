@@ -5,6 +5,10 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+<<<<<<< Updated upstream
+=======
+using CookTime.REST_API_RecipeModel;
+>>>>>>> Stashed changes
 using CookTime.REST_API_UserListModel;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;

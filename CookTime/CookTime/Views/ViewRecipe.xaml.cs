@@ -12,9 +12,23 @@ namespace CookTime.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ViewRecipe : ContentPage
     {
+<<<<<<< Updated upstream
         public ViewRecipe()
         {
             InitializeComponent();
+=======
+        ArrayList RecipeList;
+        public ViewRecipe(CookTime.REST_API_RecipeModel.Recipe recipe)
+        {
+            InitializeComponent();
+            InitList();
+            StartPage(recipe);
+        }
+        private void StartPage(CookTime.REST_API_RecipeModel.Recipe Recipe)
+        {
+            RecipeList.Add(Recipe);
+            ListReturn();
+>>>>>>> Stashed changes
         }
 
         private void DeleteR(object sender, EventArgs e)
