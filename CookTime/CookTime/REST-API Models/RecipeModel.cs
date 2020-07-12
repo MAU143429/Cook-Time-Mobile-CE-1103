@@ -9,6 +9,7 @@
 namespace CookTime.REST_API_Recipe
 {
     using System;
+    using System.Collections;
     using System.Collections.Generic;
 
     using System.Globalization;
@@ -23,8 +24,8 @@ namespace CookTime.REST_API_Recipe
 
     public partial class Recipe
     {
-        [JsonProperty("name")]
-        public string Name { get; set; }
+        [JsonProperty("title")]
+        public string Title { get; set; }
 
         [JsonProperty("author")]
         public string Author { get; set; }
@@ -64,6 +65,10 @@ namespace CookTime.REST_API_Recipe
 
         [JsonProperty("rating")]
         public int Rating { get; set; }
+
+        [JsonProperty("comments")]
+        public ArrayList Comments { get; set; }
+
 
     }
 

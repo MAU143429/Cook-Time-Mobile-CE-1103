@@ -11,7 +11,6 @@ namespace CookTime.REST_API_UserModel
     using System;
     using System.Collections;
     using System.Collections.Generic;
-
     using System.Globalization;
     using Newtonsoft.Json;
     using Newtonsoft.Json.Converters;

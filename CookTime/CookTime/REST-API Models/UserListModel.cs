@@ -9,6 +9,7 @@
 namespace CookTime.REST_API_UserListModel
 {
     using System;
+    using System.Collections;
     using System.Collections.Generic;
     using System.Globalization;
     using Newtonsoft.Json;
@@ -29,7 +30,7 @@ namespace CookTime.REST_API_UserListModel
     public partial class Next
     {
         [JsonProperty("data")]
-        public Data Data { get; set; }
+        public CookTime.REST_API_UserModel.User Data { get; set; }
 
         [JsonProperty("next")]
         public Head NextNext { get; set; }
@@ -38,7 +39,7 @@ namespace CookTime.REST_API_UserListModel
     public partial class Head
     {
         [JsonProperty("data")]
-        public Data Data { get; set; }
+        public CookTime.REST_API_UserModel.User Data { get; set; }
 
         [JsonProperty("next")]
         public Next Next { get; set; }
@@ -49,14 +50,35 @@ namespace CookTime.REST_API_UserListModel
         [JsonProperty("name")]
         public string Name { get; set; }
 
-        [JsonProperty("password")]
-        public string Password { get; set; }
+        [JsonProperty("age")]
+        public int Age { get; set; }
 
         [JsonProperty("email")]
         public string Email { get; set; }
 
-        [JsonProperty("age")]
-        public int Age { get; set; }
+        [JsonProperty("password")]
+        public string Password { get; set; }
+
+        [JsonProperty("image")]
+        public string Image { get; set; }
+
+        [JsonProperty("followers")]
+        public ArrayList Followers { get; set; }
+
+        [JsonProperty("following")]
+        public ArrayList Following { get; set; }
+
+        [JsonProperty("posts")]
+        public int Posts { get; set; }
+
+        [JsonProperty("recipes")]
+        public ArrayList Recipes { get; set; }
+
+        [JsonProperty("hascompany")]
+        public Boolean Hascompany { get; set; }
+
+        [JsonProperty("ischef")]
+        public Boolean Ischef { get; set; }
     }
 
     public partial class UserListModel

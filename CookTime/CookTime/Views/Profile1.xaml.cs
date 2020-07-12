@@ -1,6 +1,11 @@
-﻿using System;
+﻿
+using CookTime.User;
+using Newtonsoft.Json;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,10 +17,15 @@ namespace CookTime.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Profile1 : ContentPage
     {
+        //List<Object> UserList;
+        //List<Object> ShownList;
+        ArrayList UserList;
         public Profile1()
         {
             InitializeComponent();
+            
         }
+       
         private void Home_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new HomePage());
@@ -39,6 +49,8 @@ namespace CookTime.Views
         private void Create2_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new CreateC());
+            
+
 
         }
         private void CompanyP(object sender, EventArgs e)
@@ -46,5 +58,7 @@ namespace CookTime.Views
             Navigation.PushAsync(new CompanyProfile());
 
         }
+        
+
     }
 }

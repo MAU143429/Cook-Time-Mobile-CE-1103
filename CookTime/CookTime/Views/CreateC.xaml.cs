@@ -8,6 +8,8 @@ using Newtonsoft.Json;
 using System.Net.Http;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xamarin.Forms.Internals;
+using CookTime.Views;
 
 namespace CookTime.Views
 {
@@ -23,13 +25,12 @@ namespace CookTime.Views
             Publish_Company();
             DisplayAlert("Company Creation", "Your company was successfully created!", "OK");
             Navigation.PushAsync(new Profile1());
-            
 
         }
         private async void Publish_Company() {
          
 
-            Company company = new Company();
+            Data company = new Data();
             company.Name = companyname.Text;
             company.Email = companyemail.Text;
             company.Number = Int32.Parse(companynumber.Text);
