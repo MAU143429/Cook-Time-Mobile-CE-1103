@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,11 +13,18 @@ namespace CookTime.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ViewRecipe : ContentPage
     {
-        public ViewRecipe()
+        ArrayList RecipeList;
+        public ViewRecipe(CookTime.REST_API_Recipe.Recipe recipe)
         {
             InitializeComponent();
+            InitList();
+            StartPage(recipe);
         }
-
+        private void StartPage(CookTime.REST_API_Recipe.Recipe Recipe)
+        {
+            RecipeList.Add(Recipe);
+            ListReturn();
+        }
         private void DeleteR(object sender, EventArgs e)
         {
             Navigation.PushAsync(new ShowSearch());
@@ -39,6 +47,15 @@ namespace CookTime.Views
             }
 
         }
-            
+        public void ListReturn()
+        {
+            ListaRecipe.ItemsSource = RecipeList;
+            Console.WriteLine(RecipeList[0]);
+        }
+        public void InitList()
+        {
+            RecipeList = new ArrayList();
+        }
+
     }
 }

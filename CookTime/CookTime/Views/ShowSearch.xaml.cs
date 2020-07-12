@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using CookTime.REST_API_Recipe;
 using CookTime.REST_API_UserListModel;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
@@ -84,7 +85,20 @@ namespace CookTime.Views
         }
         private void View_Recipe(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new ViewRecipe());
+            Recipe recipe = new Recipe();
+            recipe.Title = "Arroz con Pollo";
+            recipe.Author = "yomeroelmismo@yahoo.com";
+            recipe.TypeOfDish = "Breakfast";
+            recipe.Servings = 2;
+            recipe.Duration = "1 - 3 hours";
+            recipe.Time = "Appetizer";
+            recipe.Difficulty = 67;
+            recipe.Diet = "Carnivourous";
+            recipe.Ingredients = "Arroz, pollo, chile, etc";
+            recipe.Steps = "Primero se hace el arroz, después se sacan trozos de la pechuga de pollo,....";
+            recipe.Price = 3500;
+            recipe.ImageURL = "https://img-global.cpcdn.com/recipes/bbbdd85a4baaadd8/400x400cq70/photo.jpg";
+            Navigation.PushAsync(new ViewRecipe(recipe));
         }
     
     }
