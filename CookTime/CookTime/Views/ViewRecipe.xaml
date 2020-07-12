@@ -7,10 +7,43 @@
              x:Class="CookTime.Views.ViewRecipe">
     <ContentPage.Content>
         <StackLayout>
-            <Image HorizontalOptions="Center" Source="recipe1.png"  HeightRequest="300" WidthRequest="350"/>
-            
-
-
+            <ListView x:Name="ListaRecipe" RowHeight="1500">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout HorizontalOptions="CenterAndExpand">
+                                <Label x:Name="RecipeTitle" Text="{Binding Title}"/>
+                                <Label x:Name="RatingPrev" Text="Rating ★:"/>
+                                <Label x:Name="RecipeName" Text="{Binding Rating}"/>
+                                <Image x:Name="RecipeImg"    HorizontalOptions="Center" Source="{Binding ImageURL}"  HeightRequest="300" WidthRequest="350"/>
+                                <Label x:Name="RecipeDate" Text="{Binding Date}"/>
+                                <Label x:Name="AuthorPrev" Text="Author:"/>
+                                <Label x:Name="RecipeAuthor" Text="{Binding Author}"/>
+                                <Label x:Name="IngredientsPrev" Text="Ingredients:"/>
+                                <Label x:Name="RecipeIngredients" Text="{Binding Ingredients}"/>
+                                <Label x:Name="StepsPrev" Text="Preparation:"/>
+                                <Label x:Name="RecipeSteps" Text="{Binding Steps}"/>
+                                <Label x:Name="PrevServings" Text="Servings:"/>
+                                <Label x:Name="RecipeServings" Text="{Binding Servings}"/>
+                                <Label x:Name="DiffultyPrev" Text="Difficulty (%):"/>
+                                <Label x:Name="RecipeDiffiuclty" Text="{Binding Difficulty}"/>
+                                <Label x:Name="TypePrev" Text="Type of dish:"/>
+                                <Label x:Name="RecipeType" Text="{Binding TypeOfDish}"/>
+                                <Label x:Name="DurationPrev" Text="Duration:"/>
+                                <Label x:Name="RecipeDuration" Text="{Binding Duration}"/>
+                                <Label x:Name="TimePrev" Text="Time:"/>
+                                <Label x:Name="RecipeTime" Text="{Binding Time}"/>
+                                <Label x:Name="DietPrev" Text="Diet:"/>
+                                <Label x:Name="RecipeDiet" Text="{Binding Diet}"/>
+                                <Label x:Name="PrivePrev" Text="Price:"/>
+                                <Label x:Name="RecipePrice" Text="{Binding Price}"/>
+                                <Label x:Name="CommentPrev" Text="Comments:"/>
+                                <Label x:Name="RecipeComments" Text="{Binding Comments}"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
             <StackLayout>
                 
                 
@@ -23,6 +56,7 @@
                 <Entry x:Name="Comment" Placeholder="Enter a comment for recipe!" Keyboard="Default" />
                 <Button x:Name="Send"  BackgroundColor="#9AF5F2" WidthRequest="90"  ContentLayout="Top,1" Text="Send" FontSize ="Subtitle" Clicked="CommentR"/>
             </StackLayout>
+            
             
             <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000" Margin="-6"/>
             <StackLayout Padding="0" 
