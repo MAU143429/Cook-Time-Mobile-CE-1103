@@ -1,5 +1,5 @@
-﻿using CookTime.REST_API_Models;
-using CookTime.User;
+﻿
+using CookTime.REST_API_UserModel;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -20,26 +20,30 @@ namespace CookTime.Views
         public RegisterPage()
         {
             InitializeComponent();
-            
-
         }
         private async void RegisterRequest()
         {
-            Newuser user = new Newuser();
+            CookTime.REST_API_UserModel.User user = new CookTime.REST_API_UserModel.User();
             user.Age = Int32.Parse(ageEntry.Text);
             user.Email = emailEntry.Text;
             user.Password = CreateMD5(passwordEntry.Text);
+            user.Name = nameEntry.Text;
+            user.Image = "";
+            user.Followers = new System.Collections.ArrayList();
+            user.Following = new System.Collections.ArrayList();
+            user.Posts = 0;
+            user.Recipes = new System.Collections.ArrayList();
+            user.Hascompany = false;
             if (ChefBox.IsChecked)
             {
-                user.Name = nameEntry.Text + "⍟";
+                user.Ischef = true;
             }
             else
             {
-                user.Name = nameEntry.Text;
+                user.Ischef = false;
             }
-
             HttpClient cliente = new HttpClient();
-            string url = "http://192.168.100.7:6969/newUser";
+            string url = "http://192.168.0.17:6969/test";
             String jsonNewUser = JsonConvert.SerializeObject(user);
             Console.WriteLine("JSON NEW USER:" + jsonNewUser);
             var datasent = new StringContent(jsonNewUser);
@@ -48,15 +52,9 @@ namespace CookTime.Views
             var result = await cliente.PostAsync(url, datasent);
             var json = result.Content.ReadAsStringAsync().Result;
             await DisplayAlert("Result", json, "ok");
-
-
-
-
-
         }
         private void Button_Clicked(object sender, EventArgs e)
         {
-
             var nameValidate = nameEntry.Text;
             var ageValidate = ageEntry.Text;
             var emailValidate = emailEntry.Text;
@@ -71,7 +69,6 @@ namespace CookTime.Views
             {
                 DisplayAlert("ERROR", "YOU MUST FILL ALL THE BLANKS TO CONTINUE", "ACCEPT");
             }
-
         }
         public static string CreateMD5(string input)
         {
