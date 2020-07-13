@@ -12,7 +12,10 @@
     </ContentPage.ToolbarItems>
     
     <ContentPage.Content>
+        <!--#region Mian Layout-->
         <StackLayout>
+
+            <!--#region Data Recipe-->
             <Grid VerticalOptions="CenterAndExpand">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
@@ -101,19 +104,19 @@
                 <Entry x:Name="imageurl" Keyboard="Default" Grid.Row="10" Placeholder="Url of your recipe image"/>
 
             </Grid>
+            <!--#endregion -->
 
+            <!--#region Share Button -->
             <StackLayout Padding="0" BackgroundColor="#FFFFFF" 
             Orientation="Horizontal"
             VerticalOptions="End"
             HorizontalOptions="Center">
                 <Button x:Name="share1" Text="SHARE RECIPE" BackgroundColor="#9AF5F2" WidthRequest="170" ContentLayout="Top,1" Clicked="Share_Clicked" />
             </StackLayout>
-
-
-
-
-
-        </StackLayout>
+            <!--#endregion -->
+            
+         </StackLayout>
+        <!--#endregion -->
     </ContentPage.Content>
 </ContentPage>
 

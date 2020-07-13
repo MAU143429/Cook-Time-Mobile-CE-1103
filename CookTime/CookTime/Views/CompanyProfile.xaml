@@ -6,10 +6,15 @@
              mc:Ignorable="d"
              x:Class="CookTime.Views.CompanyProfile">
     <ContentPage.Content>
+       
+        <!--MainLayout-->
         <StackLayout >
-
+            <!--#region Default CookTime LOGO-->
             <Image HorizontalOptions="Center" Source="homelogo.png"  HeightRequest="60"/>
             <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
+            <!--#endregion-->
+            
+            <!--#region Company Profile Data Layout-->
             <StackLayout Padding="0" 
                 Orientation="Horizontal"
                 VerticalOptions="Center"
@@ -18,6 +23,7 @@
                 <Label  WidthRequest="40" HeightRequest="15"  BackgroundColor="Transparent" />
                 <Grid VerticalOptions="CenterAndExpand" >
                     <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
@@ -38,9 +44,13 @@
                     <Label Text="Following" FontSize="Subtitle" WidthRequest="70" HeightRequest="20"  Grid.Row="0" HorizontalTextAlignment="Center" Grid.Column="2" />
                     <Label  WidthRequest="70" HeightRequest="10"  Grid.Row="1" Grid.Column="2" BackgroundColor="Transparent"/>
                     <Label Text="0" FontAttributes="Bold" WidthRequest="30" HeightRequest="20"  Grid.Row="2" HorizontalTextAlignment="Center" Grid.Column="2" />
-
+                    <Label x:Name="username" Text="Name Here" FontAttributes="Bold" WidthRequest="30" HeightRequest="20"  Grid.Row="3" HorizontalTextAlignment="Center" Grid.Column="0" />
+                    <Button x:Name="follow" BackgroundColor="#CCF47C" Text="Follow" WidthRequest="70" HeightRequest="20" Grid.Row="3" Grid.Column="1" FontSize="Subtitle"/>
                 </Grid>
             </StackLayout>
+            <!--#endregion -->
+
+            <!--#region Center Buttons Panel Layout-->
             <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
             <StackLayout Padding="0"
                 Orientation="Horizontal"
@@ -50,12 +60,12 @@
                 <Button x:Name="CreateRecipe" BackgroundColor="#CCF47C" Text="Create Recipe" WidthRequest="115" Clicked="Create_Clicked" />
                 <Button x:Name="AddMember" BackgroundColor="#CCF47C" Text="Add Member" WidthRequest="115" />
                 <Button x:Name="ViewListMember" BackgroundColor="#CCF47C" Text="Member List" WidthRequest="115" Clicked="View_List" />
-                
-
             </StackLayout>
+            
+            <!--#endregion -->
 
+            <!--#region Type of Search Layout-->
             <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
-            <!--#region Tipo de busqueda-->
             <StackLayout Padding="0" BackgroundColor="#FFFFFF" 
              Orientation="Horizontal"
              VerticalOptions="CenterAndExpand"
@@ -106,8 +116,9 @@
             </StackLayout>
             <!--#endregion-->
 
+            <!--#region MyMenu ListView -->
             <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
-            <!--#region Matriz de MyMenu-->
+            
             <StackLayout>
                 <ListView x:Name="ListaRCP">
                     <ListView.ItemTemplate>
@@ -124,8 +135,8 @@
             </StackLayout>
             <!--#endregion-->
             
-
-
         </StackLayout>
+        
+        
     </ContentPage.Content>
 </ContentPage>

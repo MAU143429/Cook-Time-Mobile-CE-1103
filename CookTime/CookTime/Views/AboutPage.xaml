@@ -6,6 +6,8 @@
              mc:Ignorable="d"
              x:Class="CookTime.Views.AboutPage">
     <ContentPage.Content>
+        <!--This layout contains info of the developers-->
+        <!--#region Info Layout-->
         <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
             <Label Text="INSTITUTO TECNOLÓGICO DE COSTA RICA"/>
             <Label Text="Algoritmos y EStructuras de Datos I"/>
@@ -18,5 +20,6 @@
             <Label Text="* Johnson Solís Naheem"/>
             <Label Text="I Semestre 2020"/>
         </StackLayout>
+        <!--#endregion-->
     </ContentPage.Content>
 </ContentPage>
