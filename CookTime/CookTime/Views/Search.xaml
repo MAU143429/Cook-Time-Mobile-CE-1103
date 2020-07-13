@@ -99,22 +99,18 @@
                     Orientation ="Horizontal"
                     VerticalOptions="Center"
                     HorizontalOptions="CenterAndExpand">
-                <Grid VerticalOptions="CenterAndExpand">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="Auto"/>
-                    </Grid.ColumnDefinitions>
-
-                    <Image  Aspect="AspectFill" Source ="defaultimg"  WidthRequest="80" HeightRequest="80" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand" Grid.Column="0" Grid.Row="0"/>
-                    <Image  Aspect="AspectFill" Source ="defaultimg"  WidthRequest="80" HeightRequest="80" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand" Grid.Column="1" Grid.Row="0"/>
-                    <Image  Aspect="AspectFill" Source ="defaultimg"  WidthRequest="80" HeightRequest="80" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand" Grid.Column="2" Grid.Row="0"/>
-                    <Image  Aspect="AspectFill" Source ="defaultimg"  WidthRequest="80" HeightRequest="80" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand" Grid.Column="3" Grid.Row="0"/>
-                </Grid>
+                <ListView x:Name="RecommendedUser" RowHeight="100">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout HorizontalOptions="CenterAndExpand">
+                                    <Label Text="{Binding Name}"/>
+                                    <Image Source="{Binding Image}" Aspect="AspectFill" WidthRequest="80" HeightRequest="80" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
             </StackLayout>
             <!--#endregion-->
 
@@ -129,24 +125,19 @@
                     Orientation ="Horizontal"
                     VerticalOptions="Center"
                     HorizontalOptions="CenterAndExpand">
-                <Grid VerticalOptions="CenterAndExpand">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
+                <ListView x:Name="RecommendedRecipes" RowHeight="100">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout HorizontalOptions="CenterAndExpand">
+                                    <Label Text="{Binding Name}"/>
+                                    <Image Source="{Binding ImageURL}" Aspect="AspectFill" WidthRequest="80" HeightRequest="80" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
 
-
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="Auto"/>
-                    </Grid.ColumnDefinitions>
-
-                    <Image  Aspect="AspectFill" Source ="defaultrecipe"  WidthRequest="80" HeightRequest="80" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand" Grid.Column="0" Grid.Row="0"/>
-                    <Image  Aspect="AspectFill" Source ="defaultrecipe"  WidthRequest="80" HeightRequest="80" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand" Grid.Column="1" Grid.Row="0"/>
-                    <Image  Aspect="AspectFill" Source ="defaultrecipe"  WidthRequest="80" HeightRequest="80" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand" Grid.Column="2" Grid.Row="0"/>
-                    <Image  Aspect="AspectFill" Source ="defaultrecipe"  WidthRequest="80" HeightRequest="80" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand" Grid.Column="3" Grid.Row="0"/>
-             </Grid>
             </StackLayout>
             <!--#endregion-->
 
@@ -161,22 +152,18 @@
                       Orientation ="Horizontal"
                       VerticalOptions="Center"
                       HorizontalOptions="CenterAndExpand">
-                <Grid VerticalOptions="CenterAndExpand">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="Auto"/>
-                    </Grid.ColumnDefinitions>
-
-
-                    <Image  Aspect="AspectFill" Source ="upclogo"  WidthRequest="80" HeightRequest="80" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand" Grid.Column="0" Grid.Row="0"/>
-                    <Image  Aspect="AspectFill" Source ="upclogo"  WidthRequest="80" HeightRequest="80" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand" Grid.Column="1" Grid.Row="0"/>
-                    
-                    
-                </Grid>
+                <ListView x:Name="RecommendedCompanies" RowHeight="100">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout HorizontalOptions="CenterAndExpand">
+                                    <Label Text="{Binding Name}"/>
+                                    <Image Source="{Binding Image}" Aspect="AspectFill" WidthRequest="80" HeightRequest="80" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
             </StackLayout>
 
 
