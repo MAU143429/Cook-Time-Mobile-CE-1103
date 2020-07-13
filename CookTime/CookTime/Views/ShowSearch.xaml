@@ -9,7 +9,10 @@
     <!-- This Layout contains a view of search results-->
 
     <!-- In this page the users can find the list of results of a search-->
+
+    <!--#region MainLayout-->
     <StackLayout>
+        <!--#region ListView of results -->
         <StackLayout>
             <Label Text="Your search results:" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
             <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
@@ -29,5 +32,7 @@
             </ListView>
             <Button x:Name="viewrecipe" Text="View Recipe" BackgroundColor="#CCF47C" WidthRequest="400" Clicked="View_Recipe" />
         </StackLayout>
+        <!--#endregion -->
     </StackLayout>
+    <!--#endregion -->
 </ContentPage>

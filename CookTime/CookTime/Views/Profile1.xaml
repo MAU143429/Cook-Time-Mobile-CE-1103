@@ -15,13 +15,16 @@
         <!--#region Main Layout -->
         <StackLayout >
 
-            <!--#region -->
+            <!--#region Default Cook Time Logo -->
             <Image HorizontalOptions="Center" Source="homelogo.png"  HeightRequest="60"/>
             <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
             <StackLayout Padding="0" 
                 Orientation="Horizontal"
                 VerticalOptions="Center"
                 HorizontalOptions="Center" >
+                <!--#endregion -->
+
+            <!--#region Data of User Profile-->
                 <Image HorizontalOptions="Center" Source="defaultimg.png"  HeightRequest="100" WidthRequest="100"/>
                 <Label  WidthRequest="40" HeightRequest="15"  BackgroundColor="Transparent" />
                 <Grid VerticalOptions="CenterAndExpand" >
@@ -49,6 +52,9 @@
 
                 </Grid>
             </StackLayout>
+            <!--#endregion -->
+
+            <!--#region Buttons panel-->
             <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
             <StackLayout Padding="0"
                 Orientation="Horizontal"
@@ -62,7 +68,9 @@
              </StackLayout>
 
             <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
-            <!--#region Tipo de busqueda-->
+            <!--#endregion -->
+            
+            <!--#region Type of Search -->
             <StackLayout Padding="0" BackgroundColor="#FFFFFF" 
              Orientation="Horizontal"
              VerticalOptions="CenterAndExpand"
@@ -112,9 +120,10 @@
                 </Picker>
             </StackLayout>
             <!--#endregion-->
-            
+
+            <!--#region MyMenu Board-->
             <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
-            <!--#region Matriz de MyMenu-->
+            
             
 
                 <ListView x:Name="ListaR">
@@ -132,6 +141,8 @@
 
 
             <!--#endregion-->
+
+            <!--#region Default Buttons Panel-->
             <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000" Margin="-6"/>
             <StackLayout Padding="0" BackgroundColor="#9AF5F2" 
                 Orientation="Horizontal"
@@ -141,8 +152,10 @@
                 <Button x:Name="Homebtn"  BackgroundColor="#9AF5F2" WidthRequest="135" Image ="homeicon.png" ContentLayout="Top,1" Clicked="Home_Clicked"  />
                 <Button x:Name="Profilebtn" BackgroundColor="#9AF5F2" WidthRequest="135" Image ="usericon.png" ContentLayout="Top,1" Clicked="Profile_Clicked"/>
             </StackLayout>
+            <!--#endregion -->
             
             
         </StackLayout>
+        <!--#endregion -->
     </ContentPage.Content>
 </ContentPage>

@@ -10,11 +10,15 @@
 
         <!-- In this page the users can see personal profile and recipes also they can follow  and share  recipes-->
 
+        <!--#region Main Layout-->
         <StackLayout >
-            
 
+            <!--#region Default Cook Time Logo-->
             <Image HorizontalOptions="Center" Source="homelogo.png"  HeightRequest="60"/>
             <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
+            <!--#endregion -->
+            
+            <!--#region Data of user profile-->
             <StackLayout Padding="0" 
                 Orientation="Horizontal"
                 VerticalOptions="Center"
@@ -49,9 +53,10 @@
 
                 </Grid>
             </StackLayout>
-          
+            <!--#endregion -->
+
+            <!--#region Type of search -->
             <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
-            <!--#region Tipo de busqueda-->
             <StackLayout Padding="0" BackgroundColor="#FFFFFF" 
              Orientation="Horizontal"
              VerticalOptions="CenterAndExpand"
@@ -103,7 +108,7 @@
             <!--#endregion-->
 
             <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
-            <!--#region Matriz de MyMenu-->
+            <!--#region MyMenu ListView-->
             
             <ListView x:Name="ListaRPV">
                 <ListView.ItemTemplate>
@@ -122,5 +127,6 @@
             <!--#endregion-->
           
         </StackLayout>
+        <!--#endregion -->
     </ContentPage.Content>
 </ContentPage>

@@ -9,7 +9,10 @@
         <!-- This Layout contains a view of recipes-->
         
         <!-- In this page the user can see a full details of each recipe-->
+
+        <!--#region Main Layout-->
         <StackLayout>
+            <!--#region Data of recipe-->
             <ListView x:Name="ListaRecipe" RowHeight="1500">
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -47,10 +50,9 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <StackLayout>
+            <!--#endregion -->
 
-
-            </StackLayout>
+            <!--#region Comments Layout -->
             <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000" />
             <StackLayout Padding="0"  
             Orientation="Horizontal"
@@ -59,8 +61,10 @@
                 <Entry x:Name="Comment" Placeholder="Enter a comment for recipe!" Keyboard="Default" />
                 <Button x:Name="Send"  BackgroundColor="#9AF5F2" WidthRequest="90"  ContentLayout="Top,1" Text="Send" FontSize ="Subtitle" Clicked="CommentR"/>
             </StackLayout>
+            <!--#endregion -->
 
 
+            <!--#region Delete Layout -->
             <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000" Margin="-6"/>
             <StackLayout Padding="0" 
             Orientation="Horizontal"
@@ -69,9 +73,10 @@
                 <Button x:Name="Delete"  BackgroundColor="Red" WidthRequest="410" Text="Delete Recipe!" ContentLayout="Top,1" FontSize ="Subtitle" Clicked="DeleteR" />
             </StackLayout>
 
-
-
+            <!--#endregion -->
 
         </StackLayout>
+        <!--#endregion -->
+
     </ContentPage.Content>
 </ContentPage>

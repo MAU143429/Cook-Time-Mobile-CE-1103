@@ -7,13 +7,19 @@
              x:Class="CookTime.Views.Search"
              NavigationPage.HasNavigationBar = "false">
     <ContentPage.Content>
+        <!-- This Layout contains a List of recommendations-->
+
+        <!-- In this page the user can see a list of the best chefs,companies and recipes,
+        beside can search them if it want-->
+
+        <!--#region MainLayout-->
         <StackLayout>
 
 
-            
+            <!--#region Search Panel -->
             <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
             
-            <!--#region Busqueda parte superior-->
+            
             <StackLayout Padding="0" BackgroundColor="#FFFFFF" 
             Orientation="Horizontal"
             VerticalOptions="StartAndExpand"
@@ -25,7 +31,7 @@
             <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
             <!--#endregion-->
             
-            <!--#region Tipo de busqueda-->
+            <!--#region Type of Search-->
             <StackLayout Padding="0" BackgroundColor="#FFFFFF" 
              Orientation="Horizontal"
              VerticalOptions="StartAndExpand"
@@ -84,10 +90,9 @@
                 
             </StackLayout>
             <!--#endregion-->
-            
-            <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
 
-            <!--#region Matriz recomendaciones USER-->
+            <!--#region Users Recommendations-->
+            <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
             <StackLayout>
                 <Image HorizontalOptions="Center" Source="recologo.png" />
                 <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
@@ -114,7 +119,7 @@
             </StackLayout>
             <!--#endregion-->
 
-            <!--#region Matriz recomendaciones RECIPES-->
+            <!--#region Recipes recommendations-->
             <StackLayout>
                 <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
                 <Label Text="RECIPES" FontAttributes="Bold"  WidthRequest="100" HeightRequest="20" FontSize="Subtitle" />
@@ -141,7 +146,7 @@
             </StackLayout>
             <!--#endregion-->
 
-            <!--#region Matriz recomendaciones COMPANIES-->
+            <!--#region Companies recommendations-->
             <StackLayout>
                 <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
                 <Label Text="COMPANIES" FontAttributes="Bold"  WidthRequest="150" HeightRequest="20"  FontSize="Subtitle" />
@@ -169,7 +174,7 @@
 
             <!--#endregion-->
             
-            <!--#region Botones principales-->
+            <!--#region Default buttons panel-->
             <StackLayout Padding="0" BackgroundColor="#9AF5F2" Margin="-6"
              Orientation="Horizontal"
              VerticalOptions="End"
