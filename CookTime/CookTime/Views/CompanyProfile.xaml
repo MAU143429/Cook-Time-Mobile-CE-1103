@@ -6,7 +6,9 @@
              mc:Ignorable="d"
              x:Class="CookTime.Views.CompanyProfile">
     <ContentPage.Content>
-       
+
+        <!-- This layout contains a Company Profile
+        In this profile the owner and members of company, can manage and administrate the company account-->
         <!--MainLayout-->
         <StackLayout >
             <!--#region Default CookTime LOGO-->

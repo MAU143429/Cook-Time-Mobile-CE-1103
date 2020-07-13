@@ -13,6 +13,14 @@
                  Clicked="Info_Clicked"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
+        <!--#region This layout contais a login page
+        
+        
+        In this page the user can login in the CookTime application -->
+        
+
+        <!--#region Main Layout-->
+        <!--#region Login Layout-->
         <StackLayout Padding="0" BackgroundColor="#76D7C4">
             <Label BackgroundColor="#76D7C4" WidthRequest="40" HeightRequest="100" />
             <Image Source="logocooktime.png" HorizontalOptions="Center" VerticalOptions="Center" />
@@ -30,6 +38,7 @@
 
             </Grid>
         </StackLayout>
+        <!--#endregion -->
         
     </ContentPage.Content>
 </ContentPage>

@@ -6,7 +6,12 @@
              mc:Ignorable="d"
              x:Class="CookTime.Views.ProfileView">
     <ContentPage.Content>
+        <!-- This Layout contains a ProfileView-->
+
+        <!-- In this page the users can see personal profile and recipes also they can follow  and share  recipes-->
+
         <StackLayout >
+            
 
             <Image HorizontalOptions="Center" Source="homelogo.png"  HeightRequest="60"/>
             <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>

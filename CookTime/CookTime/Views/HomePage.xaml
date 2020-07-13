@@ -8,6 +8,10 @@
              NavigationPage.HasNavigationBar = "false" >
     <ContentPage.Content>
 
+        <!-- This layout contains the most important page in the app-->
+
+        <!-- In this page the user can navigate and see all the recipes in the app -->
+
         <!--#region Main Layout-->
         <StackLayout>
 
@@ -78,6 +82,6 @@
              </StackLayout>
             <!--#endregion -->
         </StackLayout>
-        <!--#ENDregion -->
+        <!--#endregion -->
     </ContentPage.Content>
 </ContentPage>

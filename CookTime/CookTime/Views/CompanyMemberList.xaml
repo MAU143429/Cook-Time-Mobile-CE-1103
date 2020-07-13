@@ -6,7 +6,7 @@
              mc:Ignorable="d"
              x:Class="CookTime.Views.CompanyMemberList">
     <ContentPage.Content>
-        <!-- MemberListView-->
+        <!-- This layout contains a list of the company members-->
         <!--#region MemberListView-->
         <StackLayout>
             <Label Text="AQUI SE MUESTRA LA LISTA DE LOS MIEMBROS DELGRUPO!"

@@ -6,6 +6,8 @@
              mc:Ignorable="d"
              x:Class="CookTime.Views.CompanyProfileView">
     <ContentPage.Content>
+        <!--Thsi layout contains the view of company profile -->
+        <!--This view is used to show a company profile to another users that aren't in it -->
         <!--#region MainLayout -->
         <StackLayout >
             

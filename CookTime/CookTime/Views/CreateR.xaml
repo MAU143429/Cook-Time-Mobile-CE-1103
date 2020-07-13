@@ -12,6 +12,10 @@
     </ContentPage.ToolbarItems>
     
     <ContentPage.Content>
+        <!--This Layout contains a document with the information of the recipe and image of it -->
+
+        <!--In this page the chef or kitchen buff fills the information about the recipe-->
+
         <!--#region Mian Layout-->
         <StackLayout>
 

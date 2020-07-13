@@ -6,6 +6,9 @@
              mc:Ignorable="d"
              x:Class="CookTime.Views.ViewRecipe">
     <ContentPage.Content>
+        <!-- This Layout contains a view of recipes-->
+        
+        <!-- In this page the user can see a full details of each recipe-->
         <StackLayout>
             <ListView x:Name="ListaRecipe" RowHeight="1500">
                 <ListView.ItemTemplate>
