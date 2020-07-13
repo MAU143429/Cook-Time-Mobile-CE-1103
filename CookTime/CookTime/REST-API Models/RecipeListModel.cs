@@ -92,7 +92,7 @@ namespace CookTime.REST_API_RecipeListModel
 
     }
 
-        public partial class CompanyListModel
+        public partial class RecipeListModel
     {
         public static RecipeListModel FromJson(string json) => JsonConvert.DeserializeObject<RecipeListModel>(json, CookTime.REST_API_RecipeListModel.Converter.Settings);
     }
