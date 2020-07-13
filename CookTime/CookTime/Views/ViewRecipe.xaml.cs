@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CookTime.User;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,6 +40,7 @@ namespace CookTime.Views
             if (!string.IsNullOrEmpty(commentValidate))
             {
                 DisplayAlert("COOKTIME", "YOUR COMMENT HAS BEEN PUBLISHED", "ACCEPT");
+                DependencyService.Get<iNotification>().CreateNotification("CookTime", "Un usuario ha comentado en tu receta!");
                 Navigation.PushAsync(new ShowSearch());
 
             }

@@ -1,4 +1,5 @@
 ﻿using CookTime.REST_API_CompanyListModel;
+using CookTime.User;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -15,8 +16,7 @@ namespace CookTime.Views
      [XamlCompilation(XamlCompilationOptions.Compile)]
         public partial class CompanyProfileView : ContentPage
         {
-            //List<Object> UserList;
-            //List<Object> ShownList;
+          
             ArrayList CompanyListView;
             public CompanyProfileView()
             {
@@ -83,9 +83,16 @@ namespace CookTime.Views
                 CompanyListView = new ArrayList();
             }
             private void View_List(object sender, EventArgs e)
-        {
+             {
             Navigation.PushAsync(new CompanyMemberList());
 
-        }
+            }
+            private void Send_Notification(object sender, EventArgs e)
+            {
+                 DependencyService.Get<iNotification>().CreateNotification("CookTime", "Un usuario nuevo te ha  seguido!");
+
+            }
+
+        
     }
 }
