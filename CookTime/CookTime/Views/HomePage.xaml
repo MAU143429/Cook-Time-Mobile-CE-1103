@@ -7,8 +7,12 @@
              x:Class="CookTime.Views.HomePage"
              NavigationPage.HasNavigationBar = "false" >
     <ContentPage.Content>
+
+        <!--#region Main Layout-->
         <StackLayout>
 
+
+            <!--#region Default Cook Time Logo and Data of current recipe -->
             <StackLayout Spacing="0">
                 <Image HorizontalOptions="Center" Source="homelogo.png" />
                 <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
@@ -22,6 +26,9 @@
                     <Label Text="4,5☆" WidthRequest="210" HeightRequest="40"   FontSize="Large" HorizontalTextAlignment="Center"/>
 
                 </StackLayout>
+                <!--#endregion -->
+
+            <!--#region Image of current recipe and rating -->
                 <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
                 <Image x:Name="mainimage" HorizontalOptions="Center" Source = "recipe1.png" WidthRequest="500" HeightRequest="280" Aspect="AspectFill"/>
                 <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
@@ -33,28 +40,34 @@
                 Title="RATE THE DISH" 
                 TitleColor="White"
                 BackgroundColor="Fuchsia"
-                WidthRequest="210"            >
+                WidthRequest="210">
+                        
                         <Picker.ItemsSource>
                             <x:Array Type="{x:Type x:String}">
-                                <x:String></x:String>
+                                <x:String>☆</x:String>
                                 <x:String>☆☆</x:String>
                                 <x:String>☆☆☆</x:String>
                                 <x:String>☆☆☆☆</x:String>
                                 <x:String>☆☆☆☆☆</x:String>
                             </x:Array>
                         </Picker.ItemsSource>
-
+                        
                     </Picker>
                     <Button x:Name="NextRecipe"  Text=" NEXT ->" FontAttributes="Bold" FontSize="Title" BackgroundColor="Lavender" WidthRequest="210"  ContentLayout="Top,1" Clicked= "Next"  />
 
                 </StackLayout>
-               
+
+                <!--#endregion -->
+
+            <!--#region View and Share  Buttons -->
                 <Button Text="VIEW RECIPE" WidthRequest="40" HeightRequest="60"   FontSize="Large" BackgroundColor="#FFB24B"/>
                 <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
                 <Button Text="SHARE" WidthRequest="40" HeightRequest="60"  FontSize="Large" BackgroundColor="#CCF47C"/>
                 <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
             </StackLayout>
-          
+            <!--#endregion -->
+
+            <!--#region Default buttons panel -->
             <StackLayout Padding="0" BackgroundColor="#9AF5F2" Margin="-6"
              Orientation="Horizontal"
              VerticalOptions="End"
@@ -63,6 +76,8 @@
                     <Button x:Name="Homebtn"  BackgroundColor="#9AF5F2" WidthRequest="135" Image ="homeicon.png" ContentLayout="Top,1" Clicked="Home_Clicked" />
                     <Button x:Name="Profilebtn" BackgroundColor="#9AF5F2" WidthRequest="135" Image ="usericon.png" ContentLayout="Top,1" Clicked="Profile_Clicked"/>
              </StackLayout>
+            <!--#endregion -->
         </StackLayout>
+        <!--#ENDregion -->
     </ContentPage.Content>
 </ContentPage>

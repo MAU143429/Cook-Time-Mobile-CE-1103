@@ -93,11 +93,6 @@ namespace CookTime.Views
             Navigation.PushAsync(new CompanyMemberList());
 
         }
-        private void Send_Notification(object sender, EventArgs e)
-        {
-            DependencyService.Get<iNotification>().CreateNotification("CookTime", "Un usuario nuevo te ha seguido!");
-
-        }
 
     }
 }

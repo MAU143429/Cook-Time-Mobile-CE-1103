@@ -6,11 +6,14 @@
              mc:Ignorable="d"
              x:Class="CookTime.Views.CreateC">
     <ContentPage.Content>
+        <!--#region MainLayout-->
         <StackLayout>
-
+            <!--#region Default CreateC Logo -->
             <Image HorizontalOptions="Center" Source="CC.png" />
             <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
-            
+            <!--#endregion -->
+
+            <!--#region Data Company Layout-->
             <Grid VerticalOptions="StartAndExpand">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
@@ -29,7 +32,9 @@
                 
 
             </Grid>
+            <!--#endregion -->
 
+            <!--#region Location Panel -->
             <StackLayout Padding="0" BackgroundColor="#FFFFFF" Spacing="10"
             Orientation="Horizontal"
             VerticalOptions="Center"
@@ -44,6 +49,8 @@
                 <Label Text="MAP VIEW HERE" WidthRequest="300" HeightRequest="80" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="Title" />
             </StackLayout>
             <Button x:Name="createcompany" Text="CREATE COMPANY" BackgroundColor="#BB52FF" WidthRequest="190" HeightRequest="60" ContentLayout="Top,1" Clicked="Share_Company" />
+            <!--#endregion -->
         </StackLayout>
+        <!--#endregion -->
     </ContentPage.Content>
 </ContentPage>

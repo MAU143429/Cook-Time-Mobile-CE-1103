@@ -39,9 +39,20 @@ namespace CookTime.Views
         }
  
         private void Next(object sender, EventArgs e)
-        {
+        {        
+         var Rating = rating.SelectedIndex;
+         if (Rating >= 0 && Rating <= 4) {
+            DependencyService.Get<iNotification>().CreateNotification("CookTime", "Un usuario ha calificado tu receta!");
             var urlimg = "https://www.recetasconpollo.org/wp-content/uploads/2019/12/filete-pechuga-pollo-plancha--512x341.jpg";
-            mainimage.Source = urlimg;  
+            mainimage.Source = urlimg;
+           // rating.ItemsSource CollectionChanged(Reset);
+         }
+         else
+         {
+           var urlimg = "https://www.recetasconpollo.org/wp-content/uploads/2019/12/filete-pechuga-pollo-plancha--512x341.jpg";
+           mainimage.Source = urlimg;
+         }
+
 
         }
     }
