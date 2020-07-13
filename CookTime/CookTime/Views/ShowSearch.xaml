@@ -5,6 +5,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="CookTime.Views.ShowSearch">
+
+    <!-- This Layout contains a view of search results-->
+
+    <!-- In this page the users can find the list of results of a search-->
     <StackLayout>
         <StackLayout>
             <Label Text="Your search results:" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>

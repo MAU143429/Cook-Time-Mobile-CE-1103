@@ -8,8 +8,14 @@
              NavigationPage.HasNavigationBar = "false">
            
     <ContentPage.Content>
+        <!-- This Layout contains a Profile-->
+
+        <!--In this page the user can create companies and recipes, or see the company profile if it has one-->
+
+        <!--#region Main Layout -->
         <StackLayout >
-            
+
+            <!--#region -->
             <Image HorizontalOptions="Center" Source="homelogo.png"  HeightRequest="60"/>
             <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
             <StackLayout Padding="0" 

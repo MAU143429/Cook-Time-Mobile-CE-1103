@@ -6,6 +6,10 @@
              mc:Ignorable="d"
              x:Class="CookTime.Views.CreateC">
     <ContentPage.Content>
+        <!--This Layout contains a document with the information of the enterprise -->
+
+        <!--In this page the owner of the company fills the information about your company-->
+
         <!--#region MainLayout-->
         <StackLayout>
             <!--#region Default CreateC Logo -->
