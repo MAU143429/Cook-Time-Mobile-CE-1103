@@ -7,7 +7,14 @@
              x:Class="CookTime.Views.RegisterPage"
              BackgroundColor="#76D7C4">
     <ContentPage.Content>
+        <!-- This Layout contains a document to register in CookTime App-->
+
+        <!-- In this page the user can fill a document to create a new profile in CookTime application -->
+
+        <!--#region MainLayout-->
         <StackLayout>
+            <!--#region Data of new user-->
+
             <Label BackgroundColor="#76D7C4" WidthRequest="40" HeightRequest="70" />
             <Image HorizontalOptions="Center" Source="regimg.png"  HeightRequest="100" WidthRequest="500" Aspect="AspectFill"/>
             <Grid VerticalOptions="CenterAndExpand">
@@ -48,6 +55,8 @@
                 </CheckBox>
                 <Button Text="Register!" Clicked="Button_Clicked" Grid.Row="7"/>
             </Grid>
+            <!--#endregion -->
         </StackLayout>
+        <!--#endregion -->
     </ContentPage.Content>
 </ContentPage>
