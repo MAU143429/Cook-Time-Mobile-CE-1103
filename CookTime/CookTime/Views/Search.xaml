@@ -29,8 +29,24 @@
                 
             </StackLayout>
             <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
+                       
+            <StackLayout Padding="0" BackgroundColor="#FFFFFF" 
+             Orientation="Horizontal"
+             VerticalOptions="StartAndExpand"
+             HorizontalOptions="StartAndExpand">
+
+                <Label Text="Type of search |" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"  />
+                <Label Text="Users:" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"  />
+                <CheckBox x:Name="usersearch" Color="Blue"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+                <Label Text="Recipes:" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"  />
+                <CheckBox x:Name="recipesearch" Color="Red"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+                <Label Text="Companies:" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"  />
+                <CheckBox x:Name="companysearch" Color="Green" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+
+            </StackLayout>
+            <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
             <!--#endregion-->
-            
+
             <!--#region Type of Search-->
             <StackLayout Padding="0" BackgroundColor="#FFFFFF" 
              Orientation="Horizontal"
@@ -89,8 +105,8 @@
                 </Picker>
                 
             </StackLayout>
-            <!--#endregion-->
-
+            <!--#endregion-->    
+            
             <!--#region Users Recommendations-->
             <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
             <StackLayout>
