@@ -15,6 +15,7 @@ namespace CookTime.REST_API_RecipeModel
     using System.Globalization;
     using Newtonsoft.Json;
     using Newtonsoft.Json.Converters;
+    using Newtonsoft.Json.Linq;
 
     public partial class RecipeModel
     {
@@ -67,7 +68,7 @@ namespace CookTime.REST_API_RecipeModel
         public int Rating { get; set; }
 
         [JsonProperty("comments")]
-        public ArrayList Comments { get; set; }
+        public JArray Comments { get; set; }
 
 
     }

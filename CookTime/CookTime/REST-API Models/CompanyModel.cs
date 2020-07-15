@@ -13,6 +13,7 @@ namespace CookTime.REST_API_CompanyModel
     using System.Globalization;
     using Newtonsoft.Json;
     using Newtonsoft.Json.Converters;
+    using Newtonsoft.Json.Linq;
 
     public partial class CompanyModel
     {
@@ -51,7 +52,7 @@ namespace CookTime.REST_API_CompanyModel
         public int Following { get; set; }
 
         [JsonProperty("members")]
-        public int Members { get; set; }
+        public JArray Members { get; set; }
     }
 
     public partial class CompanyModel
