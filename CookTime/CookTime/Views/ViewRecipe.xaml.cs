@@ -31,6 +31,11 @@ namespace CookTime.Views
             Navigation.PushAsync(new ShowSearch());
             DisplayAlert("COOKTIME", "RECIPE HAS BEEN DELETED", "ACCEPT");
         }
+        private void ShareRecipe (object sender, EventArgs e)
+        {
+           
+            DisplayAlert("COOKTIME", "RECIPE HAS BEEN SHARED", "ACCEPT");
+        }
 
         private void CommentR(object sender, EventArgs e)
         {

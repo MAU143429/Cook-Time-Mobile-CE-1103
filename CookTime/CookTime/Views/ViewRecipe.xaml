@@ -62,6 +62,37 @@
                 <Button x:Name="Send"  BackgroundColor="#9AF5F2" WidthRequest="90"  ContentLayout="Top,1" Text="Send" FontSize ="Subtitle" Clicked="CommentR"/>
             </StackLayout>
             <!--#endregion -->
+            
+            <!--#region Share and rate layout -->
+            <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000" />
+            <StackLayout Padding="0"  
+            Orientation="Horizontal"
+            VerticalOptions="CenterAndExpand"
+            HorizontalOptions="CenterAndExpand">
+
+                <Picker x:Name="rating"
+                Title="RATE THE DISH" 
+                TitleColor="Black"
+                BackgroundColor="#CCF47C"
+                WidthRequest="180">
+
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>☆</x:String>
+                            <x:String>☆☆</x:String>
+                            <x:String>☆☆☆</x:String>
+                            <x:String>☆☆☆☆</x:String>
+                            <x:String>☆☆☆☆☆</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+
+                </Picker>
+                <Button Text="SHARE" WidthRequest="180" HeightRequest="40"  FontSize="Large" BackgroundColor="#CCF47C" Clicked="ShareRecipe"/>
+                
+                
+            </StackLayout>
+            <!--#endregion-->
+
 
 
             <!--#region Delete Layout -->
