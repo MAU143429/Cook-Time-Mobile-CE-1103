@@ -58,7 +58,7 @@ namespace CookTime.Views
         }
         private void Info_Clicked(object sender, EventArgs e)
         {
-                Navigation.PushAsync(new ChangePhoto());
+                Navigation.PushAsync(new ProfileView());
         }
         public static string CreateMD5(string input)
         {

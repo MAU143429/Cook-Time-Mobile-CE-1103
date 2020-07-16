@@ -48,11 +48,18 @@
                     <Label Text="Following" FontSize="Subtitle" WidthRequest="70" HeightRequest="20"  Grid.Row="0" HorizontalTextAlignment="Center" Grid.Column="2" />
                     <Label  WidthRequest="70" HeightRequest="10"  Grid.Row="1" Grid.Column="2" BackgroundColor="Transparent"/>
                     <Label Text="0" FontAttributes="Bold" WidthRequest="30" HeightRequest="20"  Grid.Row="2" HorizontalTextAlignment="Center" Grid.Column="2" />
-                    <Label x:Name="username" Text="Name Here" FontAttributes="Bold" WidthRequest="70" HeightRequest="40"  Grid.Row="3" HorizontalTextAlignment="Center" Grid.Column="0" />
-                    <Button x:Name="follow" BackgroundColor="#CCF47C" Text="Follow" WidthRequest="100" HeightRequest="40" Grid.Row="3" Grid.Column="2" FontSize="Subtitle" FontAttributes="Bold" Clicked="Send_Notification"/>
+                    <Button x:Name="follow" BackgroundColor="#CCF47C" Text="Follow" WidthRequest="100" HeightRequest="40" Grid.Row="3" Grid.Column="1" FontSize="Subtitle" FontAttributes="Bold" Clicked="Send_Notification"/>
 
                 </Grid>
             </StackLayout>
+            <StackLayout Padding ="0" 
+             Orientation="Horizontal"
+             VerticalOptions="StartAndExpand"
+             HorizontalOptions="StartAndExpand">
+                <Label x:Name="username" Text="Name Here!" FontAttributes="Bold" WidthRequest="100" HeightRequest="20" HorizontalTextAlignment="Center"  />
+
+            </StackLayout>
+
             <!--#endregion -->
 
             <!--#region Type of search -->
