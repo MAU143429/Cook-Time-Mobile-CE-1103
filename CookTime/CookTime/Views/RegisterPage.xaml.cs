@@ -1,5 +1,5 @@
 ﻿
-using CookTime.REST_API_UserModel;
+using CookTime.REST_API_Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -23,17 +23,11 @@ namespace CookTime.Views
         }
         private async void RegisterRequest()
         {
-            CookTime.REST_API_UserModel.User user = new CookTime.REST_API_UserModel.User();
+            Newuser user = new Newuser();
             user.Age = Int32.Parse(ageEntry.Text);
             user.Email = emailEntry.Text;
             user.Password = CreateMD5(passwordEntry.Text);
             user.Name = nameEntry.Text;
-            user.Image = "";
-            user.Followers = new System.Collections.ArrayList();
-            user.Following = new System.Collections.ArrayList();
-            user.Posts = 0;
-            user.Recipes = new System.Collections.ArrayList();
-            user.Hascompany = false;
             if (ChefBox.IsChecked)
             {
                 user.Ischef = true;
