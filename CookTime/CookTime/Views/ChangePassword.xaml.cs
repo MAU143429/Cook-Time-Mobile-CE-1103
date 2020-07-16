@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
+using Xamarin.Forms.Internals;
 using Xamarin.Forms.Xaml;
 
 namespace CookTime.Views
@@ -17,9 +18,9 @@ namespace CookTime.Views
             InitializeComponent();
         }
 
-        private void Home_Clicked(object sender, EventArgs e)
+        private void ChangePass(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new HomePage());
+            Navigation.PushAsync(new Profile1());
 
         }
     }
