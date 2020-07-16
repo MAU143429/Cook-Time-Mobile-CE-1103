@@ -28,24 +28,33 @@ namespace CookTime.Views
             user.Email = emailEntry.Text;
             user.Password = CreateMD5(passwordEntry.Text);
             user.Name = nameEntry.Text;
+            HttpClient cliente = new HttpClient();
             if (ChefBox.IsChecked)
             {
-                user.Ischef = true;
+                string url = "http://192.168.0.17:6969/newUser";//AQUI DEBE IR EL URL PARA CHEFS
+                String jsonNewUser = JsonConvert.SerializeObject(user);
+                Console.WriteLine("JSON NEW USER:" + jsonNewUser);
+                var datasent = new StringContent(jsonNewUser);
+                Console.WriteLine("DATASENT" + datasent);
+                datasent.Headers.ContentType.MediaType = "application/json";
+                var result = await cliente.PostAsync(url, datasent);
+                var json = result.Content.ReadAsStringAsync().Result;
+                await DisplayAlert("Result", json, "ok");
             }
             else
             {
-                user.Ischef = false;
+                string url = "http://192.168.0.17:6969/newUser";//AQUI DEBE IR EL URL PARA USUARIOS SINGULARES
+                String jsonNewUser = JsonConvert.SerializeObject(user);
+                Console.WriteLine("JSON NEW USER:" + jsonNewUser);
+                var datasent = new StringContent(jsonNewUser);
+                Console.WriteLine("DATASENT" + datasent);
+                datasent.Headers.ContentType.MediaType = "application/json";
+                var result = await cliente.PostAsync(url, datasent);
+                var json = result.Content.ReadAsStringAsync().Result;
+                await DisplayAlert("Result", json, "ok");
             }
-            HttpClient cliente = new HttpClient();
-            string url = "http://192.168.0.17:6969/newUser";
-            String jsonNewUser = JsonConvert.SerializeObject(user);
-            Console.WriteLine("JSON NEW USER:" + jsonNewUser);
-            var datasent = new StringContent(jsonNewUser);
-            Console.WriteLine("DATASENT" + datasent);
-            datasent.Headers.ContentType.MediaType = "application/json";
-            var result = await cliente.PostAsync(url, datasent);
-            var json = result.Content.ReadAsStringAsync().Result;
-            await DisplayAlert("Result", json, "ok");
+            
+            
         }
         private void Button_Clicked(object sender, EventArgs e)
         {

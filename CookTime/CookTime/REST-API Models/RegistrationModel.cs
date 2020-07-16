@@ -35,8 +35,6 @@ namespace CookTime.REST_API_Models
         [JsonProperty("password")]
         public string Password { get; set; }
 
-        [JsonProperty("ischef")]
-        public Boolean Ischef { get; set; }
 
 
 
