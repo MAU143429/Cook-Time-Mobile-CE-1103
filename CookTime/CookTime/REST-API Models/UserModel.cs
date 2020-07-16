@@ -13,6 +13,7 @@ namespace CookTime.REST_API_UserModel
     using System.Collections.Generic;
     using System.Globalization;
     using Newtonsoft.Json;
+    using Newtonsoft.Json.Linq;
     using Newtonsoft.Json.Converters;
 
     public partial class UserModel
@@ -39,16 +40,16 @@ namespace CookTime.REST_API_UserModel
         public string Image { get; set; }
 
         [JsonProperty("followers")]
-        public ArrayList Followers { get; set; }
+        public JArray Followers { get; set; }
 
         [JsonProperty("following")]
-        public ArrayList Following { get; set; }
+        public JArray Following { get; set; }
 
         [JsonProperty("posts")]
         public int Posts { get; set; }
 
         [JsonProperty("recipes")]
-        public ArrayList Recipes { get; set; }
+        public JArray Recipes { get; set; }
 
         [JsonProperty("hascompany")]
         public Boolean Hascompany { get; set; }

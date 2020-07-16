@@ -19,12 +19,12 @@ namespace CookTime.REST_API_LoginModel
     public partial class LoginModel
     {
         [JsonProperty("users")]
-        public User[] Users { get; set; }
+        public LoginUser[] Users { get; set; }
     }
 
-    public partial class User
+    public partial class LoginUser
     {
-       
+        [JsonProperty("email")]
         public string Email { get; set; }
 
         [JsonProperty("password")]
