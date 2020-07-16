@@ -16,5 +16,11 @@ namespace CookTime.Views
         {
             InitializeComponent();
         }
+        private void Changephoto(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Profile1());
+
+        }
+
     }
 }

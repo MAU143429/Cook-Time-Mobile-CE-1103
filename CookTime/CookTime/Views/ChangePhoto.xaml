@@ -16,7 +16,7 @@
             <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
             <Entry x:Name="newphoto" Keyboard="Default" Placeholder="Enter a new image url" WidthRequest="450" />
             <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
-            <Button x:Name="change" Text="Change the Image" BackgroundColor="#CCF47C" WidthRequest="450" HeightRequest="60" ContentLayout="Top,1"  />
+            <Button x:Name="change" Text="Change the Image" BackgroundColor="#CCF47C" WidthRequest="450" HeightRequest="60" ContentLayout="Top,1" Clicked="Changephoto" />
 
 
         </StackLayout>
