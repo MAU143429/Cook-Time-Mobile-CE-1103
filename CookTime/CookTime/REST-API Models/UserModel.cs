@@ -63,14 +63,14 @@ namespace CookTime.REST_API_UserModel
 
     }
 
-    public partial class UserModel
+    public partial class User
     {
-        public static UserModel FromJson(string json) => JsonConvert.DeserializeObject<UserModel>(json, CookTime.REST_API_UserModel.Converter.Settings);
+        public static User FromJson(string json) => JsonConvert.DeserializeObject<User>(json, CookTime.REST_API_UserModel.Converter.Settings);
     }
 
     public static class Serialize
     {
-        public static string ToJson(this UserModel self) => JsonConvert.SerializeObject(self, CookTime.REST_API_UserModel.Converter.Settings);
+        public static string ToJson(this User self) => JsonConvert.SerializeObject(self, CookTime.REST_API_UserModel.Converter.Settings);
     }
 
     internal static class Converter
