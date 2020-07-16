@@ -149,9 +149,14 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\defaultrecipe.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\cpassword.png" />
+  </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\Raw\definite.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\cphoto.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

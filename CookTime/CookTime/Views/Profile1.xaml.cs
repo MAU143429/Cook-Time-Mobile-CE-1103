@@ -62,7 +62,13 @@ namespace CookTime.Views
             Navigation.PushAsync(new CompanyProfile());
 
         }
-        
+
+        private void Change_Photo(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new ChangePassword());
+
+        }
+
 
     }
 }

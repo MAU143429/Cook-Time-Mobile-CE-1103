@@ -34,7 +34,7 @@ namespace CookTime.Views
         }
         private void Info_Clicked(object sender, EventArgs e)
         {
-                Navigation.PushAsync(new ProfileView());
+                Navigation.PushAsync(new ChangePhoto());
         }
     }
 }
