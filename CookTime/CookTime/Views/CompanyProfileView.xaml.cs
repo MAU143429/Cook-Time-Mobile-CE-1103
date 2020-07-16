@@ -92,7 +92,22 @@ namespace CookTime.Views
                  DependencyService.Get<iNotification>().CreateNotification("CookTime", "Un usuario nuevo te ha  seguido!");
 
             }
+            private void Rate_Company(object sender, EventArgs e)
+            {
+                DisplayAlert("COOKTIME", "Rated successfully", "ACCEPT");
 
-        
+            }
+            public void View_Recipe(object sender, EventArgs e)
+            {
+                //Navigation.PushAsync(new ViewRecipe());
+            }
+            public void Location_Map(object sender, EventArgs e)
+            {
+                Navigation.PushAsync(new ShowMap());
+            }
+
+
+
+
     }
 }

@@ -5,19 +5,26 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="CookTime.Views.CompanyProfileView">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem 
+                 IconImageSource="mlocation.png"
+                 Order="Primary"
+                 Priority="1"
+                 Clicked="Location_Map"/>
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <!--Thsi layout contains the view of company profile -->
         <!--This view is used to show a company profile to another users that aren't in it -->
         <!--#region MainLayout -->
         <StackLayout >
-            
+
             <!--#region Default CookTime LOGO-->
             <Image HorizontalOptions="Center" Source="homelogo.png"  HeightRequest="60"/>
             <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
             <!--#endregion -->
 
             <!--#region Company Profile Data Layout -->
-            <StackLayout Padding="0" 
+            <StackLayout  Padding ="0" 
                 Orientation="Horizontal"
                 VerticalOptions="Center"
                 HorizontalOptions="Center" >
@@ -50,8 +57,18 @@
                     <Button x:Name="follow" BackgroundColor="#CCF47C" Text="Follow" WidthRequest="100" HeightRequest="40" Grid.Row="3" Grid.Column="2" FontSize="Subtitle" FontAttributes="Bold" Clicked="Send_Notification"/>
 
                 </Grid>
+            </StackLayout >
+                                
+            <StackLayout Padding ="0" 
+             Orientation="Horizontal"
+             VerticalOptions="CenterAndExpand"
+             HorizontalOptions="CenterAndExpand">
+                
+                <Label x:Name="companynumber" Text="Number Here!" FontAttributes="Bold" WidthRequest="150" HeightRequest="20" HorizontalTextAlignment="Center"  />
+                <Label x:Name="companyshedule" Text="Shedule Here" FontAttributes="Bold" WidthRequest="150" HeightRequest="20"   HorizontalTextAlignment="Center" />
             </StackLayout>
-            <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
+
+        <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
             <!--#endregion -->
             
             <!--#region Type of Search Layout-->
@@ -105,7 +122,7 @@
                 <Button x:Name="ViewListMember" BackgroundColor="#CCF47C" Text="Member List" WidthRequest="115" Clicked="View_List" />
             </StackLayout>
             <!--#endregion-->
-            
+         
             
             <!--#region MyMenu ListView-->
             <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
@@ -123,9 +140,39 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
+                
+
             </StackLayout>
 
             <!--#endregion-->
+            
+            <!--#region Rate a company and view recipes -->
+            <StackLayout Padding="0" 
+             Orientation="Horizontal"
+             VerticalOptions="CenterAndExpand"
+             HorizontalOptions="CenterAndExpand">
+
+                <Picker x:Name="rating"
+                Title="RATE THE COMPANY" 
+                TitleColor="Black"
+                BackgroundColor="#CCF47C"
+                WidthRequest="220">
+
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>☆</x:String>
+                            <x:String>☆☆</x:String>
+                            <x:String>☆☆☆</x:String>
+                            <x:String>☆☆☆☆</x:String>
+                            <x:String>☆☆☆☆☆</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+
+                </Picker>
+                <Button Text="RATE" WidthRequest="120" HeightRequest="40"  FontSize="Large" BackgroundColor="#CCF47C" Clicked="Rate_Company"/>
+            </StackLayout>
+            <Button x:Name="viewrecipe" Text="View Recipe" BackgroundColor="#CCF47C" WidthRequest="400"  />
+            <!--#endregion -->
         </StackLayout>
         <!--#endregion -->
     </ContentPage.Content>
