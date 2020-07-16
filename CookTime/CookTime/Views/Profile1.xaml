@@ -52,6 +52,15 @@
 
                 </Grid>
             </StackLayout>
+            <StackLayout Padding ="0" 
+             Orientation="Horizontal"
+             VerticalOptions="StartAndExpand"
+             HorizontalOptions="StartAndExpand">
+                <Label x:Name="username" Text="Name Here!" FontAttributes="Bold" WidthRequest="100" HeightRequest="20" HorizontalTextAlignment="Center"  />
+                
+            </StackLayout>
+
+            <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
             <!--#endregion -->
 
             <!--#region Buttons panel-->
@@ -61,6 +70,7 @@
                 VerticalOptions="CenterAndExpand"
                 HorizontalOptions="CenterAndExpand">
                 
+                <Button x:Name="changepass"  BackgroundColor="Transparent" ImageSource="pass.png" WidthRequest="50" HeightRequest="50" Clicked="Change_Pass" />
                 <Button x:Name="CreateRecipe" BackgroundColor="#CCF47C" Text="Create Recipe" WidthRequest="120" HeightRequest="50" Clicked="Create_Clicked" />
                 <Button x:Name="CreateCompany" BackgroundColor="#CCF47C" Text="Create Company" WidthRequest="120" HeightRequest="50" Clicked="Create2_Clicked" />
                 <Button x:Name="CompanyProfile" BackgroundColor="#CCF47C" Text=" Company Profile " WidthRequest="120" HeightRequest="50" Clicked="CompanyP" />
@@ -138,6 +148,8 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
+            <Button x:Name="viewrecipe" Text="View Recipe" BackgroundColor="#CCF47C" WidthRequest="400"  />
+
 
 
             <!--#endregion-->
