@@ -22,21 +22,22 @@ namespace CookTime.Views
         }
         private void Share_Company(object sender, EventArgs e)
         {
-            
+            //Publish_Company();
             DisplayAlert("Company Creation", "Your company was successfully created!", "OK");
             Navigation.PushAsync(new Profile1());
 
         }
-        /**
-        private async void Publish_Company() {
-                     
+        /*
+        private async void Publish_Company() { }
             HttpClient client = new HttpClient();
             string url = "http://192.168.0.17:6969/test";
             String jsonNewUser = JsonConvert.SerializeObject(company);
             var datasent = new StringContent(jsonNewUser);
             datasent.Headers.ContentType.MediaType = "application/json";
             await client.PostAsync(url, datasent);
-        }*/
+        
+        }
+        */
         private void setLocation(object sender, EventArgs e)
         {
             DisplayAlert("Upload Location ", "Your location has been uploaded successfully!", "OK");

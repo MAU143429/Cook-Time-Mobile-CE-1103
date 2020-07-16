@@ -37,7 +37,7 @@ namespace CookTime.Views
                 user.Ischef = false;
             }
             HttpClient cliente = new HttpClient();
-            string url = "http://192.168.0.17:6969/test";
+            string url = "http://192.168.0.17:6969/newUser";
             String jsonNewUser = JsonConvert.SerializeObject(user);
             Console.WriteLine("JSON NEW USER:" + jsonNewUser);
             var datasent = new StringContent(jsonNewUser);
