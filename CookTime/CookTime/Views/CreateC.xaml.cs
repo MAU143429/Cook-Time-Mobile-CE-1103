@@ -14,12 +14,24 @@ using CookTime.Views;
 namespace CookTime.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
+    /// <summary>
+    /// This class allows users to create a company and add member on it
+    /// @author Mauricio C.
+    /// </summary>
     public partial class CreateC : ContentPage
+    /// <summary>
+    /// This constructor execute Create Company partial class 
+    /// @author Mauricio C.
+    /// </summary>
     {
         public CreateC()
         {
             InitializeComponent();
         }
+        /// <summary>
+        /// This method is used to change the current page to Profile 1 page and create a new company
+        /// @author Jose A.
+        /// </summary>
         private void Share_Company(object sender, EventArgs e)
         {
             
@@ -37,11 +49,20 @@ namespace CookTime.Views
             datasent.Headers.ContentType.MediaType = "application/json";
             await client.PostAsync(url, datasent);
         }*/
+
+        /// <summary>
+        /// This method allows the owner to set a location for company
+        /// @author Mauricio C.
+        /// </summary>
         private void setLocation(object sender, EventArgs e)
         {
             DisplayAlert("Upload Location ", "Your location has been uploaded successfully!", "OK");
            
         }
+        /// <summary>
+        /// This method allows the owner to set a logo for company
+        /// @author Mauricio C.
+        /// </summary>
         private void setLogo(object sender, EventArgs e)
         {
             DisplayAlert("Upload Logo", "Your logo has been uploaded successfully!", "OK");
