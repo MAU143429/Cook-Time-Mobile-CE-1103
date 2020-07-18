@@ -34,6 +34,7 @@ namespace CookTime.Views
                 user.Email = userEntry.Text;
                 user.Password = CreateMD5(pasEntry.Text);
                 HttpClient cliente = new HttpClient();
+<<<<<<< Updated upstream
                 string url = "http://192.168.0.17:6969/test";//LOGIN VERIFICATION
                 String jsonNewUser = JsonConvert.SerializeObject(user);
                 Console.WriteLine("JSON NEW USER:" + jsonNewUser);
@@ -41,6 +42,44 @@ namespace CookTime.Views
                 Console.WriteLine("DATASENT" + datasent);
                 datasent.Headers.ContentType.MediaType = "application/json";
                 var result = await cliente.PostAsync(url, datasent);
+=======
+                string url = "http://192.168.100.7:6969/login/" + email + password;
+                Console.WriteLine(url);
+                //String jsonNewUser = JsonConvert.SerializeObject(user);
+               // Console.WriteLine("JSON NEW USER:" + jsonNewUser);
+                //var datasent = new StringContent(jsonNewUser);
+                //Console.WriteLine("DATASENT" + datasent);
+                //datasent.Headers.ContentType.MediaType = "application/json";
+                var result = await cliente.GetAsync(url);
+                var json = result.Content.ReadAsStringAsync().Result;
+
+                var nullUser = new REST_API_UserModel.User();
+                nullUser.Password = null;
+                nullUser.Followers = null;
+                nullUser.Following = null;
+                nullUser.Name = null;
+                nullUser.Recipes = null;
+                nullUser.Hascompany = false;
+                nullUser.Email = null;
+                nullUser.Age = 0;
+
+                string NullCompareable = JsonConvert.SerializeObject(nullUser);
+                
+
+
+                if (json == NullCompareable)
+                {
+                   await  DisplayAlert("Cook Time","The data you filled with does not match with any CookTime user. Please verify your info and try again!","OK") ;
+                }
+                else
+                {
+                    CURRENTUSER = CookTime.REST_API_UserModel.User.FromJson(json);
+                    Console.WriteLine(CURRENTUSER.Name);
+                    await Navigation.PushAsync(new HomePage());
+                }
+                 
+                
+>>>>>>> Stashed changes
                 
                 var json = result.Content.ReadAsStringAsync().Result;
                 /*
