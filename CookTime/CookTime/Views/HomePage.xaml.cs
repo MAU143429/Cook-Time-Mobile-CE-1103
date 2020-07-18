@@ -11,10 +11,17 @@ using Xamarin.Forms.Xaml;
 namespace CookTime.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
+    /// <summary>
+    /// This class show the most recently recipes that was created
+    /// @author Jose A.
+    /// </summary>
     public partial class HomePage : ContentPage
     {
 
-         
+        /// <summary>
+        /// This constructor execute Home Page
+        /// @author Jose A.
+        /// </summary>
         public HomePage()
         {
             
@@ -22,22 +29,38 @@ namespace CookTime.Views
             UserSelf CurrentUser;
 
         }
+        /// <summary>
+        /// This method is used to refresh the home page
+        /// @author Mauricio C.
+        /// </summary>
         private void Home_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new HomePage());
 
         }
+        /// <summary>
+        /// This method is used to change the current page to Search page
+        /// @author Mauricio C.
+        /// </summary>
         private void Search_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new Search());
 
         }
+        /// <summary>
+        /// This method is used to change the current page to Profile1 page
+        /// @author Mauricio C.
+        /// </summary>
         private void Profile_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new Profile1());
 
         }
- 
+        /// <summary>
+        /// This method is used to change the current recipe to other 
+        /// @author Mauricio C.
+        /// </summary>
+
         private void Next(object sender, EventArgs e)
         {        
          var Rating = rating.SelectedIndex;

@@ -48,14 +48,13 @@ namespace CookTime.REST_API_UserModel
         [JsonProperty("posts")]
         public int Posts { get; set; }
 
-        [JsonProperty("recipes")]
+        [JsonProperty("recipe")]
         public JArray Recipes { get; set; }
 
-        [JsonProperty("hascompany")]
+        [JsonProperty("hasCompany")]
         public Boolean Hascompany { get; set; }
 
-        [JsonProperty("ischef")]
-        public Boolean Ischef { get; set; }
+       
 
 
 

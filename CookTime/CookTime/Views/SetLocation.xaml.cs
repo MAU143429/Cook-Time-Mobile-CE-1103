@@ -10,19 +10,17 @@ using Xamarin.Forms.Xaml;
 namespace CookTime.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-
     /// <summary>
-    /// This class allows users to see a company member list. In this page the user can see all the members in this company and the profile view for each one
+    /// This class allow the owner of company to set a location for the company
     /// @author Mauricio C.
     /// </summary>
-    public partial class CompanyMemberList : ContentPage
+    public partial class SetLocation : ContentPage
     {
-
         /// <summary>
-        /// This constructor execute CompanyMemberList partial class 
+        /// This constructor execute SetLocation partial class 
         /// @author Mauricio C.
         /// </summary>
-        public CompanyMemberList()
+        public SetLocation()
         {
             InitializeComponent();
         }

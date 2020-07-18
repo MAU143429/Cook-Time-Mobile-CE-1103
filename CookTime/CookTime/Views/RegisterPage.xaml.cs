@@ -15,12 +15,24 @@ using Xamarin.Forms.Xaml;
 namespace CookTime.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
+    /// <summary>
+    /// This class allows users to register in Cook Time application
+    /// @author Jose A.
+    /// </summary>
     public partial class RegisterPage : ContentPage
     {
+        /// <summary>
+        /// This constructor execute Register Page partial class and send data of the new user
+        /// @author Jose A.
+        /// </summary>
         public RegisterPage()
         {
             InitializeComponent();
         }
+        /// <summary>
+        /// This method create an async request that send data of the new user
+        /// @author Jose A.
+        /// </summary>
         private async void RegisterRequest()
         {
             Newuser user = new Newuser();
@@ -31,7 +43,7 @@ namespace CookTime.Views
             HttpClient cliente = new HttpClient();
             if (ChefBox.IsChecked)
             {
-                string url = "http://192.168.0.17:6969/newUser";//AQUI DEBE IR EL URL PARA CHEFS
+                string url = "http://192.168.100.7:6969/newUser";//AQUI DEBE IR EL URL PARA CHEFS
                 String jsonNewUser = JsonConvert.SerializeObject(user);
                 Console.WriteLine("JSON NEW USER:" + jsonNewUser);
                 var datasent = new StringContent(jsonNewUser);
@@ -43,7 +55,7 @@ namespace CookTime.Views
             }
             else
             {
-                string url = "http://192.168.0.17:6969/newUser";//AQUI DEBE IR EL URL PARA USUARIOS SINGULARES
+                string url = "http://192.168.100.7:6969/newUser";//AQUI DEBE IR EL URL PARA USUARIOS SINGULARES
                 String jsonNewUser = JsonConvert.SerializeObject(user);
                 Console.WriteLine("JSON NEW USER:" + jsonNewUser);
                 var datasent = new StringContent(jsonNewUser);
@@ -53,9 +65,21 @@ namespace CookTime.Views
                 var json = result.Content.ReadAsStringAsync().Result;
                 await DisplayAlert("Result", json, "ok");
             }
-            
-            
+            HttpClient cliente = new HttpClient();
+            string url = "http://192.168.100.7:6969/test";
+            String jsonNewUser = JsonConvert.SerializeObject(user);
+            Console.WriteLine("JSON NEW USER:" + jsonNewUser);
+            var datasent = new StringContent(jsonNewUser);
+            Console.WriteLine("DATASENT" + datasent);
+            datasent.Headers.ContentType.MediaType = "application/json";
+            var result = await cliente.PostAsync(url, datasent);
+            var json = result.Content.ReadAsStringAsync().Result;
+            await DisplayAlert("Result", json, "ok");
         }
+        /// <summary>
+        /// This method verify that not exist blank spaces and send the final request
+        /// @author Mauricio C.
+        /// </summary>
         private void Button_Clicked(object sender, EventArgs e)
         {
             var nameValidate = nameEntry.Text;
@@ -73,6 +97,10 @@ namespace CookTime.Views
                 DisplayAlert("ERROR", "YOU MUST FILL ALL THE BLANKS TO CONTINUE", "ACCEPT");
             }
         }
+        /// <summary>
+        /// This method encrypt the password with HASH MD5 algorithm
+        /// @author Jose A.
+        /// </summary>
         public static string CreateMD5(string input)
         {
             // Use input string to calculate MD5 hash

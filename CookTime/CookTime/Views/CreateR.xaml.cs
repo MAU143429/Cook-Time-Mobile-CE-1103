@@ -13,13 +13,25 @@ using Xamarin.Forms.Xaml;
 namespace CookTime.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
+    /// <summary>
+    /// This class allows users to create a new recipe
+    /// @author Mauricio C.
+    /// </summary>
     public partial class CreateR : ContentPage
     {
+        /// <summary>
+        /// This constructor execute Create Recipe Page
+        /// @author Mauricio C.
+        /// </summary>
         public CreateR()
         {
             InitializeComponent();
             
         }
+        /// <summary>
+        /// This method is used to change the current page to Profile1 page and share the recipe in NewsFeed Page
+        /// @author Jose A.
+        /// </summary>
         private void Share_Clicked(object sender, EventArgs e)
         {
             Share_Recipe();
@@ -27,6 +39,10 @@ namespace CookTime.Views
             Navigation.PushAsync(new Profile1());
 
         }
+        /// <summary>
+        /// This method create a json with all recipe details and update My Menu Board
+        /// @author Jose A.
+        /// </summary>
         private async void Share_Recipe()
         {
 

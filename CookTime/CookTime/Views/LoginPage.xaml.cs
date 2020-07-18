@@ -1,7 +1,5 @@
 ﻿using CookTime.REST_API_LoginModel;
-using CookTime.REST_API_UserModel;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,29 +13,59 @@ using Xamarin.Forms.Xaml;
 namespace CookTime.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
+    /// <summary>
+    /// This class allows users to login in Cook Time application, if already have an account created
+    /// @author Jose A.
+    /// </summary>
     public partial class LoginPage : ContentPage
     {
-        CookTime.REST_API_UserModel.User CURRENTUSER;
+        /// <summary>
+        /// This constructor execute LoginPage partial class
+        /// @author Jose A.
+        /// </summary>
         public LoginPage()
         {
             InitializeComponent();
 
         }
+        /// <summary>
+        /// This method is used to change the current page to Register page
+        /// @author Mauricio C.
+        /// </summary>
         private void Go_Register(object sender, EventArgs e)
         {
             Navigation.PushAsync(new Views.RegisterPage());
         }
+
+        /// <summary>
+        /// This method is used to change the current page to Home page and send a json file to verify the user credentials
+        /// @author Mauricio C.
+        /// </summary>
         private async void Button_Clicked(object sender, EventArgs e)
         {
 
             var userValidate = userEntry.Text;
             if (!string.IsNullOrEmpty(userValidate))
             {
-                
-                string email = userEntry.Text;
-                string password = "/"+CreateMD5(pasEntry.Text);
+                LoginUser user = new LoginUser();
+                user.Email = userEntry.Text;
+                user.Password = CreateMD5(pasEntry.Text);
                 HttpClient cliente = new HttpClient();
-                string url = "http://192.168.0.17:6969/login/" + email + password;
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+                string url = "http://192.168.0.17:6969/test";//LOGIN VERIFICATION
+=======
+                string url = "http://192.168.100.7:6969/test";//LOGIN VERIFICATION
+>>>>>>> Stashed changes
+                String jsonNewUser = JsonConvert.SerializeObject(user);
+                Console.WriteLine("JSON NEW USER:" + jsonNewUser);
+                var datasent = new StringContent(jsonNewUser);
+                Console.WriteLine("DATASENT" + datasent);
+                datasent.Headers.ContentType.MediaType = "application/json";
+                var result = await cliente.PostAsync(url, datasent);
+=======
+                string url = "http://192.168.100.7:6969/login/" + email + password;
+                Console.WriteLine(url);
                 //String jsonNewUser = JsonConvert.SerializeObject(user);
                // Console.WriteLine("JSON NEW USER:" + jsonNewUser);
                 //var datasent = new StringContent(jsonNewUser);
@@ -72,14 +100,36 @@ namespace CookTime.Views
                 }
                  
                 
+>>>>>>> Stashed changes
                 
+                var json = result.Content.ReadAsStringAsync().Result;
+                /*
+                 * if json != false:
+                 * alerta!
+                 * else{
+                 * user = new USer() con los datos que me manda
+                 * }
+                 * 
+                 */
+                await DisplayAlert("Result", json, "ok");
+                await Navigation.PushAsync(new HomePage());
             }
             
         }
+
+        /// <summary>
+        /// This method is used to change the current page to Info page
+        /// @author Mauricio C.
+        /// </summary>
+
         private void Info_Clicked(object sender, EventArgs e)
         {
-                Navigation.PushAsync(new ProfileView());
+                Navigation.PushAsync(new CompanyProfileView());
         }
+        /// <summary>
+        /// This method encrypt the password with HASH MD5 algorithm
+        /// @author Mauricio C.
+        /// </summary>
         public static string CreateMD5(string input)
         {
             // Use input string to calculate MD5 hash
