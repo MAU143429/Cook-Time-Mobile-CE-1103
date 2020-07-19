@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -28,11 +29,21 @@ namespace CookTime.Views
         /// This method send a new image url to the server. This photo will be updated when the user go back to their profile
         /// @author Mauricio C.
         /// </summary>
-        private void Changephoto(object sender, EventArgs e)
+        private async void Changephoto(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new Profile1());
 
+            
+            HttpClient client = new HttpClient();
+            string url = "http://192.168.100.7:6969/setUser/"+ LoginPage.CURRENTUSER.Email + "/image";
+            String newimg = newphoto.Text;
+            var datasent = new StringContent(newimg);
+            datasent.Headers.ContentType.MediaType = "application/json";
+            await client.PostAsync(url, datasent);
+           
+            await Navigation.PushAsync(new Profile1());
+            
         }
+
 
     }
 }

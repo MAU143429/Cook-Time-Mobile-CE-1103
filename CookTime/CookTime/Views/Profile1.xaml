@@ -25,7 +25,7 @@
                 <!--#endregion -->
 
             <!--#region Data of User Profile-->
-                <Button x:Name="profileimg"  BackgroundColor="#CCF47C" WidthRequest="100" HeightRequest="100"  Image ="defaultimg.png" Clicked="Change_Photo" />
+                <ImageButton x:Name="profileimg"  BackgroundColor="#CCF47C" WidthRequest="100" HeightRequest="100" Source="defaultimg.jpg" Clicked="Change_Photo" Aspect="AspectFill" />
                 <Label  WidthRequest="40" HeightRequest="15"  BackgroundColor="Transparent" />
                 <Grid VerticalOptions="CenterAndExpand" >
                     <Grid.RowDefinitions>
@@ -142,7 +142,7 @@
                             <ViewCell>
                                 <StackLayout HorizontalOptions="CenterAndExpand">
                                 <Label Text="{Binding Image}"/>
-                                <Label Text="{Binding Tittle}"/>
+                                <Label Text="{Binding Title}"/>
                             </StackLayout>
                             </ViewCell>
                         </DataTemplate>

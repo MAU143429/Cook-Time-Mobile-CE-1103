@@ -21,7 +21,7 @@ namespace CookTime.Views
     /// </summary>
     public partial class LoginPage : ContentPage
     {
-        CookTime.REST_API_UserModel.User CURRENTUSER;
+        public static CookTime.REST_API_UserModel.User CURRENTUSER;
         /// <summary>
         /// This method is used to change the current page to Register page
         /// @author Mauricio C.
@@ -80,8 +80,6 @@ namespace CookTime.Views
             }
 
         }
-
-
         /// <summary>
         /// This method is used to change the current page to Info page
         /// @author Mauricio C.

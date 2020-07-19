@@ -129,7 +129,7 @@ namespace CookTime.Views
             recipe.Time = "Appetizer";
             recipe.Difficulty = 67;
             recipe.Diet = "Carnivourous";
-            recipe.Ingredients = "Arroz, pollo, chile, etc";
+            recipe.Description = "Arroz, pollo, chile, etc";
             recipe.Steps = "Primero se hace el arroz, después se sacan trozos de la pechuga de pollo,....";
             recipe.Price = 3500;
             recipe.ImageURL = "https://img-global.cpcdn.com/recipes/bbbdd85a4baaadd8/400x400cq70/photo.jpg";

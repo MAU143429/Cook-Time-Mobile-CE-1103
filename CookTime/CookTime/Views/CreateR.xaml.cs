@@ -35,7 +35,7 @@ namespace CookTime.Views
         private void Share_Clicked(object sender, EventArgs e)
         {
             Share_Recipe();
-            DisplayAlert("Upload Successfull!", "Your recipe was uploaded successfully! ^^ ", "OK");
+            DisplayAlert("Upload Successfull!", "Your recipe was uploaded successfully!", "OK");
             Navigation.PushAsync(new Profile1());
 
         }
@@ -53,67 +53,35 @@ namespace CookTime.Views
             var date = DateTime.Now;
 
             Recipe recipe = new Recipe();
-            recipe.Author = "Automatic";
+            recipe.Title = namerecipe.Text;
+            recipe.Author = LoginPage.CURRENTUSER.Email;
             recipe.TypeOfDish = dish.ToString();
             recipe.Servings = Int32.Parse(servings.Text);
             recipe.Duration = duration.ToString();
             recipe.Time = time.ToString();
             recipe.Difficulty = Int32.Parse(Difficulty.Text);
             recipe.Diet = diets.ToString();
-            recipe.Ingredients = Ingredients.Text;
+            recipe.Description = Ingredients.Text;
             recipe.Steps = Steps.Text;
             recipe.Price = Int32.Parse(Price.Text);
             recipe.ImageURL = imageurl.Text;
-            recipe.Date = DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss");
+            recipe.Date = DateTime.Now.ToString("dd/MM/yyyy");
             recipe.Rating = 0;
+            
 
             HttpClient client = new HttpClient();
-            string url = "http://192.168.0.17:6969/test";
+            string url = "http://192.168.100.7:6969/newRecipe";
             String jsonNewRecipe = JsonConvert.SerializeObject(recipe);
             var datasent = new StringContent(jsonNewRecipe);
             datasent.Headers.ContentType.MediaType = "application/json";
-            /*var result = */
-            await client.PostAsync(url, datasent);
-            //var json = result.Content.ReadAsStringAsync().Result;
-            //await DisplayAlert("Result", json, "ok");
+            var result = await client.PostAsync(url, datasent);
+            var json = result.Content.ReadAsStringAsync().Result;
+            await DisplayAlert("Result", json, "ok");
+            Console.WriteLine("RECIPE" + jsonNewRecipe);
+            Console.WriteLine("RECIPE RESPONSE" + json );
+
         }
 
-        /*
-        public async void loadIMG()
-        {
-            if (!CrossMedia.Current.IsPickPhotoSupported)
-            {
-                await DisplayAlert("no upload", "picking a photo is not supported", "ok");
-                return;
-            }
-
-            var file = await CrossMedia.Current.PickPhotoAsync();
-            if (file == null)
-                return;
-
-            Image1.Source = ImageSource.FromStream(() => file.GetStream());
-
-            return Image1;
-        }
-        private static string ImageToBase64(Image image)
-        {
-            var imageStream = new MemoryStream();
-            try
-            {
-                image.Save(imageStream, System.Drawing.Imaging.ImageFormat.Bmp);
-                imageStream.Position = 0;
-                var imageBytes = imageStream.ToArray();
-                var ImageBase64 = Convert.ToBase64String(imageBytes);
-                return ImageBase64;
-            }
-            catch (Exception ex)
-            {
-                return "Error converting image to base64!";
-            }
-            finally
-            {
-                imageStream.Dispose;
-            }
-        }*/
+       
     }
 }

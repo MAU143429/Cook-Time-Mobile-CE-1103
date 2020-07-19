@@ -1,4 +1,7 @@
 ﻿
+
+using CookTime.REST_API_RecipeModel;
+
 using CookTime.User;
 using Newtonsoft.Json;
 using System;
@@ -26,11 +29,42 @@ namespace CookTime.Views
         /// This constructor execute Profile1 partial class 
         /// @author Mauricio C.
         /// </summary>
+        /// 
+        CookTime.REST_API_UserModel.User myprofile = LoginPage.CURRENTUSER;
+        ArrayList RecipeList;
         public Profile1()
         {
             InitializeComponent();
-            
-            
+            //Pull_Search_Request();
+            updateuser();
+
+            profileimg.Source = myprofile.Image;
+            username.Text = myprofile.Name;
+            posts.Text = Convert.ToString(myprofile.Recipes.Count);
+            followers.Text = Convert.ToString(myprofile.Followers.Count);
+            following.Text = Convert.ToString(myprofile.Following.Count);
+        }
+
+        private async void Pull_Search_Request()
+        {
+            /**
+            HttpClient client = new HttpClient();
+            string url = "http://192.168.100.7:6969/getRecipe/user/" + LoginPage.CURRENTUSER.Email;
+            var result = await client.GetAsync(url);
+            var json = result.Content.ReadAsStringAsync().Result;
+            Recipe newmodel = Recipe.
+            string[] recipe = newmodel.Recipes.ToArray<string[]>();
+            */
+        }
+        
+        public void ListReturn()
+        {
+            ListaR.ItemsSource = RecipeList;
+            Console.WriteLine(RecipeList[0]);
+        }
+        public void InitList()
+        {
+            RecipeList = new ArrayList();
         }
 
         /// <summary>
@@ -112,6 +146,17 @@ namespace CookTime.Views
         {
             //Navigation.PushAsync(new ViewRecipe());
         }
+
+        public async void updateuser()
+        {
+            HttpClient client = new HttpClient();
+            string url = "http://192.168.100.7:6969/email/getuser" + LoginPage.CURRENTUSER.Email;
+            var result = await client.GetAsync(url);
+            var json = result.Content.ReadAsStringAsync().Result;
+            myprofile = CookTime.REST_API_UserModel.User.FromJson(json);
+            Console.WriteLine(myprofile.Image);
+        }
+
 
     }
 }

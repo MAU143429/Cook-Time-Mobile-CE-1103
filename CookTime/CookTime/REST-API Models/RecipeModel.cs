@@ -49,8 +49,8 @@ namespace CookTime.REST_API_RecipeModel
         [JsonProperty("diet")]
         public string Diet { get; set; }
 
-        [JsonProperty("ingredients")]
-        public string Ingredients { get; set; }
+        [JsonProperty("description")]
+        public string Description { get; set; }
 
         [JsonProperty("steps")]
         public string Steps { get; set; }

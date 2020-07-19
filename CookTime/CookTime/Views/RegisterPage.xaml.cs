@@ -83,7 +83,7 @@ namespace CookTime.Views
             {
                 RegisterRequest();
                 DisplayAlert("REGISTRATION COMPLETE", "ENJOY COOKTIME!", "ACCEPT");
-                Navigation.PushAsync(new HomePage());
+                Navigation.PushAsync(new LoginPage());
             }
             else
             {
