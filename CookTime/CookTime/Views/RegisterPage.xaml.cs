@@ -1,5 +1,4 @@
-﻿
-using CookTime.REST_API_Models;
+﻿using CookTime.REST_API_Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -65,17 +64,11 @@ namespace CookTime.Views
                 var json = result.Content.ReadAsStringAsync().Result;
                 await DisplayAlert("Result", json, "ok");
             }
-            HttpClient cliente = new HttpClient();
-            string url = "http://192.168.100.7:6969/test";
-            String jsonNewUser = JsonConvert.SerializeObject(user);
-            Console.WriteLine("JSON NEW USER:" + jsonNewUser);
-            var datasent = new StringContent(jsonNewUser);
-            Console.WriteLine("DATASENT" + datasent);
-            datasent.Headers.ContentType.MediaType = "application/json";
-            var result = await cliente.PostAsync(url, datasent);
-            var json = result.Content.ReadAsStringAsync().Result;
-            await DisplayAlert("Result", json, "ok");
+
+
         }
+
+
         /// <summary>
         /// This method verify that not exist blank spaces and send the final request
         /// @author Mauricio C.
@@ -97,6 +90,8 @@ namespace CookTime.Views
                 DisplayAlert("ERROR", "YOU MUST FILL ALL THE BLANKS TO CONTINUE", "ACCEPT");
             }
         }
+
+
         /// <summary>
         /// This method encrypt the password with HASH MD5 algorithm
         /// @author Jose A.
