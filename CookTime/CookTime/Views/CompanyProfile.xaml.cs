@@ -152,5 +152,14 @@ namespace CookTime.Views
             Navigation.PushAsync(new ChangePassword());
 
         }
+        /// <summary>
+        /// This method is used to change the current page to AddMember page
+        /// @author Mauricio C.
+        /// </summary>
+        private void Add_Member(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new ChangePassword());
+
+        }
     }
 }

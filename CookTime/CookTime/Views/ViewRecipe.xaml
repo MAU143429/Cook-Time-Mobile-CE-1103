@@ -26,7 +26,7 @@
                                 <Label x:Name="AuthorPrev" Text="Author:"/>
                                 <Label x:Name="RecipeAuthor" Text="{Binding Author}"/>
                                 <Label x:Name="IngredientsPrev" Text="Ingredients:"/>
-                                <Label x:Name="RecipeIngredients" Text="{Binding Ingredients}"/>
+                                <Label x:Name="RecipeIngredients" Text="{Binding Description}"/>
                                 <Label x:Name="StepsPrev" Text="Preparation:"/>
                                 <Label x:Name="RecipeSteps" Text="{Binding Steps}"/>
                                 <Label x:Name="PrevServings" Text="Servings:"/>

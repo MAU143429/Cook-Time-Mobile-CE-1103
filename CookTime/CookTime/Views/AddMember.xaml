@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="CookTime.Views.AddMember">
+    <ContentPage.Content>
+        <StackLayout Padding="0" BackgroundColor="#FFFFFF" 
+            Orientation="Vertical"
+            VerticalOptions="StartAndExpand"
+            HorizontalOptions="CenterAndExpand">
+
+            <Label BackgroundColor="White" WidthRequest="40" HeightRequest="100" />
+            <Image HorizontalOptions="Center" Source="addmember.png" />
+            <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
+            <Entry x:Name="newmember" Keyboard="Default"  Placeholder="Enter new member email" WidthRequest="450"/>
+            <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
+            <Button x:Name="add" Text="ADD MEMBER" BackgroundColor="#CCF47C" WidthRequest="450" HeightRequest="60" ContentLayout="Top,1" Clicked="Add_Member"/>
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -23,7 +23,7 @@
                 Orientation="Horizontal"
                 VerticalOptions="Center"
                 HorizontalOptions="Center" >
-                <Image HorizontalOptions="Center" Source="defaultimg.png"  HeightRequest="100" WidthRequest="100"/>
+                <Image x:Name="profileimg" HorizontalOptions="Center" Source="defaultimg.png"  HeightRequest="100" WidthRequest="100"/>
                 <Label  WidthRequest="40" HeightRequest="15"  BackgroundColor="Transparent" />
                 <Grid VerticalOptions="CenterAndExpand" >
                     <Grid.RowDefinitions>
@@ -41,13 +41,13 @@
 
                     <Label Text="Posts" FontSize="Subtitle" WidthRequest="70" HeightRequest="20"  Grid.Row="0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.Column="0" />
                     <Label  WidthRequest="70" HeightRequest="10"  Grid.Row="1" Grid.Column="0" BackgroundColor="Transparent" />
-                    <Label Text="0" FontAttributes="Bold" WidthRequest="30" HeightRequest="20"  Grid.Row="2" HorizontalTextAlignment="Center" Grid.Column="0" />
+                    <Label x:Name="posts" Text="0" FontAttributes="Bold" WidthRequest="30" HeightRequest="20"  Grid.Row="2" HorizontalTextAlignment="Center" Grid.Column="0" />
                     <Label Text="Followers" FontSize="Subtitle" WidthRequest="70" HeightRequest="20"  Grid.Row="0" HorizontalTextAlignment="Center" Grid.Column="1" />
                     <Label  WidthRequest="70" HeightRequest="10"  Grid.Row="1" Grid.Column="1" BackgroundColor="Transparent" />
-                    <Label Text="0" FontAttributes="Bold" WidthRequest="30" HeightRequest="20"  Grid.Row="2" HorizontalTextAlignment="Center" Grid.Column="1" />
+                    <Label x:Name="followers" Text="0" FontAttributes="Bold" WidthRequest="30" HeightRequest="20"  Grid.Row="2" HorizontalTextAlignment="Center" Grid.Column="1" />
                     <Label Text="Following" FontSize="Subtitle" WidthRequest="70" HeightRequest="20"  Grid.Row="0" HorizontalTextAlignment="Center" Grid.Column="2" />
                     <Label  WidthRequest="70" HeightRequest="10"  Grid.Row="1" Grid.Column="2" BackgroundColor="Transparent"/>
-                    <Label Text="0" FontAttributes="Bold" WidthRequest="30" HeightRequest="20"  Grid.Row="2" HorizontalTextAlignment="Center" Grid.Column="2" />
+                    <Label x:Name="following" Text="0" FontAttributes="Bold" WidthRequest="30" HeightRequest="20"  Grid.Row="2" HorizontalTextAlignment="Center" Grid.Column="2" />
                     <Button x:Name="follow" BackgroundColor="#CCF47C" Text="Follow" WidthRequest="100" HeightRequest="40" Grid.Row="3" Grid.Column="1" FontSize="Subtitle" FontAttributes="Bold" Clicked="Send_Notification"/>
 
                 </Grid>

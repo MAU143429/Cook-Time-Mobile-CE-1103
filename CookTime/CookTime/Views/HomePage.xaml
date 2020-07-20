@@ -20,21 +20,21 @@
             <StackLayout Spacing="0">
                 <Image HorizontalOptions="Center" Source="homelogo.png" />
                 <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
-                <Label Text="Username" WidthRequest="40" HeightRequest="25"   FontSize="Large" />
+                <Label x:Name="recipeauthor" Text="Username" WidthRequest="40" HeightRequest="30"   FontSize="Large" />
                 <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
                 <StackLayout Padding="0"  
                 Orientation="Horizontal"
                 VerticalOptions="CenterAndExpand"
                 HorizontalOptions="CenterAndExpand">
-                    <Label Text="RECIPE NAME" WidthRequest="210" HeightRequest="40"   FontSize="Large" HorizontalTextAlignment="Center"/>
-                    <Label Text="4,5☆" WidthRequest="210" HeightRequest="40"   FontSize="Large" HorizontalTextAlignment="Center"/>
+                    <Label x:Name="recipename" Text="RECIPE NAME" WidthRequest="210" HeightRequest="40"   FontSize="Large" HorizontalTextAlignment="Center"/>
+                    <Label x:Name="reciperating" Text="4,5☆" WidthRequest="210" HeightRequest="40"   FontSize="Large" HorizontalTextAlignment="Center"/>
 
                 </StackLayout>
                 <!--#endregion -->
 
             <!--#region Image of current recipe and rating -->
                 <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
-                <Image x:Name="mainimage" HorizontalOptions="Center" Source = "recipe1.png" WidthRequest="500" HeightRequest="280" Aspect="AspectFill"/>
+                <ImageButton x:Name="recipeimage"  HorizontalOptions="Center"  WidthRequest="500" HeightRequest="280" Aspect="AspectFill"/>
                 <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
                 <StackLayout Padding="0" Spacing="0"
                 Orientation="Horizontal"

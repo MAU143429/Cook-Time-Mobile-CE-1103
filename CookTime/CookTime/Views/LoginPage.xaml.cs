@@ -16,15 +16,15 @@ namespace CookTime.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     /// <summary>
-    /// This class allows users to login in Cook Time application, if already have an account created
+    /// This class allows users to login in Cook Time application, if already have an account created.
     /// @author Jose A.
     /// </summary>
     public partial class LoginPage : ContentPage
     {
         public static CookTime.REST_API_UserModel.User CURRENTUSER;
         /// <summary>
-        /// This method is used to change the current page to Register page
-        /// @author Mauricio C.
+        /// This constructor execute Login Page partial class
+        /// @author Jose A.
         /// </summary>
         public LoginPage()
         {
@@ -34,7 +34,7 @@ namespace CookTime.Views
 
 
         /// <summary>
-        /// This method is used to change the current page to Home page and send a json file to verify the user credentials
+        /// This method is used to change the current page to Register page
         /// @author Mauricio C.
         /// </summary>
         private void Go_Register(object sender, EventArgs e)
@@ -42,7 +42,10 @@ namespace CookTime.Views
             Navigation.PushAsync(new Views.RegisterPage());
         }
 
-        
+        /// <summary>
+        /// This method is used to change the current page to Home page and send a json file to verify the user credentials
+        /// @author Mauricio C.
+        /// </summary>
         private async void Button_Clicked(object sender, EventArgs e)
         {
 
@@ -73,10 +76,6 @@ namespace CookTime.Views
                     await DisplayAlert("Cook Time", "Welcome back " + CURRENTUSER.Name, "OK");
                     await Navigation.PushAsync(new HomePage());
                 }
-
-
-
-
             }
 
         }

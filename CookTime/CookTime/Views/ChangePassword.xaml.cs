@@ -47,15 +47,13 @@ namespace CookTime.Views
                 await Navigation.PushAsync(new LoginPage());
             }
             else {
-                await DisplayAlert("ERROR", "YOU MUST FILL ALL THE BLANKS TO CONTINUE", "ACCEPT");
+                await DisplayAlert("ERROR", "VERIFY THAT  PASSWORDS ARE THE SAME", "ACCEPT");
             }
 
-
-
-
-
-            
-
+         /// <summary>
+        /// This method encrypt the password with HASH MD5 algorithm
+        /// @author Jose A.
+        /// </summary>
         }
         public static string CreateMD5(string input)
         {

@@ -32,7 +32,7 @@
                 <Entry x:Name="companynumber" Keyboard="Numeric" Grid.Row="2" Placeholder="Company Number" />
                 <Entry x:Name="companyschedule" Keyboard="Default" Grid.Row="3" Placeholder="Company Schedule"/>
                 <Entry x:Name="companyimg" Keyboard="Default" Grid.Row="4" Placeholder="Your logo image url here"/>
-                <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000" Grid.Row="4"/>
+                <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000" Grid.Row="5"/>
                 
 
             </Grid>

@@ -1,12 +1,12 @@
 ﻿
-
+using CookTime.REST_API_RecipeListModel;
 using CookTime.REST_API_RecipeModel;
-
 using CookTime.User;
 using Newtonsoft.Json;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -35,28 +35,79 @@ namespace CookTime.Views
         public Profile1()
         {
             InitializeComponent();
-            //Pull_Search_Request();
-            updateuser();
-
+            Pull_Search_Request();
             profileimg.Source = myprofile.Image;
             username.Text = myprofile.Name;
             posts.Text = Convert.ToString(myprofile.Recipes.Count);
             followers.Text = Convert.ToString(myprofile.Followers.Count);
             following.Text = Convert.ToString(myprofile.Following.Count);
+
+            if (LoginPage.CURRENTUSER.Hascompany == true)
+            {
+                CreateCompany.IsEnabled = false;
+            }
         }
 
         private async void Pull_Search_Request()
         {
-            /**
             HttpClient client = new HttpClient();
             string url = "http://192.168.100.7:6969/getRecipe/user/" + LoginPage.CURRENTUSER.Email;
             var result = await client.GetAsync(url);
             var json = result.Content.ReadAsStringAsync().Result;
-            Recipe newmodel = Recipe.
-            string[] recipe = newmodel.Recipes.ToArray<string[]>();
-            */
+            RecipeListModel listofrecipes = RecipeListModel.FromJson(json);
+            Console.WriteLine("RESULT" + json);
+            if (listofrecipes.Length == 0)
+            {
+                return;
+            }
+            else
+            {
+                StartList(listofrecipes);
+            }
+
+
         }
-        
+
+        public void StartList(RecipeListModel model)
+        {
+            InitList();
+            if (model.Head.Next != null)
+            {
+                RecipeList.Add(model.Head.Data);
+                ListAdd(model.Head.Next);
+            }
+            else
+            {
+                RecipeList.Add(model.Head.Data);
+                ListReturn();
+            }
+        }
+        private void ListAdd(CookTime.REST_API_RecipeListModel.Next next)
+        {
+            if (next.NextNext != null)
+            {
+                RecipeList.Add(next.Data);
+                ListAddRest(next.NextNext);
+            }
+            else
+            {
+                RecipeList.Add(next.Data);
+                ListReturn();
+            }
+        }
+        private void ListAddRest(CookTime.REST_API_RecipeListModel.Head head)
+        {
+            if (head.Next != null)
+            {
+                RecipeList.Add(head.Data);
+                ListAdd(head.Next);
+            }
+            else
+            {
+                RecipeList.Add(head.Data);
+                ListReturn();
+            }
+        }
         public void ListReturn()
         {
             ListaR.ItemsSource = RecipeList;
@@ -85,9 +136,9 @@ namespace CookTime.Views
 
         }
         /// <summary>
-         /// This method is used to update profile1 page
-         /// @author Mauricio C.
-         /// </summary>
+        /// This method is used to update profile1 page
+        /// @author Mauricio C.
+        /// </summary>
         private void Profile_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new Profile1());
@@ -138,23 +189,36 @@ namespace CookTime.Views
             Navigation.PushAsync(new ChangePassword());
 
         }
+
+
+       
+
+
+
         /// <summary>
         /// This method is used to change the current page to ViewRecipe page
         /// @author Mauricio C.
         /// </summary>
         public void View_Recipe(object sender, EventArgs e)
         {
-            //Navigation.PushAsync(new ViewRecipe());
+            Recipe item = (Recipe)ListaR.SelectedItem;
+            Navigation.PushAsync(new ViewRecipe(item));
         }
-
-        public async void updateuser()
+  
+        public async void updateuser(object sender, EventArgs e)
         {
+
+
             HttpClient client = new HttpClient();
             string url = "http://192.168.100.7:6969/email/getuser" + LoginPage.CURRENTUSER.Email;
             var result = await client.GetAsync(url);
             var json = result.Content.ReadAsStringAsync().Result;
             myprofile = CookTime.REST_API_UserModel.User.FromJson(json);
             Console.WriteLine(myprofile.Image);
+
+            
+
+           
         }
 
 

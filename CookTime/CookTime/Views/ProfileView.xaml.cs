@@ -25,11 +25,15 @@ namespace CookTime.Views
         /// This constructor execute Profile1 partial class and start a new pull search request to the server 
         /// @author Jose A.
         /// </summary>
+
+       
         ArrayList ProfileListView;
         public ProfileView()
         {
             InitializeComponent();
             Pull_Search_Request();
+            
+
         }
         /// <summary>
         /// This method create a new HTTP client and execute async method with the server to get the user data 
@@ -142,6 +146,10 @@ namespace CookTime.Views
         /// </summary>
         private void Send_Notification(object sender, EventArgs e)
         {
+
+
+
+
             DependencyService.Get<iNotification>().CreateNotification("CookTime", "Un usuario nuevo te ha seguido!");
 
         }

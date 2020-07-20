@@ -69,7 +69,7 @@
                 HorizontalOptions="Center">
                 <Button x:Name="changepass"  BackgroundColor="Transparent" ImageSource="pass.png" WidthRequest="50" HeightRequest="50" Clicked="Change_Pass" />
                 <Button x:Name="CreateRecipe" BackgroundColor="#CCF47C" Text="Create Recipe" WidthRequest="115" Clicked="Create_Clicked" />
-                <Button x:Name="AddMember" BackgroundColor="#CCF47C" Text="Add Member" WidthRequest="115" />
+                <Button x:Name="AddMember" BackgroundColor="#CCF47C" Text="Add Member" WidthRequest="115" Clicked="Add_Member"/>
                 <Button x:Name="ViewListMember" BackgroundColor="#CCF47C" Text="Member List" WidthRequest="115" Clicked="View_List" />
             </StackLayout>
             

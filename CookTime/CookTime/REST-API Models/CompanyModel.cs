@@ -46,10 +46,10 @@ namespace CookTime.REST_API_CompanyModel
         public int Posts { get; set; }
 
         [JsonProperty("followers")]
-        public int Followers { get; set; }
+        public JArray Followers { get; set; }
 
         [JsonProperty("following")]
-        public int Following { get; set; }
+        public JArray Following { get; set; }
 
         [JsonProperty("members")]
         public JArray Members { get; set; }

@@ -10,6 +10,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Xamarin.Forms.Internals;
 using CookTime.Views;
+using System.Data.Common;
 
 namespace CookTime.Views
 {
@@ -27,6 +28,7 @@ namespace CookTime.Views
         public CreateC()
         {
             InitializeComponent();
+            
         }
         /// <summary>
         /// This method is used to change the current page to Profile 1 page and create a new company
@@ -34,20 +36,57 @@ namespace CookTime.Views
         /// </summary>
         private void Share_Company(object sender, EventArgs e)
         {
-            //Publish_Company();
+            Publish_Company();
             DisplayAlert("Company Creation", "Your company was successfully created!", "OK");
             Navigation.PushAsync(new Profile1());
 
         }
-        /*
-        private async void Publish_Company() { }
+        
+        private async void Publish_Company() {
+
+            var email = LoginPage.CURRENTUSER.Email;
+            Company company = new Company();
+            company.Email = companyemail.Text;
+            company.Name = companyname.Text;
+            company.Schedule = companyschedule.Text;
+            company.Number = Int32.Parse(companynumber.Text);
+            company.Logo = companyimg.Text;
+            company.Location = "location";
+            company.Followers = null;
+            company.Posts = 0;
+            company.Following = null;
+            company.Members = null;
+            
+
+
+
             HttpClient client = new HttpClient();
-            string url = "http://192.168.0.17:6969/test";
+            string url = "http://192.168.100.7:6969/newCompany";
             String jsonNewUser = JsonConvert.SerializeObject(company);
             var datasent = new StringContent(jsonNewUser);
             datasent.Headers.ContentType.MediaType = "application/json";
-            await client.PostAsync(url, datasent);
-        }*/
+            var result = await client.PostAsync(url, datasent);
+
+            var n = result.Content.ReadAsStringAsync().Result;
+            await DisplayAlert("Result", n, "ok");
+
+            changehascompany();
+
+            
+        }
+
+        private async void changehascompany()
+        {
+            HttpClient client = new HttpClient();
+            String url2 = "http://192.168.100.7:6969/setUser/" + LoginPage.CURRENTUSER.Email + "/hasCompany";
+            var newboolean = "true";
+            var sendableboolean = new StringContent(newboolean);
+            sendableboolean.Headers.ContentType.MediaType = "application/json";
+            await client.PostAsync(url2, sendableboolean);
+
+        }
+
+
 
         /// <summary>
         /// This method allows the owner to set a location for company

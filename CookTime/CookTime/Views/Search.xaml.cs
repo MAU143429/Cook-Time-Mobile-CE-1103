@@ -47,7 +47,7 @@ namespace CookTime.Views
         private async void Pull_Better_Recipes()
         {
             HttpClient clientRecipes = new HttpClient();
-            string url = "http://192.168.100.7:6969/user";//TIENE QUE SER LOS 3 RECETAS CON MAYOR RATING
+            string url = "http://192.168.100.7:6969/";//TIENE QUE SER LOS 3 RECETAS CON MAYOR RATING
             var result = await clientRecipes.GetAsync(url);
             var json = result.Content.ReadAsStringAsync().Result;
             CookTime.REST_API_RecipeListModel.RecipeListModel newrecipemodel = CookTime.REST_API_RecipeListModel.RecipeListModel.FromJson(json);
