@@ -34,7 +34,7 @@ namespace CookTime.Views
 
             
             HttpClient client = new HttpClient();
-            string url = "http://192.168.100.7:6969/setUser/"+ LoginPage.CURRENTUSER.Email + "/image";
+            string url = "http://" + LoginPage.ip + ":6969/setUser/" + LoginPage.CURRENTUSER.Email + "/image";
             String newimg = newphoto.Text;
             var datasent = new StringContent(newimg);
             datasent.Headers.ContentType.MediaType = "application/json";

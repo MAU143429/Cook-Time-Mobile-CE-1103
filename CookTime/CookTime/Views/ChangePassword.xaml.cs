@@ -38,7 +38,7 @@ namespace CookTime.Views
             if (newpassword.Text == newpassword1.Text && newpassword != null && newpassword1 != null){
 
                 HttpClient client = new HttpClient();
-                string url = "http://192.168.100.7:6969/setUser/" + LoginPage.CURRENTUSER.Email + "/password";
+                string url = "http://" + LoginPage.ip + ":6969/setUser/" + LoginPage.CURRENTUSER.Email + "/password";
                 String newpass = CreateMD5(newpassword.Text);
                 var datasent = new StringContent(newpass);
                 datasent.Headers.ContentType.MediaType = "application/json";

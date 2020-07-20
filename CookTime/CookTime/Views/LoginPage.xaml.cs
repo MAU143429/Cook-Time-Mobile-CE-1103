@@ -20,8 +20,10 @@ namespace CookTime.Views
     /// @author Jose A.
     /// </summary>
     public partial class LoginPage : ContentPage
+
     {
         public static CookTime.REST_API_UserModel.User CURRENTUSER;
+        public static string ip = "192.168.100.8";
         /// <summary>
         /// This constructor execute Login Page partial class
         /// @author Jose A.
@@ -57,7 +59,7 @@ namespace CookTime.Views
                 string email = userEntry.Text;
                 string password = "/" + CreateMD5(pasEntry.Text);
                 HttpClient cliente = new HttpClient();
-                string url = "http://192.168.100.7:6969/login/" + email + password;
+                string url = "http://"+ ip +":6969/login/" + email + password;
                 var result = await cliente.GetAsync(url);
                 var json = result.Content.ReadAsStringAsync().Result;
                 CookTime.REST_API_UserModel.User InputUser = new REST_API_UserModel.User();
@@ -79,7 +81,7 @@ namespace CookTime.Views
         public static async void updateUser()
         {
             HttpClient cliente = new HttpClient();
-            string url = "http://192.168.100.7:6969/login/" + CURRENTUSER.Email +"/" + CURRENTUSER.Password;
+            string url = "http://" + ip + ":6969/login/" + CURRENTUSER.Email +"/" + CURRENTUSER.Password;
             var result = await cliente.GetAsync(url);
             var json = result.Content.ReadAsStringAsync().Result;
             CookTime.REST_API_UserModel.User InputUser = new REST_API_UserModel.User();

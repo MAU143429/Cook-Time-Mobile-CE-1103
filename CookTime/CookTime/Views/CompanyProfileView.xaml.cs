@@ -39,7 +39,7 @@ namespace CookTime.Views
             private async void Pull_Search_Request()
             {
                 HttpClient client = new HttpClient();
-                string url = "http://192.168.100.7:6969/user";
+                string url = "http://" + LoginPage.ip + ":6969/user";
                 var result = await client.GetAsync(url);
                 var json = result.Content.ReadAsStringAsync().Result;
                 CompanyListModel newmodel = CompanyListModel.FromJson(json);

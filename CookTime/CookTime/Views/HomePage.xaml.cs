@@ -1,5 +1,6 @@
 ﻿using CookTime.REST_API_RecipeListModel;
 using CookTime.User;
+using Newtonsoft.Json;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -41,7 +42,7 @@ namespace CookTime.Views
         private async void Pull_Search_Request()
         {
             HttpClient client = new HttpClient();
-            string url = "http://192.168.100.7:6969/getRecipeList";
+            string url = "http://" + LoginPage.ip + ":6969/sorting/getDates";
             var result = await client.GetAsync(url);
             var json = result.Content.ReadAsStringAsync().Result;
             RecipeListModel listofrecipes = RecipeListModel.FromJson(json);
@@ -175,6 +176,18 @@ namespace CookTime.Views
         private void View_Recipe(object sender, EventArgs e)
         {
             Navigation.PushAsync(new ViewRecipe(currentRecipe));
+
+        }
+        private async void Share_Recipe(object sender, EventArgs e)
+        {
+            currentRecipe.Author = LoginPage.CURRENTUSER.Email;
+            HttpClient client = new HttpClient();
+            string url = "http://" + LoginPage.ip + ":6969/newRecipe";
+            String jsonNewRecipe = JsonConvert.SerializeObject(currentRecipe);
+            var datasent = new StringContent(jsonNewRecipe);
+            datasent.Headers.ContentType.MediaType = "application/json";
+            var result = await client.PostAsync(url, datasent);
+            var json = result.Content.ReadAsStringAsync().Result;
 
         }
     }

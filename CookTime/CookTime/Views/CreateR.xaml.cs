@@ -71,7 +71,7 @@ namespace CookTime.Views
             
 
             HttpClient client = new HttpClient();
-            string url = "http://192.168.100.7:6969/newRecipe";
+            string url = "http://" + LoginPage.ip + ":6969/newRecipe";
             String jsonNewRecipe = JsonConvert.SerializeObject(recipe);
             var datasent = new StringContent(jsonNewRecipe);
             datasent.Headers.ContentType.MediaType = "application/json";

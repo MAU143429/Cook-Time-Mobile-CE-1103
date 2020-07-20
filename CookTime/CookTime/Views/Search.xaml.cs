@@ -33,7 +33,7 @@ namespace CookTime.Views
         private async void Pull_Better_Users()
         {
             HttpClient clientUsers = new HttpClient();
-            string url = "http://192.168.100.7:6969/user";//TIENE QUE SER LOS 3 USUARIOS CON MAYOR RATING
+            string url = "http://" + LoginPage.ip + ":6969/user";//TIENE QUE SER LOS 3 USUARIOS CON MAYOR RATING
             var result = await clientUsers.GetAsync(url);
             var json = result.Content.ReadAsStringAsync().Result;
             UserListModel newusermodel = UserListModel.FromJson(json);
@@ -42,7 +42,7 @@ namespace CookTime.Views
         private async void Pull_Better_Recipes()
         {
             HttpClient clientRecipes = new HttpClient();
-            string url = "http://192.168.100.7:6969/sorting/getRatings";//TIENE QUE SER LOS 3 RECETAS CON MAYOR RATING
+            string url = "http://" + LoginPage.ip + ":6969/sorting/getRatings";//TIENE QUE SER LOS 3 RECETAS CON MAYOR RATING
             var result = await clientRecipes.GetAsync(url);
             var json = result.Content.ReadAsStringAsync().Result;
             CookTime.REST_API_RecipeListModel.RecipeListModel newrecipemodel = CookTime.REST_API_RecipeListModel.RecipeListModel.FromJson(json);
@@ -51,7 +51,7 @@ namespace CookTime.Views
         private async void Pull_Better_Companies()
         {
             HttpClient clientCompanies = new HttpClient();
-            string url = "http://192.168.100.7:6969/test";//TIENE QUE SER LOS 3 RESTAURANTES CON MAYOR RATING
+            string url = "http://" + LoginPage.ip + ":6969/test";//TIENE QUE SER LOS 3 RESTAURANTES CON MAYOR RATING
             var result = await clientCompanies.GetAsync(url);
             var json = result.Content.ReadAsStringAsync().Result;
             CookTime.REST_API_CompanyListModel.CompanyListModel newcompanymodel = CookTime.REST_API_CompanyListModel.CompanyListModel.FromJson(json);

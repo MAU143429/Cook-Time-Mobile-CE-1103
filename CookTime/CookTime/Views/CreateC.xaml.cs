@@ -61,7 +61,7 @@ namespace CookTime.Views
 
 
             HttpClient client = new HttpClient();
-            string url = "http://192.168.100.7:6969/newCompany";
+            string url = "http://" + LoginPage.ip + ":6969/newCompany";
             String jsonNewUser = JsonConvert.SerializeObject(company);
             var datasent = new StringContent(jsonNewUser);
             datasent.Headers.ContentType.MediaType = "application/json";
@@ -78,7 +78,7 @@ namespace CookTime.Views
         private async void changehascompany()
         {
             HttpClient client = new HttpClient();
-            String url2 = "http://192.168.100.7:6969/setUser/" + LoginPage.CURRENTUSER.Email + "/hasCompany";
+            String url2 = "http://" + LoginPage.ip + ":6969/setUser/" + LoginPage.CURRENTUSER.Email + "/hasCompany";
             var newboolean = "true";
             var sendableboolean = new StringContent(newboolean);
             sendableboolean.Headers.ContentType.MediaType = "application/json";

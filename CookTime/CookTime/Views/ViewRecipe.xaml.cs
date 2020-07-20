@@ -1,8 +1,12 @@
-﻿using CookTime.User;
+﻿using CookTime.REST_API_RecipeModel;
+using CookTime.User;
+using Newtonsoft.Json;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -19,6 +23,7 @@ namespace CookTime.Views
     public partial class ViewRecipe : ContentPage
     {
         ArrayList RecipeList;
+        public static Recipe showrecipe;
         /// <summary>
         /// This constructor execute ViewRecipe partial class 
         /// @author Mauricio C.
@@ -28,7 +33,10 @@ namespace CookTime.Views
             InitializeComponent();
             InitList();
             StartPage(recipe);
+            showrecipe = recipe;
+
         }
+        
         /// <summary>
         /// This method take the data of recipe and add it to the RecipeList
         /// @author Mauricio C.
@@ -61,21 +69,28 @@ namespace CookTime.Views
         /// This method allow users to comment in one recipe
         /// @author Mauricio C.
         /// </summary>
-        private void CommentR(object sender, EventArgs e)
+        private async void CommentR(object sender, EventArgs e)
         {
-
 
             var commentValidate = Comment.Text;
             if (!string.IsNullOrEmpty(commentValidate))
             {
-                DisplayAlert("COOKTIME", "YOUR COMMENT HAS BEEN PUBLISHED", "ACCEPT");
+                HttpClient client = new HttpClient();
+                string url = "http://" + LoginPage.ip + ":6969/addComment/" + showrecipe.Title+ "/" + LoginPage.CURRENTUSER.Email + "/" ;
+                String newcomment = Comment.Text;
+                var datasent = new StringContent(newcomment);
+                datasent.Headers.ContentType.MediaType = "application/json";
+                var result = await client.PostAsync(url, datasent);
+                var json = result.Content.ReadAsStringAsync().Result;
+                Console.WriteLine(json);
+                await DisplayAlert("COOKTIME", "YOUR COMMENT HAS BEEN PUBLISHED", "ACCEPT");
                 DependencyService.Get<iNotification>().CreateNotification("CookTime", "Un usuario ha comentado en tu receta!");
-                Navigation.PushAsync(new ShowSearch());
+                await Navigation.PushAsync(new ShowSearch());
 
             }
             else
             {
-                DisplayAlert("COOKTIME", "ENTER A COMMENT TO CONTINUE ", "ACCEPT");
+                await DisplayAlert("COOKTIME", "ENTER A COMMENT TO CONTINUE ", "ACCEPT");
             }
 
         }
