@@ -23,7 +23,7 @@ namespace CookTime.Views
         CookTime.REST_API_RecipeModel.Recipe currentRecipe;
         ArrayList RecipeList;
         public int index = 0;
-        public static int lenght;
+        public static int length;
         /// <summary>
         /// This constructor execute Home Page
         /// @author Jose A.
@@ -41,7 +41,7 @@ namespace CookTime.Views
         private async void Pull_Search_Request()
         {
             HttpClient client = new HttpClient();
-            string url = "http://192.168.100.7:6969/sorting/getDates";
+            string url = "http://192.168.100.7:6969/getRecipeList";
             var result = await client.GetAsync(url);
             var json = result.Content.ReadAsStringAsync().Result;
             RecipeListModel listofrecipes = RecipeListModel.FromJson(json);
@@ -99,7 +99,7 @@ namespace CookTime.Views
         }
         public void ListReturn()
         {
-            lenght = RecipeList.Count;
+            length = RecipeList.Count;
             currentRecipe = (CookTime.REST_API_RecipeModel.Recipe)RecipeList[index];
             recipeauthor.Text = currentRecipe.Author;
             recipename.Text = currentRecipe.Title;
@@ -147,31 +147,34 @@ namespace CookTime.Views
 
         private async void Next(object sender, EventArgs e)
         {
-            Console.WriteLine("LENGHT:"+lenght);
+            Console.WriteLine("LENGHT:"+length);
             Console.WriteLine("INDEX:"+index);
-            if (index == lenght) {
+            if (index >= length) {
 
                 await DisplayAlert("Cook Time", "Ya no hay recetas en el servidor", "Aceptar");
                 index = 0;
+                ListReturn();
                 return;
 
             }
+            
             else
             {
                 
-                if (RecipeList[index] == null)
-                {
-                    return;
-                }
-                else
-                {
-
-                    DependencyService.Get<iNotification>().CreateNotification("CookTime", "Un usuario ha calificado tu receta!");
-                }
+                ListReturn();
                 index++;
+                var rate = rating.SelectedIndex;
+                if (rate >= 0 && rate <= 4)
+                {
+                    DependencyService.Get<iNotification>().CreateNotification("CookTime", "Un usuario ha calificado tu receta!");
+                    
+                }
+               
             }
-         
-
+        }
+        private void View_Recipe(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new ViewRecipe(currentRecipe));
 
         }
     }
