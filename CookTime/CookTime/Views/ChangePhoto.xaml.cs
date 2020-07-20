@@ -39,7 +39,7 @@ namespace CookTime.Views
             var datasent = new StringContent(newimg);
             datasent.Headers.ContentType.MediaType = "application/json";
             await client.PostAsync(url, datasent);
-           
+            LoginPage.updateUser();
             await Navigation.PushAsync(new Profile1());
             
         }

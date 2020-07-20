@@ -103,7 +103,7 @@ namespace CookTime.Views
             currentRecipe = (CookTime.REST_API_RecipeModel.Recipe)RecipeList[index];
             recipeauthor.Text = currentRecipe.Author;
             recipename.Text = currentRecipe.Title;
-            recipeimage.Source = currentRecipe.ImageURL;
+            recipeimage.Source = currentRecipe.Image;
             reciperating.Text = Convert.ToString(currentRecipe.Rating) + "☆";
 
 

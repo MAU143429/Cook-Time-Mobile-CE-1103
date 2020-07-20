@@ -21,7 +21,7 @@
                                 <Label x:Name="RecipeTitle" Text="{Binding Title}"/>
                                 <Label x:Name="RatingPrev" Text="Rating ★:"/>
                                 <Label x:Name="RecipeName" Text="{Binding Rating}"/>
-                                <Image x:Name="RecipeImg"    HorizontalOptions="Center" Source="{Binding ImageURL}"  HeightRequest="300" WidthRequest="350"/>
+                                <Image x:Name="RecipeImg"    HorizontalOptions="Center" Source="{Binding Image}"  HeightRequest="300" WidthRequest="350"/>
                                 <Label x:Name="RecipeDate" Text="{Binding Date}"/>
                                 <Label x:Name="AuthorPrev" Text="Author:"/>
                                 <Label x:Name="RecipeAuthor" Text="{Binding Author}"/>

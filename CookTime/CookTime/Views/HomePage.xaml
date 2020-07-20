@@ -34,7 +34,7 @@
 
             <!--#region Image of current recipe and rating -->
                 <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
-                <ImageButton x:Name="recipeimage"  HorizontalOptions="Center"  WidthRequest="500" HeightRequest="280" Aspect="AspectFill"/>
+                <Image x:Name="recipeimage"  HorizontalOptions="Center"  WidthRequest="500" HeightRequest="280" Aspect="AspectFill"/>
                 <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
                 <StackLayout Padding="0" Spacing="0"
                 Orientation="Horizontal"

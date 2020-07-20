@@ -29,6 +29,7 @@ namespace CookTime.Views
         public LoginPage()
         {
             InitializeComponent();
+            
 
         }
 
@@ -57,11 +58,6 @@ namespace CookTime.Views
                 string password = "/" + CreateMD5(pasEntry.Text);
                 HttpClient cliente = new HttpClient();
                 string url = "http://192.168.100.7:6969/login/" + email + password;
-                //String jsonNewUser = JsonConvert.SerializeObject(user);
-                // Console.WriteLine("JSON NEW USER:" + jsonNewUser);
-                //var datasent = new StringContent(jsonNewUser);
-                //Console.WriteLine("DATASENT" + datasent);
-                //datasent.Headers.ContentType.MediaType = "application/json";
                 var result = await cliente.GetAsync(url);
                 var json = result.Content.ReadAsStringAsync().Result;
                 CookTime.REST_API_UserModel.User InputUser = new REST_API_UserModel.User();
@@ -78,6 +74,25 @@ namespace CookTime.Views
                 }
             }
 
+        }
+
+        public static async void updateUser()
+        {
+            HttpClient cliente = new HttpClient();
+            string url = "http://192.168.100.7:6969/login/" + CURRENTUSER.Email +"/" + CURRENTUSER.Password;
+            var result = await cliente.GetAsync(url);
+            var json = result.Content.ReadAsStringAsync().Result;
+            CookTime.REST_API_UserModel.User InputUser = new REST_API_UserModel.User();
+            InputUser = CookTime.REST_API_UserModel.User.FromJson(json);
+            if (InputUser.Name == null)
+            {
+                return;
+            }
+            else
+            {
+                CURRENTUSER = CookTime.REST_API_UserModel.User.FromJson(json);
+
+            }
         }
         /// <summary>
         /// This method is used to change the current page to Info page

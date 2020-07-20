@@ -151,8 +151,7 @@
                         <DataTemplate>
                             <ViewCell>
                                 <StackLayout HorizontalOptions="CenterAndExpand">
-                                    <Label Text="{Binding Name}"/>
-                                    <Image Source="{Binding ImageURL}" Aspect="AspectFill" WidthRequest="80" HeightRequest="80" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand"/>
+                                    <Image Source="{Binding Image}" Aspect="AspectFill" WidthRequest="50" HeightRequest="50" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand"/>
                                 </StackLayout>
                             </ViewCell>
                         </DataTemplate>

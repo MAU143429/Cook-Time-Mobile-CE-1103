@@ -110,12 +110,12 @@
 
 
 
-            <ListView x:Name="ListaR" RowHeight="200"   >
+            <ListView x:Name="ListaR" RowHeight="200" >
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-                                <Image Source="{Binding ImageURL}" Aspect="AspectFill" HeightRequest="200" WidthRequest="200"/>
+                                <Image Source="{Binding Image}" Aspect="AspectFill" HeightRequest="200" WidthRequest="200"/>
                                 <Label Text="{Binding Title}" FontSize="Title" FontAttributes="Bold" />
                             </StackLayout>
                             </ViewCell>

@@ -36,6 +36,7 @@ namespace CookTime.Views
         {
             Share_Recipe();
             DisplayAlert("Upload Successfull!", "Your recipe was uploaded successfully!", "OK");
+            LoginPage.updateUser();
             Navigation.PushAsync(new Profile1());
 
         }
@@ -64,7 +65,7 @@ namespace CookTime.Views
             recipe.Description = Ingredients.Text;
             recipe.Steps = Steps.Text;
             recipe.Price = Int32.Parse(Price.Text);
-            recipe.ImageURL = imageurl.Text;
+            recipe.Image = imageurl.Text;
             recipe.Date = DateTime.Now.ToString("dd/MM/yyyy");
             recipe.Rating = 0;
             
@@ -79,6 +80,7 @@ namespace CookTime.Views
             await DisplayAlert("Result", json, "ok");
             Console.WriteLine("RECIPE" + jsonNewRecipe);
             Console.WriteLine("RECIPE RESPONSE" + json );
+
 
         }
 

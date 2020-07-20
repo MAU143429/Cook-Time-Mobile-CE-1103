@@ -51,7 +51,7 @@ namespace CookTime.Views
         private async void Pull_Search_Request()
         {
             HttpClient client = new HttpClient();
-            string url = "http://192.168.100.7:6969/getRecipe/user/" + LoginPage.CURRENTUSER.Email;
+            string url = "http://192.168.100.7:6969/getRecipe/" + LoginPage.CURRENTUSER.Email + "/user";
             var result = await client.GetAsync(url);
             var json = result.Content.ReadAsStringAsync().Result;
             RecipeListModel listofrecipes = RecipeListModel.FromJson(json);
@@ -210,7 +210,7 @@ namespace CookTime.Views
 
 
             HttpClient client = new HttpClient();
-            string url = "http://192.168.100.7:6969/email/getuser" + LoginPage.CURRENTUSER.Email;
+            string url = "http://192.168.100.7:6969/email/getUser/" + LoginPage.CURRENTUSER.Email;
             var result = await client.GetAsync(url);
             var json = result.Content.ReadAsStringAsync().Result;
             myprofile = CookTime.REST_API_UserModel.User.FromJson(json);

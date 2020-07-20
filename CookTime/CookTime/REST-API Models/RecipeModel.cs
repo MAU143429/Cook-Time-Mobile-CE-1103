@@ -59,7 +59,7 @@ namespace CookTime.REST_API_RecipeModel
         public int Price { get; set; }
 
         [JsonProperty("image")]
-        public string ImageURL { get; set; }
+        public string Image { get; set; }
 
         [JsonProperty("date")]
         public string Date { get; set; }
@@ -68,7 +68,7 @@ namespace CookTime.REST_API_RecipeModel
         public int Rating { get; set; }
 
         [JsonProperty("comments")]
-        public JArray Comments { get; set; }
+        public string Comments { get; set; }
 
 
     }
