@@ -29,7 +29,7 @@ namespace CookTime.Views
         /// This constructor execute Home Page
         /// @author Jose A.
         /// </summary>
-        public HomePage()
+        public HomePage() 
         {
             
             InitializeComponent();

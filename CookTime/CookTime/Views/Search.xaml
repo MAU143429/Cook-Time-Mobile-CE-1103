@@ -132,6 +132,7 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
+                <Button x:Name="profilebtn" Text="View" BackgroundColor="#CCF47C" WidthRequest="80" HeightRequest="40" ContentLayout="Top,1" Clicked="Profile_View" />
             </StackLayout>
             <!--#endregion-->
 
@@ -158,6 +159,7 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
+                <Button x:Name="recipebtn" Text="View" BackgroundColor="#CCF47C" WidthRequest="80" HeightRequest="40" ContentLayout="Top,1" Clicked="Recipe_View" />
 
             </StackLayout>
             <!--#endregion-->
@@ -185,9 +187,11 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
+                <Button x:Name="companybtn" Text="View" BackgroundColor="#CCF47C" WidthRequest="80" HeightRequest="40" ContentLayout="Top,1" Clicked="Company_View" />
             </StackLayout>
             <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
-            <Button x:Name="searchview" Text="View" BackgroundColor="#CCF47C" WidthRequest="100" HeightRequest="50" ContentLayout="Top,1" Clicked="Searching" />
+            
+            
 
 
 

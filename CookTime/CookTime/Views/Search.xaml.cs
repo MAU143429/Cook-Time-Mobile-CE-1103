@@ -218,8 +218,25 @@ namespace CookTime.Views
             Navigation.PushAsync(new Profile1());
 
         }
-        
-    private void Searching(object sender, EventArgs e)
+        private void Profile_View(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new ProfileView());
+
+        }
+        private void Recipe_View(object sender, EventArgs e)
+        {
+            //Navigation.PushAsync(new ViewRecipe());
+            
+
+        }
+        private void Company_View(object sender, EventArgs e)
+        { 
+            Navigation.PushAsync(new CompanyProfile());
+
+        }
+
+
+        private void Searching(object sender, EventArgs e)
         {
             var searchValidate = search1.Text;
             if (!string.IsNullOrEmpty(searchValidate))
