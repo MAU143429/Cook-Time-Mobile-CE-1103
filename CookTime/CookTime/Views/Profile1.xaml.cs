@@ -41,7 +41,7 @@ namespace CookTime.Views
             posts.Text = Convert.ToString(myprofile.Recipes.Count);
             followers.Text = Convert.ToString(myprofile.Followers.Count);
             following.Text = Convert.ToString(myprofile.Following.Count);
-
+            LoginPage.updateUser();
             if (LoginPage.CURRENTUSER.Hascompany == true)
             {
                 CreateCompany.IsEnabled = false;
@@ -167,6 +167,11 @@ namespace CookTime.Views
         /// </summary>
         private void CompanyP(object sender, EventArgs e)
         {
+            
+            
+            
+            
+            
             Navigation.PushAsync(new CompanyProfile());
 
         }
@@ -191,9 +196,6 @@ namespace CookTime.Views
         }
 
 
-       
-
-
 
         /// <summary>
         /// This method is used to change the current page to ViewRecipe page
@@ -215,10 +217,6 @@ namespace CookTime.Views
             var json = result.Content.ReadAsStringAsync().Result;
             myprofile = CookTime.REST_API_UserModel.User.FromJson(json);
             Console.WriteLine(myprofile.Image);
-
-            
-
-           
         }
 
 

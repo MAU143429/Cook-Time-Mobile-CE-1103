@@ -66,13 +66,16 @@ namespace CookTime.REST_API_CompanyListModel
         public int Posts { get; set; }
 
         [JsonProperty("followers")]
-        public int Followers { get; set; }
+        public JArray Followers { get; set; }
 
         [JsonProperty("following")]
-        public int Following { get; set; }
+        public JArray Following { get; set; }
 
         [JsonProperty("members")]
         public JArray Members { get; set; }
+
+        [JsonProperty("recipe")]
+        public JArray Recipes { get; set; }
     }
 
     public partial class CompanyListModel

@@ -42,7 +42,7 @@ namespace CookTime.Views
             HttpClient cliente = new HttpClient();
             if (ChefBox.IsChecked)
             {
-                string url = "http://" + LoginPage.ip +":6969/newUser";//AQUI DEBE IR EL URL PARA CHEFS
+                string url = "http://" + LoginPage.ip +":6969/newChef";//AQUI DEBE IR EL URL PARA CHEFS 
                 String jsonNewUser = JsonConvert.SerializeObject(user);
                 Console.WriteLine("JSON NEW USER:" + jsonNewUser);
                 var datasent = new StringContent(jsonNewUser);

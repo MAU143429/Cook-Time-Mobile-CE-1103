@@ -1,4 +1,5 @@
 ﻿using CookTime.REST_API_CompanyListModel;
+using CookTime.REST_API_CompanyModel;
 using CookTime.User;
 using System;
 using System.Collections;
@@ -25,10 +26,18 @@ namespace CookTime.Views
         /// @author Jose A.
         /// </summary>
         ArrayList CompanyList;
+        public Company mycompany;
+        
         public CompanyProfile()
         {
             InitializeComponent();
             Pull_Search_Request();
+
+            profileimg.ImageSource = mycompany.Logo;
+            //posts.Text = Convert.ToString(mycompany.;
+            followers.Text = Convert.ToString(mycompany.Followers.Count);
+            following.Text = Convert.ToString(mycompany.Following.Count);
+
         }
 
         /// <summary>
@@ -38,11 +47,12 @@ namespace CookTime.Views
         private async void Pull_Search_Request()
         {
             HttpClient client = new HttpClient();
-            string url = "http://" + LoginPage.ip + ":6969/user";
+            string url = "http://" + LoginPage.ip + ":6969/getCompany/user/" + LoginPage.CURRENTUSER.Email;
             var result = await client.GetAsync(url);
             var json = result.Content.ReadAsStringAsync().Result;
-            CompanyListModel newmodel = CompanyListModel.FromJson(json);
-            StartList(newmodel);
+            Company currentcompany = Company.FromJson(json);
+            mycompany = currentcompany;
+            
         }
         /// <summary>
         /// This method take the first element and add it

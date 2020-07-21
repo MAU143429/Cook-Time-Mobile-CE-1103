@@ -23,7 +23,7 @@ namespace CookTime.Views
 
     {
         public static CookTime.REST_API_UserModel.User CURRENTUSER;
-        public static string ip = "192.168.0.17";
+        public static string ip = "192.168.100.8";
         /// <summary>
         /// This constructor execute Login Page partial class
         /// @author Jose A.

@@ -136,8 +136,8 @@
                         <DataTemplate>
                             <ViewCell>
                                 <StackLayout HorizontalOptions="CenterAndExpand">
-                                    <Label Text="{Binding Name}"/>
-                                    <Label Text="{Binding Email}"/>
+                                    <Image Source="{Binding Image}" Aspect="AspectFill" HeightRequest="200" WidthRequest="200"/>
+                                    <Label Text="{Binding Title}" FontSize="Title" FontAttributes="Bold" />
                                 </StackLayout>
                             </ViewCell>
                         </DataTemplate>
