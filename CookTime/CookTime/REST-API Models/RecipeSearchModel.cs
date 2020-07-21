@@ -20,7 +20,7 @@ namespace CookTime.REST_API_RecipeSearchModel
     public partial class RecipeModel
     {
         [JsonProperty("newrecipes")]
-        public Recipe[] Recipes { get; set; }
+        public RecipeS[] Recipes { get; set; }
     }
 
     public partial class RecipeS

@@ -250,7 +250,7 @@ namespace CookTime.Views
 
                         if (Checked_Search() == 1)
                         {
-                            Navigation.PushAsync(new ShowSearch(1,search1.Text,"","",""));
+                            Navigation.PushAsync(new ShowSearch(1,search1.Text,"","",0));
                             DisplayAlert("COOKTIME", "user", "ACCEPT");
 
                         }
@@ -260,10 +260,11 @@ namespace CookTime.Views
                             var filter2 = DurationS.SelectedIndex;
                             var filter3 = ServingsS.SelectedIndex;
 
-                            var sel1 = DishesS.SelectedItem;
-                            var sel2 = DurationS.SelectedItem;
-                            var sel3 = ServingsS.SelectedItem;
-
+                            string sel1 = DishesS.SelectedItem.ToString();
+                            string sel2 = DurationS.SelectedItem.ToString();
+                            string sel3temp = ServingsS.SelectedItem.ToString();
+                            int sel3 = Int32.Parse(sel3temp);
+                            
                             var f1 = DishesS.SelectedItem;
 
                             Boolean v1, v2, v3;
@@ -283,7 +284,7 @@ namespace CookTime.Views
                         }
                         if (Checked_Search() == 3)
                         {
-                            Navigation.PushAsync(new ShowSearch(3, search1.Text,"","",""));
+                            Navigation.PushAsync(new ShowSearch(3, search1.Text,"","",0));
                             DisplayAlert("COOKTIME", "company", "ACCEPT");
 
                         }

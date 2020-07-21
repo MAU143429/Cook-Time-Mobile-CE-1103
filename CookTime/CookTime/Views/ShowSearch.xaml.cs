@@ -221,7 +221,7 @@ namespace CookTime.Views
             if (Reference == 1)
             {
                 REST_API_UserModel.User user = (REST_API_UserModel.User)ListaObjects.SelectedItem;
-                Navigation.PushAsync(new ProfileView(user));
+                //Navigation.PushAsync(new ProfileView(user));
             }
             if (Reference == 2)
             {
@@ -231,7 +231,7 @@ namespace CookTime.Views
             if (Reference == 3)
             {
                 Company company = (Company)ListaObjects.SelectedItem;
-                Navigation.PushAsync(new CompanyProfileView(company));
+                //Navigation.PushAsync(new CompanyProfileView(company));
             }
             
         }

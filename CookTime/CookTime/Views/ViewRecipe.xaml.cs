@@ -55,7 +55,7 @@ namespace CookTime.Views
         private void DeleteR(object sender, EventArgs e)
         {
             
-            Navigation.PushAsync(new ShowSearch());
+            Navigation.PushAsync(new Search());
             DisplayAlert("COOKTIME", "RECIPE HAS BEEN DELETED", "ACCEPT");
            
             
@@ -85,7 +85,7 @@ namespace CookTime.Views
         {
             
             
-            Navigation.PushAsync(new ShowSearch());
+            Navigation.PushAsync(new Search());
             DisplayAlert("COOKTIME", "RECIPE HAS BEEN SHARED", "ACCEPT");
               
         }
@@ -110,7 +110,7 @@ namespace CookTime.Views
                 Console.WriteLine(json);
                 await DisplayAlert("COOKTIME", "YOUR COMMENT HAS BEEN PUBLISHED", "ACCEPT");
                 DependencyService.Get<iNotification>().CreateNotification("CookTime", "Un usuario ha comentado en tu receta!");
-                await Navigation.PushAsync(new ShowSearch());
+                await Navigation.PushAsync(new  Search());
 
             }
             else
