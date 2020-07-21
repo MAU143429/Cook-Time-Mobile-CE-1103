@@ -73,6 +73,9 @@ namespace CookTime.REST_API_CompanyListModel
 
         [JsonProperty("members")]
         public JArray Members { get; set; }
+
+        [JsonProperty("recipe")]
+        public JArray Recipes { get; set; }
     }
 
     public partial class CompanyListModel

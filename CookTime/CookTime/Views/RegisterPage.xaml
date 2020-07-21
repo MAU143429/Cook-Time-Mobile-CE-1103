@@ -32,7 +32,7 @@
                 <Entry x:Name="nameEntry" Keyboard="Default" Grid.Row="1" Placeholder="Name and Lastnames" />
                 <Entry x:Name="ageEntry" Keyboard ="Numeric"   Grid.Row="2" Placeholder="Age"/>
                 <Entry x:Name="emailEntry" Keyboard ="Default"   Grid.Row="3" Placeholder="E-mail"/>
-                <Entry x:Name="passwordEntry" Keyboard ="Default"   Grid.Row="4" Placeholder="Password"/>
+                <Entry x:Name="passwordEntry" IsPassword="True" Keyboard ="Default"   Grid.Row="4" Placeholder="Password"/>
                 <Label x:Name="text2" Text="Are you a chef? If you are check the circle below!" Grid.Row="5" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
                 <CheckBox x:Name="ChefBox" Color="White" Grid.Row="6" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
                     <VisualStateManager.VisualStateGroups>

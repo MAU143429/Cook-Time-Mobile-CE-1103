@@ -87,7 +87,7 @@
                     </Picker.ItemsSource>
 
                 </Picker>
-                <Button Text="SHARE" WidthRequest="180" HeightRequest="40"  FontSize="Large" BackgroundColor="#CCF47C" Clicked="ShareRecipe"/>
+                <Button x:Name="sharecipe" Text="SHARE" WidthRequest="180" HeightRequest="40"  FontSize="Large" BackgroundColor="#CCF47C" Clicked="ShareRecipe"/>
                 
                 
             </StackLayout>

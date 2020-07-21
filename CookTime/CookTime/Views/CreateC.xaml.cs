@@ -61,12 +61,12 @@ namespace CookTime.Views
 
 
             HttpClient client = new HttpClient();
-            string url = "http://" + LoginPage.ip + ":6969/newCompany";
+            string url = "http://" + LoginPage.ip + ":6969/newCompany/"+ LoginPage.CURRENTUSER.Email;
             String jsonNewUser = JsonConvert.SerializeObject(company);
             var datasent = new StringContent(jsonNewUser);
             datasent.Headers.ContentType.MediaType = "application/json";
             var result = await client.PostAsync(url, datasent);
-
+            Console.WriteLine(url);
             var n = result.Content.ReadAsStringAsync().Result;
             await DisplayAlert("Result", n, "ok");
 

@@ -30,10 +30,12 @@ namespace CookTime.Views
         /// </summary>
         public ViewRecipe(CookTime.REST_API_RecipeModel.Recipe recipe)
         {
+
+            showrecipe = recipe;
             InitializeComponent();
+            update();
             InitList();
             StartPage(recipe);
-            showrecipe = recipe;
 
         }
         
@@ -52,8 +54,28 @@ namespace CookTime.Views
         /// </summary>
         private void DeleteR(object sender, EventArgs e)
         {
+            
             Navigation.PushAsync(new ShowSearch());
             DisplayAlert("COOKTIME", "RECIPE HAS BEEN DELETED", "ACCEPT");
+           
+            
+            
+        }
+
+        private void update()
+        {
+            if (showrecipe.Author == LoginPage.CURRENTUSER.Email)
+            {
+                rating.IsEnabled = false;
+                sharecipe.IsEnabled = false;
+                
+            }
+            if (showrecipe.Author != LoginPage.CURRENTUSER.Email)
+            {
+                Delete.IsEnabled = false;
+            }
+            
+
         }
         /// <summary>
         /// This method take one recipe and share in newsfeed page
@@ -61,8 +83,11 @@ namespace CookTime.Views
         /// </summary>
         private void ShareRecipe (object sender, EventArgs e)
         {
-           
+            
+            
+            Navigation.PushAsync(new ShowSearch());
             DisplayAlert("COOKTIME", "RECIPE HAS BEEN SHARED", "ACCEPT");
+              
         }
 
         /// <summary>

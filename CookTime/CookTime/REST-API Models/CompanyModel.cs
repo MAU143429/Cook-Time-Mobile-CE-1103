@@ -53,11 +53,14 @@ namespace CookTime.REST_API_CompanyModel
 
         [JsonProperty("members")]
         public JArray Members { get; set; }
+
+        [JsonProperty("recipe")]
+        public JArray Recipes { get; set; }
     }
 
-    public partial class CompanyModel
+    public partial class Company
     {
-        public static CompanyModel FromJson(string json) => JsonConvert.DeserializeObject<CompanyModel>(json, CookTime.REST_API_CompanyModel.Converter.Settings);
+        public static Company FromJson(string json) => JsonConvert.DeserializeObject<Company>(json, CookTime.REST_API_CompanyModel.Converter.Settings);
     }
 
     public static class Serialize
