@@ -42,7 +42,7 @@ namespace CookTime.Views
         private async void Pull_Search_Request()
         {
             HttpClient client = new HttpClient();
-            string url = "http://" + LoginPage.ip + ":6969/sorting/getDates";
+            string url = "http://" + LoginPage.ip + ":6969/getRecipeList";
             var result = await client.GetAsync(url);
             var json = result.Content.ReadAsStringAsync().Result;
             RecipeListModel listofrecipes = RecipeListModel.FromJson(json);
