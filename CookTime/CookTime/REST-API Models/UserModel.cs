@@ -15,6 +15,7 @@ namespace CookTime.REST_API_UserModel
     using Newtonsoft.Json;
     using Newtonsoft.Json.Linq;
     using Newtonsoft.Json.Converters;
+    using CookTime.REST_API_RecipeListModel;
 
     public partial class UserModel
     {

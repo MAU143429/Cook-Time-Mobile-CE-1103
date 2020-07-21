@@ -24,16 +24,16 @@ namespace CookTime.Views
         public Search()
         {
             InitializeComponent();
-           // Pull_Better_Companies();
+            //Pull_Better_Companies();
             Pull_Better_Recipes();
-           //Pull_Better_Users();
+            //Pull_Better_Users();
 
 
         }
         private async void Pull_Better_Users()
         {
             HttpClient clientUsers = new HttpClient();
-            string url = "http://" + LoginPage.ip + ":6969/user";//TIENE QUE SER LOS 3 USUARIOS CON MAYOR RATING
+            string url = "http://" + LoginPage.ip + ":6969/getUser/userShuffledList";//TIENE QUE SER LOS 3 USUARIOS CON MAYOR RATING
             var result = await clientUsers.GetAsync(url);
             var json = result.Content.ReadAsStringAsync().Result;
             UserListModel newusermodel = UserListModel.FromJson(json);
@@ -250,15 +250,22 @@ namespace CookTime.Views
 
                         if (Checked_Search() == 1)
                         {
-                            Navigation.PushAsync(new ShowSearch());
+                            Navigation.PushAsync(new ShowSearch(1,search1.Text,"","",""));
                             DisplayAlert("COOKTIME", "user", "ACCEPT");
+
                         }
                         if (Checked_Search() == 2)
                         {
                             var filter1 = DishesS.SelectedIndex;
                             var filter2 = DurationS.SelectedIndex;
                             var filter3 = ServingsS.SelectedIndex;
+
+                            var sel1 = DishesS.SelectedItem;
+                            var sel2 = DurationS.SelectedItem;
+                            var sel3 = ServingsS.SelectedItem;
+
                             var f1 = DishesS.SelectedItem;
+
                             Boolean v1, v2, v3;
                             v1 = false;
                             v2 = false;
@@ -268,7 +275,7 @@ namespace CookTime.Views
                             if (filter2 >= 0 && filter2 <= 4) { v2 = true; }
                             if (filter3 >= 0 && filter3 <= 4) { v3 = true; }
 
-                            Navigation.PushAsync(new ShowSearch());
+                            Navigation.PushAsync(new ShowSearch(2, search1.Text, sel1, sel2, sel3));
                             DisplayAlert("COOKTIME", "recipe", "ACCEPT");
 
 
@@ -276,7 +283,7 @@ namespace CookTime.Views
                         }
                         if (Checked_Search() == 3)
                         {
-                            Navigation.PushAsync(new ShowSearch());
+                            Navigation.PushAsync(new ShowSearch(3, search1.Text,"","",""));
                             DisplayAlert("COOKTIME", "company", "ACCEPT");
 
                         }
@@ -299,6 +306,12 @@ namespace CookTime.Views
             }
 
         }
+        public async void SearchUsers()
+        {
+            HttpClient client = new HttpClient();
+            string url = "http://" + LoginPage.ip + ":6969/user";
+        }
+
 
         private int Checked_Search()
         {

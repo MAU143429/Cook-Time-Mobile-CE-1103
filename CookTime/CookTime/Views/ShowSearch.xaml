@@ -16,15 +16,14 @@
         <StackLayout>
             <Label Text="Your search results:" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
             <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
-            <ListView x:Name="ListaUsers">
+            <ListView x:Name="ListaObjects">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout HorizontalOptions="CenterAndExpand">
-                                <Label Text="{Binding Age}"/>
-                                <Label Text="{Binding Email}"/>
+                                <Label Text="{Binding Title}"/>
                                 <Label Text="{Binding Name}"/>
-                                <Label Text="{Binding Password}"/>
+                                <Image Source="{Binding Image}" Aspect="AspectFill" HeightRequest="100" WidthRequest="100" />
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
