@@ -36,7 +36,16 @@ namespace CookTime.Views
         {
             InitializeComponent();
             Pull_Search_Request();
-            profileimg.Source = myprofile.Image;
+
+            if (myprofile.Image == null)
+            {
+                profileimg.Source = "defaultimg.jpg";
+            }
+            else
+            {
+                profileimg.Source = myprofile.Image;
+            }
+            
             username.Text = myprofile.Name;
             posts.Text = Convert.ToString(myprofile.Recipes.Count);
             followers.Text = Convert.ToString(myprofile.Followers.Count);
@@ -45,6 +54,10 @@ namespace CookTime.Views
             if (LoginPage.CURRENTUSER.Hascompany == true)
             {
                 CreateCompany.IsEnabled = false;
+            }
+            else
+            {
+                CompanyProfile.IsEnabled = false;
             }
         }
 
@@ -167,11 +180,7 @@ namespace CookTime.Views
         /// </summary>
         private void CompanyP(object sender, EventArgs e)
         {
-            
-            
-            
-            
-            
+           
             Navigation.PushAsync(new CompanyProfile());
 
         }
@@ -182,7 +191,7 @@ namespace CookTime.Views
 
         private void Change_Photo(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new ChangePhoto());
+            Navigation.PushAsync(new ChangePhoto(1));
 
         }
         /// <summary>
@@ -192,6 +201,31 @@ namespace CookTime.Views
         private void Change_Pass(object sender, EventArgs e)
         {
             Navigation.PushAsync(new ChangePassword());
+
+        }
+
+
+        private async void Sort_Difficulty(object sender, EventArgs e)
+        {
+            
+
+        }
+
+        private async void Sort_Date(object sender, EventArgs e)
+        {
+            HttpClient client = new HttpClient();
+            string url = "http://" + LoginPage.ip + ":6969/sorting/getDates/" + LoginPage.CURRENTUSER.Email;
+            var result = await client.GetAsync(url);
+            var json = result.Content.ReadAsStringAsync().Result;
+            RecipeListModel recipeList = RecipeListModel.FromJson(json);
+            StartList(recipeList);
+        }
+
+        private async void Sort_Rating(object sender, EventArgs e)
+        {
+            
+            
+           
 
         }
 
@@ -210,13 +244,22 @@ namespace CookTime.Views
         public async void updateuser(object sender, EventArgs e)
         {
 
-
+           
             HttpClient client = new HttpClient();
             string url = "http://" + LoginPage.ip + ":6969/email/getUser/" + LoginPage.CURRENTUSER.Email;
             var result = await client.GetAsync(url);
             var json = result.Content.ReadAsStringAsync().Result;
             myprofile = CookTime.REST_API_UserModel.User.FromJson(json);
             Console.WriteLine(myprofile.Image);
+            if (LoginPage.CURRENTUSER.Hascompany == true)
+            {
+                CreateCompany.IsEnabled = false;
+            }
+            else
+            {
+                CompanyProfile.IsEnabled = false;
+            }
+            await Navigation.PushAsync(new Profile1());
         }
 
 

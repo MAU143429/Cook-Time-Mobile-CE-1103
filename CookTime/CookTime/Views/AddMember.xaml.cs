@@ -1,6 +1,8 @@
-﻿using System;
+﻿using CookTime.REST_API_CompanyModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -20,19 +22,37 @@ namespace CookTime.Views
         /// This method is used to change the current page to AddMember page
         /// @author Mauricio C.
         /// </summary>
-        private void Add_Member(object sender, EventArgs e)
+        private async void Add_Member(object sender, EventArgs e)
         {
-            if(newmember != null)
+            var membervalidate = newmember.Text;
+            if (!string.IsNullOrEmpty(membervalidate))
             {
-                DisplayAlert("ERROR", "Member added successfully", "ACCEPT");
-                Navigation.PushAsync(new CompanyProfile());
+                HttpClient client = new HttpClient();
+                string url = "http://" + LoginPage.ip + ":6969/user/" + newmember.Text + "/addMember/" + CompanyProfile.mycompany.Email;
+                Console.WriteLine(url);
+                var result  = await client.GetAsync(url);
+                var json = result.Content.ReadAsStringAsync().Result;
+
+                if (json == "Please check your info") {
+
+                    await DisplayAlert("ERROR", "The user email doesn't exist", "ACCEPT");
+                }
+                else
+                {
+                    await DisplayAlert("Cook Time", "Member added successfully", "ACCEPT");
+                    await Navigation.PushAsync(new CompanyProfile());
+                }
+
+                
+
             }
             else
             {
-                DisplayAlert("ERROR", "The user email doesn't exist", "ACCEPT");
+                await DisplayAlert("ERROR", "YOU MUST FILL ALL THE BLANKS TO CONTINUE", "ACCEPT");
+                
             }
 
-            DisplayAlert("ERROR", "YOU MUST FILL ALL THE BLANKS TO CONTINUE", "ACCEPT");
+            
 
 
         }

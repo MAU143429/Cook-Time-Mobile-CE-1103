@@ -125,8 +125,8 @@
                         <DataTemplate>
                             <ViewCell>
                                 <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-                                    <Label Text="{Binding Name}"/>
-                                    <Image Source="{Binding Image}" Aspect="AspectFill" WidthRequest="100" HeightRequest="100" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand"/>
+                                    <Image Source="{Binding Image}" Aspect="AspectFill" WidthRequest="100" HeightRequest="50" />
+                                    <Label Text="{Binding Name}" FontSize="Title" FontAttributes="Bold"/>
                                 </StackLayout>
                             </ViewCell>
                         </DataTemplate>
@@ -139,7 +139,7 @@
             <!--#region Recipes recommendations-->
             <StackLayout>
                 <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
-                <Label Text="RECIPES" FontAttributes="Bold"  WidthRequest="100" HeightRequest="20" FontSize="Subtitle" />
+                <Label Text="RECIPES" FontAttributes="Bold"  WidthRequest="200" HeightRequest="200" FontSize="Subtitle" />
                 <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
             </StackLayout>
             
@@ -147,12 +147,12 @@
                     Orientation ="Horizontal"
                     VerticalOptions="Center"
                     HorizontalOptions="CenterAndExpand">
-                <ListView x:Name="RecommendedRecipes" RowHeight="500">
+                <ListView x:Name="RecommendedRecipes" RowHeight="100">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-                                    <Image Source="{Binding Image}" Aspect="AspectFill" WidthRequest="200" HeightRequest="200" />
+                                    <Image Source="{Binding Image}" WidthRequest="100" HeightRequest="50" Aspect="AspectFill"/>
                                     <Label Text="{Binding Title}" FontSize="Title" FontAttributes="Bold" />
                                 </StackLayout>
                             </ViewCell>
@@ -179,9 +179,9 @@
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
-                                <StackLayout HorizontalOptions="CenterAndExpand">
-                                    <Label Text="{Binding Name}"/>
-                                    <Image Source="{Binding Image}" Aspect="AspectFill" WidthRequest="80" HeightRequest="80" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand"/>
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                                    <Image Source="{Binding Logo}" Aspect="AspectFill" WidthRequest="100" HeightRequest="50" />
+                                    <Label Text="{Binding Name}" FontSize="Title" FontAttributes="Bold"/>
                                 </StackLayout>
                             </ViewCell>
                         </DataTemplate>

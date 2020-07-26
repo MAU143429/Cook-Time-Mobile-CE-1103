@@ -38,13 +38,29 @@ namespace CookTime.Views
             Duration = duration;
             Servings = servings;
             Reference = reference;
-            if(reference == 1)
+            Console.WriteLine(reference);
+            Console.WriteLine(searchKey);
+            Console.WriteLine(type);
+            Console.WriteLine(duration);
+            Console.WriteLine(servings);
+            if (reference == 1)
             {
                 Pull_Search_Request_U();
             }
             if (reference == 2)
             {
-                Pull_Search_Request_R();
+                if ( type == " " && duration == " " && servings == 0)
+                {
+                    Search_Name_R();
+                    Console.WriteLine("Metodo de busqueda por nomnbre");
+
+                }
+                else
+                {
+                    Pull_Search_Request_R();
+                }
+                    
+                
             }
             if (reference == 3)
             {
@@ -55,11 +71,20 @@ namespace CookTime.Views
         private async void Pull_Search_Request_U()
         {
             HttpClient client = new HttpClient();
-            string url = "http://" + LoginPage.ip + ":6969/searchUser/"+searchKey;
+            string url = "http://" + LoginPage.ip + ":6969/searchUser/"+searchKey + "/";
             var result = await client.GetAsync(url);
             var json = result.Content.ReadAsStringAsync().Result;
             UserListModel newmodel = UserListModel.FromJson(json);
             StartList_U(newmodel);
+        }
+        private async void Search_Name_R()
+        {
+            HttpClient client = new HttpClient();
+            string url = "http://" + LoginPage.ip + ":6969/searchRecipe/" + searchKey + "/";
+            var result = await client.GetAsync(url);
+            var json = result.Content.ReadAsStringAsync().Result;
+            RecipeListModel newmodel = RecipeListModel.FromJson(json);
+            StartList_R(newmodel);
         }
         private async void Pull_Search_Request_R()
         {
@@ -81,7 +106,7 @@ namespace CookTime.Views
         private async void Pull_Search_Request_C()
         {
             HttpClient client = new HttpClient();
-            string url = "http://" + LoginPage.ip + ":6969/searchCompany/"+searchKey;
+            string url = "http://" + LoginPage.ip + ":6969/searchCompany/"+searchKey + "/";
             var result = await client.GetAsync(url);
             var json = result.Content.ReadAsStringAsync().Result;
             CompanyListModel newmodel = CompanyListModel.FromJson(json);

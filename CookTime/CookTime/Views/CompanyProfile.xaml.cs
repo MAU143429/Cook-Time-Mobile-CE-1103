@@ -1,5 +1,6 @@
-﻿using CookTime.REST_API_CompanyListModel;
+﻿
 using CookTime.REST_API_CompanyModel;
+using CookTime.REST_API_RecipeListModel;
 using CookTime.User;
 using System;
 using System.Collections;
@@ -25,20 +26,19 @@ namespace CookTime.Views
         /// This constructor execute CompanyProfile partial class and start a new pull search request to the server 
         /// @author Jose A.
         /// </summary>
-        ArrayList CompanyList;
-        public Company mycompany;
+        ArrayList RecipeList;
+        public static Company mycompany;
         
+
         public CompanyProfile()
         {
             InitializeComponent();
+            Pull_Company_Request();
             Pull_Search_Request();
 
-            profileimg.ImageSource = mycompany.Logo;
-            //posts.Text = Convert.ToString(mycompany.;
-            followers.Text = Convert.ToString(mycompany.Followers.Count);
-            following.Text = Convert.ToString(mycompany.Following.Count);
-
         }
+
+
 
         /// <summary>
         /// This method create a new HTTP client and execute async method with the server to get the company data 
@@ -47,28 +47,58 @@ namespace CookTime.Views
         private async void Pull_Search_Request()
         {
             HttpClient client = new HttpClient();
+            string url = "http://" + LoginPage.ip + ":6969/getRecipe/" + LoginPage.CURRENTUSER.Email + "/user";
+            var result = await client.GetAsync(url);
+            var json = result.Content.ReadAsStringAsync().Result;
+            RecipeListModel listofrecipes = RecipeListModel.FromJson(json);
+            Console.WriteLine("RESULT" + json);
+            if (listofrecipes.Length == 0)
+            {
+                return;
+            }
+            else
+            {
+                StartList(listofrecipes);
+            }
+
+
+        }
+
+        private async void Pull_Company_Request()
+        {
+            HttpClient client = new HttpClient();
             string url = "http://" + LoginPage.ip + ":6969/getCompany/user/" + LoginPage.CURRENTUSER.Email;
             var result = await client.GetAsync(url);
             var json = result.Content.ReadAsStringAsync().Result;
+            Console.WriteLine("SERVER:" + json);
             Company currentcompany = Company.FromJson(json);
+            Console.WriteLine("RESULTTTTTTTT"+currentcompany);
             mycompany = currentcompany;
-            
+            profileimg.Source = mycompany.Logo;
+            companyname.Text = mycompany.Name;
+            posts.Text = Convert.ToString(mycompany.Recipes.Count);
+            followers.Text = Convert.ToString(mycompany.Followers.Count);
+            following.Text = Convert.ToString(mycompany.Following.Count);
+            companyshedule.Text = mycompany.Schedule;
+            companynumber.Text = Convert.ToString(mycompany.Number);
+
+
         }
         /// <summary>
         /// This method take the first element and add it
         /// @author Jose A.
         /// </summary>
-        public void StartList(CompanyListModel model)
+        public void StartList(RecipeListModel model)
         {
             
             InitList();
             if(model.Head.Next != null) {
-                CompanyList.Add(model.Head.Data);
+                RecipeList.Add(model.Head.Data);
                 ListAdd(model.Head.Next);
             }
             else
             {
-                CompanyList.Add(model.Head.Data);
+                RecipeList.Add(model.Head.Data);
                 ListReturn();   
             }
         }
@@ -76,16 +106,16 @@ namespace CookTime.Views
         /// This method take the data and add it to the CompanyList 
         /// @author Jose A.
         /// </summary>
-        private void ListAdd(CookTime.REST_API_CompanyListModel.Next next)
+        private void ListAdd(CookTime.REST_API_RecipeListModel.Next next)
         {
             if (next.NextNext != null)
             {
-                CompanyList.Add(next.Data);
+                RecipeList.Add(next.Data);
                 ListAddRest(next.NextNext);
             }
             else
             {
-                CompanyList.Add(next.Data);
+                RecipeList.Add(next.Data);
                 ListReturn();
             }
         }
@@ -93,16 +123,16 @@ namespace CookTime.Views
         /// This method verify the current data is the last element in json file, if it is the last element the method add it and return the finally list
         /// @author Jose A.
         /// </summary>
-        private void ListAddRest(CookTime.REST_API_CompanyListModel.Head head)
+        private void ListAddRest(CookTime.REST_API_RecipeListModel.Head head)
         {
             if (head.Next != null)
             {
-                CompanyList.Add(head.Data);
+                RecipeList.Add(head.Data);
                 ListAdd(head.Next);
             }
             else
             {
-                CompanyList.Add(head.Data);
+                RecipeList.Add(head.Data);
                 ListReturn();
             }
         }
@@ -112,8 +142,8 @@ namespace CookTime.Views
         /// </summary>
         public void ListReturn()
         {
-            ListaRCP.ItemsSource = CompanyList;
-            Console.WriteLine(CompanyList[0]);
+            ListaRCP.ItemsSource = RecipeList;
+            Console.WriteLine(RecipeList[0]);
         }
         /// <summary>
         /// This method inicializate ArrayList
@@ -121,7 +151,7 @@ namespace CookTime.Views
         /// </summary>
         public void InitList()
         {
-            CompanyList = new ArrayList();
+            RecipeList = new ArrayList();
         }
 
         /// <summary>
@@ -150,26 +180,38 @@ namespace CookTime.Views
         /// </summary>
         private void Change_Photo(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new ChangePhoto());
+            Navigation.PushAsync(new ChangePhoto(2));
 
         }
-        /// <summary>
-        /// This method is used to change the current page to Change Password page
-        /// @author Mauricio C.
-        /// </summary>
-        private void Change_Pass(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new ChangePassword());
-
-        }
+        
         /// <summary>
         /// This method is used to change the current page to AddMember page
         /// @author Mauricio C.
         /// </summary>
         private void Add_Member(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new ChangePassword());
+        
+            Navigation.PushAsync(new AddMember());
 
         }
+        private async void Sort_Difficulty(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private async void Sort_Date(object sender, EventArgs e)
+        {
+            
+        }
+
+        private async void Sort_Rating(object sender, EventArgs e)
+        {
+
+
+
+
+        }
+
     }
 }

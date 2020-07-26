@@ -23,7 +23,7 @@ namespace CookTime.Views
 
     {
         public static CookTime.REST_API_UserModel.User CURRENTUSER;
-        public static string ip = "192.168.100.8";
+        public static string ip = "192.168.0.100";
         /// <summary>
         /// This constructor execute Login Page partial class
         /// @author Jose A.
@@ -102,7 +102,7 @@ namespace CookTime.Views
         /// </summary>
         private void Info_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new ProfileView());
+            Navigation.PushAsync(new AboutPage());
         }
         /// <summary>
         /// This method encrypt the password with HASH MD5 algorithm

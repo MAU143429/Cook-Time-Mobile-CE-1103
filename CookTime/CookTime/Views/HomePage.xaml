@@ -66,7 +66,7 @@
             <!--#region View and Share  Buttons -->
                 <Button Text="VIEW RECIPE" WidthRequest="40" HeightRequest="60"   FontSize="Large" BackgroundColor="#FFB24B" Clicked="View_Recipe" />
                 <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
-                <Button Text="SHARE" WidthRequest="40" HeightRequest="60"  FontSize="Large" BackgroundColor="#CCF47C"/>
+                <Button Text="SHARE" WidthRequest="40" HeightRequest="60"  FontSize="Large" BackgroundColor="#CCF47C" Clicked="Share_Recipe"/>
                 <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
             </StackLayout>
             <!--#endregion -->

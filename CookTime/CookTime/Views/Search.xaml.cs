@@ -12,6 +12,7 @@ using CookTime.REST_API_CompanyListModel;
 using CookTime.REST_API_RecipeListModel;
 using CookTime.REST_API_UserListModel;
 using System.Security.Cryptography;
+using CookTime.REST_API_RecipeModel;
 
 namespace CookTime.Views
 {
@@ -24,9 +25,9 @@ namespace CookTime.Views
         public Search()
         {
             InitializeComponent();
-            //Pull_Better_Companies();
+            Pull_Better_Companies();
             Pull_Better_Recipes();
-            //Pull_Better_Users();
+            Pull_Better_Users();
 
 
         }
@@ -37,7 +38,15 @@ namespace CookTime.Views
             var result = await clientUsers.GetAsync(url);
             var json = result.Content.ReadAsStringAsync().Result;
             UserListModel newusermodel = UserListModel.FromJson(json);
-            StartUserList(newusermodel);
+            if (newusermodel.Length == 0)
+            {
+                return;
+            }
+            else
+            {
+                StartUserList(newusermodel);
+            }
+
         }
         private async void Pull_Better_Recipes()
         {
@@ -46,16 +55,33 @@ namespace CookTime.Views
             var result = await clientRecipes.GetAsync(url);
             var json = result.Content.ReadAsStringAsync().Result;
             CookTime.REST_API_RecipeListModel.RecipeListModel newrecipemodel = CookTime.REST_API_RecipeListModel.RecipeListModel.FromJson(json);
-            StartRecipeList(newrecipemodel);
+            if (newrecipemodel.Length == 0)
+            {
+                return;
+            }
+            else
+            {
+                StartRecipeList(newrecipemodel);
+            }
+            
         }
         private async void Pull_Better_Companies()
         {
             HttpClient clientCompanies = new HttpClient();
-            string url = "http://" + LoginPage.ip + ":6969/test";//TIENE QUE SER LOS 3 RESTAURANTES CON MAYOR RATING
+            string url = "http://" + LoginPage.ip + ":6969/getCompany/companyShuffledList";//TIENE QUE SER LOS 3 RESTAURANTES CON MAYOR RATING
             var result = await clientCompanies.GetAsync(url);
             var json = result.Content.ReadAsStringAsync().Result;
             CookTime.REST_API_CompanyListModel.CompanyListModel newcompanymodel = CookTime.REST_API_CompanyListModel.CompanyListModel.FromJson(json);
-            StartCompanyList(newcompanymodel);
+            if (newcompanymodel.Length == 0)
+            {
+                return;
+            }
+            else
+            {
+                StartCompanyList(newcompanymodel);
+            }
+
+            
         }
         public void StartUserList(UserListModel model)
         {
@@ -220,18 +246,21 @@ namespace CookTime.Views
         }
         private void Profile_View(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new ProfileView());
+            CookTime.REST_API_UserModel.User item = (CookTime.REST_API_UserModel.User)RecommendedUser.SelectedItem;
+            Navigation.PushAsync(new ProfileView(item));
 
         }
         private void Recipe_View(object sender, EventArgs e)
         {
-            //Navigation.PushAsync(new ViewRecipe());
+            Recipe item = (Recipe)RecommendedRecipes.SelectedItem;
+            Navigation.PushAsync(new ViewRecipe(item));
             
 
         }
         private void Company_View(object sender, EventArgs e)
-        { 
-            Navigation.PushAsync(new CompanyProfile());
+        {
+            CookTime.REST_API_CompanyModel.Company item = (CookTime.REST_API_CompanyModel.Company)RecommendedCompanies.SelectedItem;
+            Navigation.PushAsync(new CompanyProfileView(item));
 
         }
 
@@ -260,21 +289,41 @@ namespace CookTime.Views
                             var filter2 = DurationS.SelectedIndex;
                             var filter3 = ServingsS.SelectedIndex;
 
-                            string sel1 = DishesS.SelectedItem.ToString();
-                            string sel2 = DurationS.SelectedItem.ToString();
-                            string sel3temp = ServingsS.SelectedItem.ToString();
-                            int sel3 = Int32.Parse(sel3temp);
+                            string sel1, sel2 ;
+                            int sel3;
+
+
+                            if(filter1 == -1)
+                            {
+                                 sel1 = " ";
+                            }
+                            else
+                            {
+                                 sel1 = DishesS.SelectedItem.ToString();
+                            }
+
+                            if (filter1 == -1)
+                            {
+                                 sel2 = " ";
+                            }
+                            else
+                            {
+                                 sel2 = DurationS.SelectedItem.ToString();
+                            }
+
+                            if (filter1 == -1)
+                            {
+                                string sel3temp= " ";
+                                sel3  = 0;
+                            }
+                            else
+                            {
+                                string sel3temp = ServingsS.SelectedItem.ToString();
+                                sel3 = Int32.Parse(sel3temp);
+                            }
+
                             
-                            var f1 = DishesS.SelectedItem;
 
-                            Boolean v1, v2, v3;
-                            v1 = false;
-                            v2 = false;
-                            v3 = false;
-
-                            if (filter1 >= 0 && filter1 <= 4) { v1 = true; Console.WriteLine(f1); }
-                            if (filter2 >= 0 && filter2 <= 4) { v2 = true; }
-                            if (filter3 >= 0 && filter3 <= 4) { v3 = true; }
 
                             Navigation.PushAsync(new ShowSearch(2, search1.Text, sel1, sel2, sel3));
                             DisplayAlert("COOKTIME", "recipe", "ACCEPT");

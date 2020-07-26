@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xamarin.Forms.Internals;
+using CookTime.REST_API_RecipeListModel;
 
 namespace CookTime.Views
 {
@@ -26,11 +28,24 @@ namespace CookTime.Views
         /// @author Jose A.
         /// </summary>
 
-       
+        CookTime.REST_API_UserModel.User User;
         ArrayList ProfileListView;
-        public ProfileView()
+        public ProfileView(CookTime.REST_API_UserModel.User user)
         {
             InitializeComponent();
+            User = user;
+            if (User.Image == null)
+            {
+                profileimg.Source = "defaultimg.jpg";
+            }
+            else
+            {
+                profileimg.Source = User.Image;
+            }
+            username.Text = User.Name;
+            posts.Text = Convert.ToString(User.Recipes.Count);
+            followers.Text = Convert.ToString(User.Followers.Count);
+            following.Text = Convert.ToString(User.Following.Count);
             Pull_Search_Request();
             
 
@@ -42,17 +57,25 @@ namespace CookTime.Views
         private async void Pull_Search_Request()
         {
             HttpClient client = new HttpClient();
-            string url = "http://" + LoginPage.ip + ":6969/user";
+            string url = "http://" + LoginPage.ip + ":6969/getRecipe/" + User.Email + "/user";
             var result = await client.GetAsync(url);
             var json = result.Content.ReadAsStringAsync().Result;
-            UserListModel newmodel = UserListModel.FromJson(json);
-            StartList(newmodel);
+            RecipeListModel listofrecipes = RecipeListModel.FromJson(json);
+            Console.WriteLine("RESULT" + json);
+            if (listofrecipes.Length == 0)
+            {
+                return;
+            }
+            else
+            {
+                StartList(listofrecipes);
+            }
         }
         /// <summary>
         /// This method take the first element and add it
         /// @author Jose A.
         /// </summary>
-        public void StartList(UserListModel model)
+        public void StartList(RecipeListModel model)
         {
 
             InitList();
@@ -71,7 +94,7 @@ namespace CookTime.Views
         /// This method take the data and add it to the ProfileListView
         /// @author Jose A.
         /// </summary>
-        private void ListAdd(CookTime.REST_API_UserListModel.Next next)
+        private void ListAdd(CookTime.REST_API_RecipeListModel.Next next)
         {
             if (next.NextNext != null)
             {
@@ -88,7 +111,7 @@ namespace CookTime.Views
         /// This method verify the current data is the last element in json file, if it is the last element the method add it and return the finally list
         /// @author Jose A.
         /// </summary>
-        private void ListAddRest(CookTime.REST_API_UserListModel.Head head)
+        private void ListAddRest(CookTime.REST_API_RecipeListModel.Head head)
         {
             if (head.Next != null)
             {
@@ -124,34 +147,45 @@ namespace CookTime.Views
         /// </summary>
         private void View_Recipe(object sender, EventArgs e)
         {
-            Recipe recipe = new Recipe();
-            recipe.Title = "Arroz con Pollo";
-            recipe.Author = "yomeroelmismo@yahoo.com";
-            recipe.TypeOfDish = "Breakfast";
-            recipe.Servings = 2;
-            recipe.Duration = "1 - 3 hours";
-            recipe.Time = "Appetizer";
-            recipe.Difficulty = 67;
-            recipe.Diet = "Carnivourous";
-            recipe.Description = "Arroz, pollo, chile, etc";
-            recipe.Steps = "Primero se hace el arroz, después se sacan trozos de la pechuga de pollo,....";
-            recipe.Price = 3500;
-            recipe.Image = "https://img-global.cpcdn.com/recipes/bbbdd85a4baaadd8/400x400cq70/photo.jpg";
-            Navigation.PushAsync(new ViewRecipe(recipe));
+
+            Recipe item = (Recipe)ListaRPV.SelectedItem;
+            Navigation.PushAsync(new ViewRecipe(item));
 
         }
-        /// <summary>
-        /// Tthis method sends a notification to notify that there are new followers
-        /// @author Mauricio C.
-        /// </summary>
-        private void Send_Notification(object sender, EventArgs e)
+        private async void Sort_Difficulty(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private async void Sort_Date(object sender, EventArgs e)
+        {
+            //
+        }
+
+        private async void Sort_Rating(object sender, EventArgs e)
         {
 
 
 
 
-            DependencyService.Get<iNotification>().CreateNotification("CookTime", "Un usuario nuevo te ha seguido!");
+        }
 
+        /// <summary>
+        /// Tthis method sends a notification to notify that there are new followers
+        /// @author Mauricio C.
+        /// </summary>
+        private async void Send_Notification(object sender, EventArgs e)
+        {
+            HttpClient client = new HttpClient();
+            string url = "http://" + LoginPage.ip + ":6969/user/" + User.Email + "/addFollower/" + LoginPage.CURRENTUSER.Email;
+            var result = await client.GetAsync(url);
+            var json = result.Content.ReadAsStringAsync().Result;
+            Console.WriteLine(json);
+
+
+
+            DependencyService.Get<iNotification>().CreateNotification("CookTime", "Un usuario nuevo te ha seguido!");
         }
 
 

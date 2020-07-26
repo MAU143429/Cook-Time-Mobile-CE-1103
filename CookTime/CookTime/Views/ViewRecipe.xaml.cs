@@ -52,11 +52,15 @@ namespace CookTime.Views
         /// This method take one recipe and delete it of MyMenu
         /// @author Mauricio C.
         /// </summary>
-        private void DeleteR(object sender, EventArgs e)
+        private async void DeleteR(object sender, EventArgs e)
         {
-            
-            Navigation.PushAsync(new Search());
-            DisplayAlert("COOKTIME", "RECIPE HAS BEEN DELETED", "ACCEPT");
+            HttpClient client = new HttpClient();
+            string url = "http://" + LoginPage.ip + ":6969/deleteRecipe/" + showrecipe.Title + "/";
+            var result = await client.GetAsync(url);
+            var json = result.Content.ReadAsStringAsync().Result;
+            Console.WriteLine(json);
+            await Navigation.PushAsync(new Search());
+            await DisplayAlert("COOKTIME", "RECIPE HAS BEEN DELETED", "ACCEPT");
            
             
             

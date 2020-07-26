@@ -1,4 +1,6 @@
-﻿using CookTime.REST_API_CompanyListModel;
+﻿using CookTime.REST_API_CompanyModel;
+using CookTime.REST_API_LoginModel;
+using CookTime.REST_API_RecipeListModel;
 using CookTime.User;
 using System;
 using System.Collections;
@@ -13,12 +15,13 @@ using Xamarin.Forms.Xaml;
 
 namespace CookTime.Views
 {
-     [XamlCompilation(XamlCompilationOptions.Compile)]
+    [XamlCompilation(XamlCompilationOptions.Compile)]
 
     /// <summary>
     /// This class  show the company account, and allows users to see and share recipes of the company 
     /// @author Mauricio C.
     /// </summary>
+    /// 
     public partial class CompanyProfileView : ContentPage
         {
         /// <summary>
@@ -26,11 +29,20 @@ namespace CookTime.Views
         /// @author Mauricio C.
         /// </summary>
         ArrayList CompanyListView;
-
-            public CompanyProfileView()
+        public Company company1;
+        public CompanyProfileView(CookTime.REST_API_CompanyModel.Company company)
             {
+            company1 = company;
                 InitializeComponent();
                 Pull_Search_Request();
+            profileimg.Source = company1.Logo;
+            username.Text = company1.Name;
+            companynumber.Text = Convert.ToString(company1.Number);
+            companyshedule.Text = company1.Schedule;
+            posts.Text = Convert.ToString(company1.Recipes.Count);
+            followers.Text = Convert.ToString(company1.Followers.Count);
+            following.Text = Convert.ToString(company1.Following.Count);
+
             }
         /// <summary>
         /// This method create a new HTTP client and execute async method with the server to get the company data 
@@ -39,17 +51,24 @@ namespace CookTime.Views
             private async void Pull_Search_Request()
             {
                 HttpClient client = new HttpClient();
-                string url = "http://" + LoginPage.ip + ":6969/user";
+                string url = "http://" + LoginPage.ip + ":6969/company/getRecipe/"+company1.Email+"/";
                 var result = await client.GetAsync(url);
                 var json = result.Content.ReadAsStringAsync().Result;
-                CompanyListModel newmodel = CompanyListModel.FromJson(json);
-                StartList(newmodel);
-            }
+                RecipeListModel listofrecipes = RecipeListModel.FromJson(json);
+                if (listofrecipes.Length == 0)
+                {
+                    return;
+                }
+                else
+                {
+                    StartList(listofrecipes);
+                }
+        }
         /// <summary>
         /// This method take the first element and add it
         /// @author Jose A.
         /// </summary>
-        public void StartList(CompanyListModel model)
+        public void StartList(RecipeListModel model)
             {
 
                 InitList();
@@ -68,7 +87,7 @@ namespace CookTime.Views
         /// This method take the data and add it to the CompanyListView
         /// @author Jose A.
         /// </summary>
-        private void ListAdd(CookTime.REST_API_CompanyListModel.Next next)
+        private void ListAdd(CookTime.REST_API_RecipeListModel.Next next)
             {
                 if (next.NextNext != null)
                 {
@@ -85,7 +104,7 @@ namespace CookTime.Views
         /// This method verify the current data is the last element in json file, if it is the last element the method add it and return the finally list
         /// @author Jose A.
         /// </summary>
-        private void ListAddRest(CookTime.REST_API_CompanyListModel.Head head)
+        private void ListAddRest(CookTime.REST_API_RecipeListModel.Head head)
             {
                 if (head.Next != null)
                 {
@@ -128,11 +147,15 @@ namespace CookTime.Views
         /// Tthis method sends a notification to notify that there are new followers
         /// @author Mauricio C.
         /// </summary>
-        private void Send_Notification(object sender, EventArgs e)
+        private async void Send_Notification(object sender, EventArgs e)
             {
-                 DependencyService.Get<iNotification>().CreateNotification("CookTime", "Un usuario nuevo te ha  seguido!");
-
-            }
+           /** HttpClient client = new HttpClient();
+            string url = "http://" + LoginPage.ip + ":6969/user/" + LoginPage.CURRENTUSER.Email + "/follow/" + mycompany.Email;
+            var result = await client.GetAsync(url);
+            var json = result.Content.ReadAsStringAsync().Result;
+            Console.WriteLine(json);
+            DependencyService.Get<iNotification>().CreateNotification("CookTime", "Un usuario nuevo te ha  seguido!");*/
+        }
         /// <summary>
         /// This method allows users to rate a company
         /// @author Mauricio C.
@@ -158,6 +181,25 @@ namespace CookTime.Views
             {
                 Navigation.PushAsync(new ShowMap());
             }
+
+        private async void Sort_Difficulty(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private async void Sort_Date(object sender, EventArgs e)
+        {
+            Console.WriteLine("Sorting");
+        }
+
+        private async void Sort_Rating(object sender, EventArgs e)
+        {
+
+
+
+
+        }
 
 
 

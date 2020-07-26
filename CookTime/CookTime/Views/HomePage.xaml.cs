@@ -188,7 +188,7 @@ namespace CookTime.Views
             datasent.Headers.ContentType.MediaType = "application/json";
             var result = await client.PostAsync(url, datasent);
             var json = result.Content.ReadAsStringAsync().Result;
-
+            await DisplayAlert("Cook Time", "Compartiste esta publicacion", "Aceptar");
         }
     }
 }

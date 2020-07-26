@@ -97,7 +97,7 @@
 
 
                 <Label Text="SORT BY:" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
-                <Button x:Name="Date"  Text="DATE" BackgroundColor="#CCF47C" WidthRequest="100" />
+                <Button x:Name="Date"  Text="DATE" BackgroundColor="#CCF47C" WidthRequest="100" Clicked="Sort_Date"/>
                 <Button x:Name="Rating"  Text="RATING" BackgroundColor="#CCF47C" WidthRequest="100" />
                 <Button x:Name="Difficulty"  Text="DIFFICULTY" BackgroundColor="#CCF47C" WidthRequest="100" />
                 

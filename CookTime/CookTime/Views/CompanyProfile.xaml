@@ -21,7 +21,7 @@
                 Orientation="Horizontal"
                 VerticalOptions="Center"
                 HorizontalOptions="Center" >
-                <Button x:Name="profileimg"  BackgroundColor="#CCF47C" WidthRequest="100" HeightRequest="100"  Image ="defaultimg.png" Clicked="Change_Photo" />
+                <ImageButton x:Name="profileimg"  BackgroundColor="#CCF47C" WidthRequest="100" HeightRequest="100"  Source ="defaultimg.png" Clicked="Change_Photo" Aspect="AspectFill"/>
                 <Label  WidthRequest="40" HeightRequest="15"  BackgroundColor="Transparent" />
                 <Grid VerticalOptions="CenterAndExpand" >
                     <Grid.RowDefinitions>
@@ -67,7 +67,7 @@
                 Orientation="Horizontal"
                 VerticalOptions="Center"
                 HorizontalOptions="Center">
-                <Button x:Name="changepass"  BackgroundColor="Transparent" ImageSource="pass.png" WidthRequest="50" HeightRequest="50" Clicked="Change_Pass" />
+                
                 <Button x:Name="CreateRecipe" BackgroundColor="#CCF47C" Text="Create Recipe" WidthRequest="115" Clicked="Create_Clicked" />
                 <Button x:Name="AddMember" BackgroundColor="#CCF47C" Text="Add Member" WidthRequest="115" Clicked="Add_Member"/>
                 <Button x:Name="ViewListMember" BackgroundColor="#CCF47C" Text="Member List" WidthRequest="115" Clicked="View_List" />
@@ -85,45 +85,11 @@
 
 
                 <Label Text="SORT BY:" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
-                <Picker x:Name="Date"
-                    Title="Date" 
-                    TitleColor="Blue" >
-                    <Picker.ItemsSource>
-                        <x:Array Type="{x:Type x:String}">
-                            <x:String>Recently</x:String>
-                            <x:String>Oldest</x:String>
-                        </x:Array>
-                    </Picker.ItemsSource>
+                <Button x:Name="Date"  Text="DATE" BackgroundColor="#CCF47C" WidthRequest="100" Clicked="Sort_Date"/>
+                <Button x:Name="Rating"  Text="RATING" BackgroundColor="#CCF47C" WidthRequest="100" />
+                <Button x:Name="Difficulty"  Text="DIFFICULTY" BackgroundColor="#CCF47C" WidthRequest="100" />
 
-                </Picker>
-                <Picker x:Name="Rating"
-                Title="Rating" 
-                TitleColor="Blue" >
-                    <Picker.ItemsSource>
-                        <x:Array Type="{x:Type x:String}">
-                            <x:String>1 Star</x:String>
-                            <x:String>2 Star</x:String>
-                            <x:String>3 Star</x:String>
-                            <x:String>4 Star</x:String>
-                            <x:String>5 Star</x:String>
-                        </x:Array>
-                    </Picker.ItemsSource>
 
-                </Picker>
-                <Picker x:Name="DifficultyP"
-                Title="Difficulty" 
-                TitleColor="Blue" >
-                    <Picker.ItemsSource>
-                        <x:Array Type="{x:Type x:String}">
-                            <x:String>1</x:String>
-                            <x:String>2</x:String>
-                            <x:String>3</x:String>
-                            <x:String>4</x:String>
-                            <x:String>5</x:String>
-                        </x:Array>
-                    </Picker.ItemsSource>
-
-                </Picker>
             </StackLayout>
             <!--#endregion-->
 
