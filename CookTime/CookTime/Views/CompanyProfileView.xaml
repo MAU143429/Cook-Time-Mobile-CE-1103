@@ -112,31 +112,7 @@
 
             <!--#endregion-->
             
-            <!--#region Rate a company and view recipes -->
-            <StackLayout Padding="0" 
-             Orientation="Horizontal"
-             VerticalOptions="CenterAndExpand"
-             HorizontalOptions="CenterAndExpand">
-
-                <Picker x:Name="rating"
-                Title="RATE THE COMPANY" 
-                TitleColor="Black"
-                BackgroundColor="#CCF47C"
-                WidthRequest="220">
-
-                    <Picker.ItemsSource>
-                        <x:Array Type="{x:Type x:String}">
-                            <x:String>☆</x:String>
-                            <x:String>☆☆</x:String>
-                            <x:String>☆☆☆</x:String>
-                            <x:String>☆☆☆☆</x:String>
-                            <x:String>☆☆☆☆☆</x:String>
-                        </x:Array>
-                    </Picker.ItemsSource>
-
-                </Picker>
-                <Button Text="RATE" WidthRequest="120" HeightRequest="40"  FontSize="Large" BackgroundColor="#CCF47C" Clicked="Rate_Company"/>
-            </StackLayout>
+            <!--#region view recipes -->
             <Button x:Name="viewrecipe" Text="View Recipe" BackgroundColor="#CCF47C" WidthRequest="400"  />
             <!--#endregion -->
         </StackLayout>

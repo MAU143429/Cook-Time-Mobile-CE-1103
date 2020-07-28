@@ -9,9 +9,20 @@
         <!-- This layout contains a list of the company members-->
         <!--#region MemberListView-->
         <StackLayout>
-            <Label Text="AQUI SE MUESTRA LA LISTA DE LOS MIEMBROS DELGRUPO!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
+            <ListView x:Name="ListaM" RowHeight="100">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                                <Image Source="{Binding Image}" Aspect="AspectFill" HeightRequest="100" WidthRequest="100" />
+                                <Label Text="{Binding Name}" FontSize="Title" FontAttributes="Bold"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            
         </StackLayout>
         <!--#endregion-->
 

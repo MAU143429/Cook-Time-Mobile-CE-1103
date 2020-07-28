@@ -81,6 +81,9 @@ namespace CookTime.REST_API_UserListModel
 
         [JsonProperty("ischef")]
         public Boolean Ischef { get; set; }
+
+        [JsonProperty("hasNotification")]
+        public Boolean hasNotification { get; set; }
     }
 
     public partial class UserListModel

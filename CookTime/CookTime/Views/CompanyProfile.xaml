@@ -97,11 +97,11 @@
             <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
             
             <StackLayout>
-                <ListView x:Name="ListaRCP">
+                <ListView x:Name="ListaRCP" RowHeight="200">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
-                                <StackLayout HorizontalOptions="CenterAndExpand">
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                                     <Image Source="{Binding Image}" Aspect="AspectFill" HeightRequest="200" WidthRequest="200"/>
                                     <Label Text="{Binding Title}" FontSize="Title" FontAttributes="Bold" />
                                 </StackLayout>
@@ -109,7 +109,7 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-                <Button x:Name="viewrecipe" Text="View Recipe" BackgroundColor="#CCF47C" WidthRequest="400"  />
+                <Button x:Name="viewrecipe" Text="View Recipe" BackgroundColor="#CCF47C" WidthRequest="400" Clicked="View_Recipe"  />
 
             </StackLayout>
             <!--#endregion-->

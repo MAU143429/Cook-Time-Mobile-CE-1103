@@ -22,11 +22,12 @@ namespace CookTime.Views
         /// @author Mauricio C.
         /// </summary>
         /// 
-        public static int select;
+        public  int select;
         public ChangePhoto(int i)
         {
             InitializeComponent();
             select = i;
+            Console.WriteLine(select);
             
         }
         /// <summary>
@@ -37,6 +38,7 @@ namespace CookTime.Views
         {
             if (select == 1)
             {
+                Console.WriteLine("SOY USER");
                 HttpClient client = new HttpClient();
                 string url = "http://" + LoginPage.ip + ":6969/setUser/" + LoginPage.CURRENTUSER.Email + "/image";
                 String newimg = newphoto.Text;
@@ -46,20 +48,6 @@ namespace CookTime.Views
                 LoginPage.updateUser();
                 await Navigation.PushAsync(new Profile1());
             }
-            else
-            {
-                /** HttpClient client = new HttpClient();
-                 string url = "http://" + LoginPage.ip + ":6969/setUser/" + LoginPage.CURRENTUSER.Email + "/image";
-                 String newimg = newphoto.Text;
-                 var datasent = new StringContent(newimg);
-                 datasent.Headers.ContentType.MediaType = "application/json";
-                 await client.PostAsync(url, datasent);
-                 LoginPage.updateUser();
-                 await Navigation.PushAsync(new CompanyProfile());*/
-                Console.WriteLine("Aqui se cambia la foto de la empresa");
-            }
-            
-            
             
         }
 

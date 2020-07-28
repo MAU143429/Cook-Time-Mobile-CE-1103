@@ -29,7 +29,7 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <Button x:Name="viewrecipe" Text="View Recipe" BackgroundColor="#CCF47C" WidthRequest="400" Clicked="View_Recipe" />
+            <Button x:Name="viewrecipe" Text="View" BackgroundColor="#CCF47C" WidthRequest="400" Clicked="View_Recipe" />
         </StackLayout>
         <!--#endregion -->
     </StackLayout>

@@ -85,7 +85,7 @@ namespace CookTime.REST_API_RecipeListModel
         public string Date { get; set; }
 
         [JsonProperty("rating")]
-        public int Rating { get; set; }
+        public double Rating { get; set; }
 
         [JsonProperty("comments")]
         public string Comments { get; set; }

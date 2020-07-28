@@ -33,8 +33,8 @@ namespace CookTime.Views
         public CompanyProfileView(CookTime.REST_API_CompanyModel.Company company)
             {
             company1 = company;
-                InitializeComponent();
-                Pull_Search_Request();
+            InitializeComponent();
+            Pull_Search_Request();
             profileimg.Source = company1.Logo;
             username.Text = company1.Name;
             companynumber.Text = Convert.ToString(company1.Number);
@@ -43,7 +43,8 @@ namespace CookTime.Views
             followers.Text = Convert.ToString(company1.Followers.Count);
             following.Text = Convert.ToString(company1.Following.Count);
 
-            }
+
+        }
         /// <summary>
         /// This method create a new HTTP client and execute async method with the server to get the company data 
         /// @author Jose A.
@@ -140,7 +141,7 @@ namespace CookTime.Views
         /// </summary>
            private void View_List(object sender, EventArgs e)
              {
-            Navigation.PushAsync(new CompanyMemberList());
+            Navigation.PushAsync(new CompanyMemberList(company1));
 
             }
         /// <summary>
@@ -149,12 +150,12 @@ namespace CookTime.Views
         /// </summary>
         private async void Send_Notification(object sender, EventArgs e)
             {
-           /** HttpClient client = new HttpClient();
-            string url = "http://" + LoginPage.ip + ":6969/user/" + LoginPage.CURRENTUSER.Email + "/follow/" + mycompany.Email;
+            HttpClient client = new HttpClient();
+            string url = "http://" + LoginPage.ip + ":6969/user/" + LoginPage.CURRENTUSER.Email + "/follow/" + company1.Email;
             var result = await client.GetAsync(url);
             var json = result.Content.ReadAsStringAsync().Result;
             Console.WriteLine(json);
-            DependencyService.Get<iNotification>().CreateNotification("CookTime", "Un usuario nuevo te ha  seguido!");*/
+            
         }
         /// <summary>
         /// This method allows users to rate a company
@@ -184,21 +185,33 @@ namespace CookTime.Views
 
         private async void Sort_Difficulty(object sender, EventArgs e)
         {
-
+            HttpClient client = new HttpClient();
+            string url = "http://" + LoginPage.ip + ":6969/sorting/getDifficultiesCompany/" + company1.Email;
+            var result = await client.GetAsync(url);
+            var json = result.Content.ReadAsStringAsync().Result;
+            RecipeListModel recipeList = RecipeListModel.FromJson(json);
+            StartList(recipeList);
 
         }
 
         private async void Sort_Date(object sender, EventArgs e)
         {
-            Console.WriteLine("Sorting");
+            HttpClient client = new HttpClient();
+            string url = "http://" + LoginPage.ip + ":6969/sorting/getDatesCompany/" + company1.Email;
+            var result = await client.GetAsync(url);
+            var json = result.Content.ReadAsStringAsync().Result;
+            RecipeListModel recipeList = RecipeListModel.FromJson(json);
+            StartList(recipeList);
         }
 
         private async void Sort_Rating(object sender, EventArgs e)
         {
-
-
-
-
+            HttpClient client = new HttpClient();
+            string url = "http://" + LoginPage.ip + ":6969/sorting/getRatingsCompany/" + company1.Email;
+            var result = await client.GetAsync(url);
+            var json = result.Content.ReadAsStringAsync().Result;
+            RecipeListModel recipeList = RecipeListModel.FromJson(json);
+            StartList(recipeList);
         }
 
 

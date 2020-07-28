@@ -163,7 +163,7 @@ namespace CookTime.Views
         /// </summary>
         private void Create_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new CreateR());
+            Navigation.PushAsync(new CreateR(1));
 
         }
         /// <summary>
@@ -207,7 +207,12 @@ namespace CookTime.Views
 
         private async void Sort_Difficulty(object sender, EventArgs e)
         {
-            
+            HttpClient client = new HttpClient();
+            string url = "http://" + LoginPage.ip + ":6969/sorting/getDifficulties/" + LoginPage.CURRENTUSER.Email;
+            var result = await client.GetAsync(url);
+            var json = result.Content.ReadAsStringAsync().Result;
+            RecipeListModel recipeList = RecipeListModel.FromJson(json);
+            StartList(recipeList);
 
         }
 
@@ -223,10 +228,12 @@ namespace CookTime.Views
 
         private async void Sort_Rating(object sender, EventArgs e)
         {
-            
-            
-           
-
+            HttpClient client = new HttpClient();
+            string url = "http://" + LoginPage.ip + ":6969/sorting/getRatings/" + LoginPage.CURRENTUSER.Email;
+            var result = await client.GetAsync(url);
+            var json = result.Content.ReadAsStringAsync().Result;
+            RecipeListModel recipeList = RecipeListModel.FromJson(json);
+            StartList(recipeList);
         }
 
 

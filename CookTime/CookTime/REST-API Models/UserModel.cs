@@ -55,6 +55,8 @@ namespace CookTime.REST_API_UserModel
         [JsonProperty("hasCompany")]
         public Boolean Hascompany { get; set; }
 
+        [JsonProperty("hasNotification")]
+        public Boolean hasNotification { get; set; }
 
     }
 

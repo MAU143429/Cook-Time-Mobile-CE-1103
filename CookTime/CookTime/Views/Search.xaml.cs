@@ -289,37 +289,38 @@ namespace CookTime.Views
                             var filter2 = DurationS.SelectedIndex;
                             var filter3 = ServingsS.SelectedIndex;
 
-                            string sel1, sel2 ;
+                            string sel1, sel2;
                             int sel3;
 
 
-                            if(filter1 == -1)
+
+
+                            if (filter1 == -1)
                             {
-                                 sel1 = " ";
+                                 sel1 = null;
                             }
                             else
                             {
                                  sel1 = DishesS.SelectedItem.ToString();
                             }
 
-                            if (filter1 == -1)
+                            if (filter2 == -1)
                             {
-                                 sel2 = " ";
+                                 sel2 = null;
                             }
                             else
                             {
                                  sel2 = DurationS.SelectedItem.ToString();
                             }
 
-                            if (filter1 == -1)
+                            if (filter3 == -1)
                             {
-                                string sel3temp= " ";
-                                sel3  = 0;
+                                sel3 = 0; 
                             }
                             else
                             {
-                                string sel3temp = ServingsS.SelectedItem.ToString();
-                                sel3 = Int32.Parse(sel3temp);
+                                string self3temp = ServingsS.SelectedItem.ToString();
+                                sel3 = Int32.Parse(self3temp);
                             }
 
                             
@@ -369,7 +370,7 @@ namespace CookTime.Views
             if (!usersearch.IsChecked && recipesearch.IsChecked && !companysearch.IsChecked) { return 2; }
             if (!usersearch.IsChecked && !recipesearch.IsChecked && companysearch.IsChecked) { return 3; }
 
-            else { DisplayAlert("COOKTIME", "Selecciona no mas de un tipo de busqueda", "ACCEPT"); return 0; }
+            else { DisplayAlert("COOKTIME", "Select no more than one type of search", "ACCEPT"); return 0; }
         }
 
     }

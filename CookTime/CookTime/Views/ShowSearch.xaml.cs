@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 using CookTime.REST_API_CompanyListModel;
 using CookTime.REST_API_CompanyModel;
 using CookTime.REST_API_RecipeListModel;
@@ -13,8 +9,6 @@ using CookTime.REST_API_RecipeSearchModel;
 using CookTime.REST_API_UserListModel;
 using CookTime.REST_API_UserModel;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-using Newtonsoft.Json.Linq;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 namespace CookTime.Views
@@ -38,11 +32,6 @@ namespace CookTime.Views
             Duration = duration;
             Servings = servings;
             Reference = reference;
-            Console.WriteLine(reference);
-            Console.WriteLine(searchKey);
-            Console.WriteLine(type);
-            Console.WriteLine(duration);
-            Console.WriteLine(servings);
             if (reference == 1)
             {
                 Pull_Search_Request_U();
@@ -52,7 +41,7 @@ namespace CookTime.Views
                 if ( type == " " && duration == " " && servings == 0)
                 {
                     Search_Name_R();
-                    Console.WriteLine("Metodo de busqueda por nomnbre");
+                    
 
                 }
                 else
@@ -246,7 +235,7 @@ namespace CookTime.Views
             if (Reference == 1)
             {
                 REST_API_UserModel.User user = (REST_API_UserModel.User)ListaObjects.SelectedItem;
-                //Navigation.PushAsync(new ProfileView(user));
+                Navigation.PushAsync(new ProfileView(user));
             }
             if (Reference == 2)
             {
@@ -256,7 +245,7 @@ namespace CookTime.Views
             if (Reference == 3)
             {
                 Company company = (Company)ListaObjects.SelectedItem;
-                //Navigation.PushAsync(new CompanyProfileView(company));
+                Navigation.PushAsync(new CompanyProfileView(company));
             }
             
         }

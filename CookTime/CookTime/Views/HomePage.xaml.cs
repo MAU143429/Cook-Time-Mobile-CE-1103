@@ -3,12 +3,7 @@ using CookTime.User;
 using Newtonsoft.Json;
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
-using System.Runtime.InteropServices.ComTypes;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -29,13 +24,25 @@ namespace CookTime.Views
         /// This constructor execute Home Page
         /// @author Jose A.
         /// </summary>
-        public HomePage() 
+        public float rate1;
+        public HomePage()
         {
-            
+
             InitializeComponent();
             Pull_Search_Request();
-            
+            Notification_Alert();
+        }
 
+        public async void  Notification_Alert()
+        {
+            if (LoginPage.CURRENTUSER.hasNotification == true)
+            {
+               
+                HttpClient client = new HttpClient();
+                string url = "http://" + LoginPage.ip + ":6969/setUser/"+LoginPage.CURRENTUSER.Email+"/boolean";
+                var result = await client.GetAsync(url);
+                var json = result.Content.ReadAsStringAsync().Result;
+            }
         }
 
 
@@ -105,7 +112,7 @@ namespace CookTime.Views
             recipeauthor.Text = currentRecipe.Author;
             recipename.Text = currentRecipe.Title;
             recipeimage.Source = currentRecipe.Image;
-            reciperating.Text = Convert.ToString(currentRecipe.Rating) + "☆";
+            reciperating.Text = Convert.ToString(Math.Round(currentRecipe.Rating,1)) + "☆";
 
 
         }
@@ -152,7 +159,7 @@ namespace CookTime.Views
             Console.WriteLine("INDEX:"+index);
             if (index >= length) {
 
-                await DisplayAlert("Cook Time", "Ya no hay recetas en el servidor", "Aceptar");
+                
                 index = 0;
                 ListReturn();
                 return;
@@ -167,11 +174,28 @@ namespace CookTime.Views
                 var rate = rating.SelectedIndex;
                 if (rate >= 0 && rate <= 4)
                 {
-                    DependencyService.Get<iNotification>().CreateNotification("CookTime", "Un usuario ha calificado tu receta!");
+                    await DisplayAlert("COOKTIME", "Rating was sent successfully", "ACCEPT");
+
+                }
+                if (rating.SelectedIndex == -1)
+                {
+                    await DisplayAlert("COOKTIME", "Select one rating to continue", "ACCEPT");
+                }
+                else
+                {
+                    rate1 = (rating.SelectedIndex + 1);
+                    Console.WriteLine(rate1);
+                    HttpClient client = new HttpClient();
+                    string url = "http://" + LoginPage.ip + ":6969/newRating/" + currentRecipe.Title + "/" + rate1 + "/";
+                    var result = await client.GetAsync(url);
+                    var json = result.Content.ReadAsStringAsync().Result;
+                    
                     
                 }
-               
+
             }
+
+            
         }
         private void View_Recipe(object sender, EventArgs e)
         {
@@ -188,7 +212,7 @@ namespace CookTime.Views
             datasent.Headers.ContentType.MediaType = "application/json";
             var result = await client.PostAsync(url, datasent);
             var json = result.Content.ReadAsStringAsync().Result;
-            await DisplayAlert("Cook Time", "Compartiste esta publicacion", "Aceptar");
+            await DisplayAlert("Cook Time", "Recipe was shared successfully", "Aceptar");
         }
     }
 }

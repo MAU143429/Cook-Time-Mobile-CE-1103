@@ -24,6 +24,7 @@ namespace CookTime.Views
     {
         ArrayList RecipeList;
         public static Recipe showrecipe;
+        public float rate1; 
         /// <summary>
         /// This constructor execute ViewRecipe partial class 
         /// @author Mauricio C.
@@ -55,11 +56,11 @@ namespace CookTime.Views
         private async void DeleteR(object sender, EventArgs e)
         {
             HttpClient client = new HttpClient();
-            string url = "http://" + LoginPage.ip + ":6969/deleteRecipe/" + showrecipe.Title + "/";
+            string url = "http://" + LoginPage.ip + ":6969/deleteRecipe/user/" + showrecipe.Title + "/";
             var result = await client.GetAsync(url);
             var json = result.Content.ReadAsStringAsync().Result;
             Console.WriteLine(json);
-            await Navigation.PushAsync(new Search());
+            await Navigation.PushAsync(new HomePage());
             await DisplayAlert("COOKTIME", "RECIPE HAS BEEN DELETED", "ACCEPT");
            
             
@@ -71,7 +72,7 @@ namespace CookTime.Views
             if (showrecipe.Author == LoginPage.CURRENTUSER.Email)
             {
                 rating.IsEnabled = false;
-                sharecipe.IsEnabled = false;
+                rate.IsEnabled = false;
                 
             }
             if (showrecipe.Author != LoginPage.CURRENTUSER.Email)
@@ -85,13 +86,25 @@ namespace CookTime.Views
         /// This method take one recipe and share in newsfeed page
         /// @author Mauricio C.
         /// </summary>
-        private void ShareRecipe (object sender, EventArgs e)
+        private async void rate_Recipe (object sender, EventArgs e)
         {
+           
+            if (rating.SelectedIndex == -1)
+            {
+                await DisplayAlert("COOKTIME", "First Select one rating", "ACCEPT");
+            }
+            else
+            {
+                rate1 = (rating.SelectedIndex + 1);
+                Console.WriteLine(rate1);
+                HttpClient client = new HttpClient();
+                string url = "http://" + LoginPage.ip + ":6969/newRating/" + showrecipe.Title + "/" + rate1 + "/";
+                var result = await client.GetAsync(url);
+                var json = result.Content.ReadAsStringAsync().Result;
+                await DisplayAlert("COOKTIME", "RECIPE HAS BEEN QUALIFIED", "ACCEPT");
+                await Navigation.PopAsync();
+            }
             
-            
-            Navigation.PushAsync(new Search());
-            DisplayAlert("COOKTIME", "RECIPE HAS BEEN SHARED", "ACCEPT");
-              
         }
 
         /// <summary>
@@ -114,7 +127,7 @@ namespace CookTime.Views
                 Console.WriteLine(json);
                 await DisplayAlert("COOKTIME", "YOUR COMMENT HAS BEEN PUBLISHED", "ACCEPT");
                 DependencyService.Get<iNotification>().CreateNotification("CookTime", "Un usuario ha comentado en tu receta!");
-                await Navigation.PushAsync(new  Search());
+                await Navigation.PushAsync(new  HomePage());
 
             }
             else

@@ -26,8 +26,8 @@
                 Orientation="Horizontal"
                 VerticalOptions="CenterAndExpand"
                 HorizontalOptions="CenterAndExpand">
-                    <Label x:Name="recipename" Text="RECIPE NAME" WidthRequest="210" HeightRequest="40"   FontSize="Large" HorizontalTextAlignment="Center"/>
-                    <Label x:Name="reciperating" Text="4,5☆" WidthRequest="210" HeightRequest="40"   FontSize="Large" HorizontalTextAlignment="Center"/>
+                    <Label x:Name="recipename" Text="RECIPE NAME" WidthRequest="310" HeightRequest="40"   FontSize="Large" HorizontalTextAlignment="Center"/>
+                    <Label x:Name="reciperating" Text="4,5☆" WidthRequest="100" HeightRequest="40"   FontSize="Large" HorizontalTextAlignment="Center"/>
 
                 </StackLayout>
                 <!--#endregion -->

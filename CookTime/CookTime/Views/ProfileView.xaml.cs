@@ -154,21 +154,33 @@ namespace CookTime.Views
         }
         private async void Sort_Difficulty(object sender, EventArgs e)
         {
-
+            HttpClient client = new HttpClient();
+            string url = "http://" + LoginPage.ip + ":6969/sorting/getDifficulties/" + User.Email;
+            var result = await client.GetAsync(url);
+            var json = result.Content.ReadAsStringAsync().Result;
+            RecipeListModel recipeList = RecipeListModel.FromJson(json);
+            StartList(recipeList);
 
         }
 
         private async void Sort_Date(object sender, EventArgs e)
         {
-            //
+            HttpClient client = new HttpClient();
+            string url = "http://" + LoginPage.ip + ":6969/sorting/getDates/" + User.Email;
+            var result = await client.GetAsync(url);
+            var json = result.Content.ReadAsStringAsync().Result;
+            RecipeListModel recipeList = RecipeListModel.FromJson(json);
+            StartList(recipeList);
         }
 
         private async void Sort_Rating(object sender, EventArgs e)
         {
-
-
-
-
+            HttpClient client = new HttpClient();
+            string url = "http://" + LoginPage.ip + ":6969/sorting/getRatings/" + User.Email;
+            var result = await client.GetAsync(url);
+            var json = result.Content.ReadAsStringAsync().Result;
+            RecipeListModel recipeList = RecipeListModel.FromJson(json);
+            StartList(recipeList);
         }
 
         /// <summary>
@@ -182,10 +194,6 @@ namespace CookTime.Views
             var result = await client.GetAsync(url);
             var json = result.Content.ReadAsStringAsync().Result;
             Console.WriteLine(json);
-
-
-
-            DependencyService.Get<iNotification>().CreateNotification("CookTime", "Un usuario nuevo te ha seguido!");
         }
 
 

@@ -1,6 +1,7 @@
 ﻿
 using CookTime.REST_API_CompanyModel;
 using CookTime.REST_API_RecipeListModel;
+using CookTime.REST_API_RecipeModel;
 using CookTime.User;
 using System;
 using System.Collections;
@@ -29,12 +30,11 @@ namespace CookTime.Views
         ArrayList RecipeList;
         public static Company mycompany;
         
-
         public CompanyProfile()
         {
             InitializeComponent();
             Pull_Company_Request();
-            Pull_Search_Request();
+            
 
         }
 
@@ -47,11 +47,12 @@ namespace CookTime.Views
         private async void Pull_Search_Request()
         {
             HttpClient client = new HttpClient();
-            string url = "http://" + LoginPage.ip + ":6969/getRecipe/" + LoginPage.CURRENTUSER.Email + "/user";
+            Console.WriteLine("AQUI ESTOYYYYY"+ mycompany.Email);
+            string url = "http://" + LoginPage.ip + ":6969/company/getRecipe/" + mycompany.Email + "/" ;
             var result = await client.GetAsync(url);
+            Console.WriteLine(url);
             var json = result.Content.ReadAsStringAsync().Result;
             RecipeListModel listofrecipes = RecipeListModel.FromJson(json);
-            Console.WriteLine("RESULT" + json);
             if (listofrecipes.Length == 0)
             {
                 return;
@@ -70,9 +71,7 @@ namespace CookTime.Views
             string url = "http://" + LoginPage.ip + ":6969/getCompany/user/" + LoginPage.CURRENTUSER.Email;
             var result = await client.GetAsync(url);
             var json = result.Content.ReadAsStringAsync().Result;
-            Console.WriteLine("SERVER:" + json);
             Company currentcompany = Company.FromJson(json);
-            Console.WriteLine("RESULTTTTTTTT"+currentcompany);
             mycompany = currentcompany;
             profileimg.Source = mycompany.Logo;
             companyname.Text = mycompany.Name;
@@ -81,6 +80,7 @@ namespace CookTime.Views
             following.Text = Convert.ToString(mycompany.Following.Count);
             companyshedule.Text = mycompany.Schedule;
             companynumber.Text = Convert.ToString(mycompany.Number);
+            Pull_Search_Request();
 
 
         }
@@ -161,7 +161,7 @@ namespace CookTime.Views
 
         private void Create_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new CreateR());
+            Navigation.PushAsync(new CreateR(2));
 
 
         }
@@ -171,7 +171,7 @@ namespace CookTime.Views
         /// </summary>
         private void View_List(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new CompanyMemberList());
+            Navigation.PushAsync(new CompanyMemberList(mycompany));
 
         }
         /// <summary>
@@ -194,24 +194,43 @@ namespace CookTime.Views
             Navigation.PushAsync(new AddMember());
 
         }
+
+        public void View_Recipe(object sender, EventArgs e)
+        {
+            Recipe item = (Recipe)ListaRCP.SelectedItem;
+            Navigation.PushAsync(new ViewRecipe(item));
+        }
         private async void Sort_Difficulty(object sender, EventArgs e)
         {
-
+            HttpClient client = new HttpClient();
+            string url = "http://" + LoginPage.ip + ":6969/sorting/getDifficultiesCompany/" + mycompany.Email;
+            var result = await client.GetAsync(url);
+            var json = result.Content.ReadAsStringAsync().Result;
+            RecipeListModel recipeList = RecipeListModel.FromJson(json);
+            StartList(recipeList);
 
         }
 
         private async void Sort_Date(object sender, EventArgs e)
         {
-            
+            HttpClient client = new HttpClient();
+            string url = "http://" + LoginPage.ip + ":6969/sorting/getDatesCompany/" + mycompany.Email;
+            var result = await client.GetAsync(url);
+            var json = result.Content.ReadAsStringAsync().Result;
+            RecipeListModel recipeList = RecipeListModel.FromJson(json);
+            StartList(recipeList);
         }
 
         private async void Sort_Rating(object sender, EventArgs e)
         {
-
-
-
-
+            HttpClient client = new HttpClient();
+            string url = "http://" + LoginPage.ip + ":6969/sorting/getRatingsCompany/" + mycompany.Email;
+            var result = await client.GetAsync(url);
+            var json = result.Content.ReadAsStringAsync().Result;
+            RecipeListModel recipeList = RecipeListModel.FromJson(json);
+            StartList(recipeList);
         }
+
 
     }
 }

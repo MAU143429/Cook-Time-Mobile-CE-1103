@@ -3,10 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:maps="clr-namespace:Xamarin.Essentials;assembly=Xamarin.Essentials"
              mc:Ignorable="d"
              x:Class="CookTime.Views.ShowMap">
     <ContentPage.Content>
-        
+        <Image Source="mappp.jpg" Aspect="AspectFill" HeightRequest="100" WidthRequest="100" />
     </ContentPage.Content>
 </ContentPage>
