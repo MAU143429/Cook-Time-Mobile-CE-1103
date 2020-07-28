@@ -31,10 +31,14 @@ namespace CookTime.Views
 
 
         }
+        /// <summary>
+        /// This method brings 3 users from the user tree to be shown on the recommened section
+        /// @author Jose A.
+        /// </summary>
         private async void Pull_Better_Users()
         {
             HttpClient clientUsers = new HttpClient();
-            string url = "http://" + LoginPage.ip + ":6969/getUser/userShuffledList";//TIENE QUE SER LOS 3 USUARIOS CON MAYOR RATING
+            string url = "http://" + LoginPage.ip + ":6969/getUser/userShuffledList";
             var result = await clientUsers.GetAsync(url);
             var json = result.Content.ReadAsStringAsync().Result;
             UserListModel newusermodel = UserListModel.FromJson(json);
@@ -48,10 +52,14 @@ namespace CookTime.Views
             }
 
         }
+        /// <summary>
+        /// This method brings the 3 best rated recipes from the recipe tree to be shown on the recommened section
+        /// @author Jose A.
+        /// </summary>
         private async void Pull_Better_Recipes()
         {
             HttpClient clientRecipes = new HttpClient();
-            string url = "http://" + LoginPage.ip + ":6969/sorting/getRatings";//TIENE QUE SER LOS 3 RECETAS CON MAYOR RATING
+            string url = "http://" + LoginPage.ip + ":6969/sorting/getRatings";
             var result = await clientRecipes.GetAsync(url);
             var json = result.Content.ReadAsStringAsync().Result;
             CookTime.REST_API_RecipeListModel.RecipeListModel newrecipemodel = CookTime.REST_API_RecipeListModel.RecipeListModel.FromJson(json);
@@ -65,6 +73,10 @@ namespace CookTime.Views
             }
             
         }
+        /// <summary>
+        /// This method brings 3 companies from the company tree to be shown on the recommened section
+        /// @author Jose A.
+        /// </summary>
         private async void Pull_Better_Companies()
         {
             HttpClient clientCompanies = new HttpClient();
@@ -83,6 +95,10 @@ namespace CookTime.Views
 
             
         }
+        /// <summary>
+        /// This method starts the list travel by adding the head data for user lists
+        /// @author Jose A.
+        /// </summary>
         public void StartUserList(UserListModel model)
         {
             InitUserList();
@@ -97,6 +113,10 @@ namespace CookTime.Views
                 UserListReturn();
             }
         }
+        /// <summary>
+        /// This method starts the list travel by adding the head data for recipe lists
+        /// @author Jose A.
+        /// </summary>
         public void StartRecipeList(RecipeListModel model)
         {
             InitRecipeList();
@@ -111,6 +131,10 @@ namespace CookTime.Views
                 RecipeListReturn();
             }
         }
+        /// <summary>
+        /// This method starts the list travel by adding the head data for company lists
+        /// @author Jose A.
+        /// </summary>
         public void StartCompanyList(CookTime.REST_API_CompanyListModel.CompanyListModel model)
         {
             InitCompanyList();
@@ -125,6 +149,10 @@ namespace CookTime.Views
                 CompanyListReturn();
             }
         }
+        /// <summary>
+        /// This method adds the Data object from the singly list to the array list of users that is being worked
+        /// @author Jose A.
+        /// </summary>
         private void UserListAdd(CookTime.REST_API_UserListModel.Next next)
         {
             if (next.NextNext != null)
@@ -138,6 +166,10 @@ namespace CookTime.Views
                 UserListReturn();
             }
         }
+        /// <summary>
+        /// This method adds the Data object from the singly list to the array list of users that is being worked
+        /// @author Jose A.
+        /// </summary>
         private void UserListAddRest(CookTime.REST_API_UserListModel.Head head)
         {
             if (head.Next != null)
@@ -151,6 +183,10 @@ namespace CookTime.Views
                 UserListReturn();
             }
         }
+        /// <summary>
+        /// This method adds the Data object from the singly list to the array list of recipes that is being worked
+        /// @author Jose A.
+        /// </summary>
         private void RecipeListAdd(CookTime.REST_API_RecipeListModel.Next next)
         {
             if (next.NextNext != null)
@@ -164,6 +200,10 @@ namespace CookTime.Views
                 RecipeListReturn();
             }
         }
+        /// <summary>
+        /// This method adds the Data object from the singly list to the array list of recipes that is being worked
+        /// @author Jose A.
+        /// </summary>
         private void RecipeListAddRest(CookTime.REST_API_RecipeListModel.Head head)
         {
             if (head.Next != null)
@@ -177,6 +217,10 @@ namespace CookTime.Views
                 RecipeListReturn();
             }
         }
+        /// <summary>
+        /// This method adds the Data object from the singly list to the array list of companies that is being worked
+        /// @author Jose A.
+        /// </summary>
         private void CompanyListAdd(CookTime.REST_API_CompanyListModel.Next next)
         {
             if (next.NextNext != null)
@@ -190,6 +234,10 @@ namespace CookTime.Views
                 CompanyListReturn();
             }
         }
+        /// <summary>
+        /// This method adds the Data object from the singly list to the array list of companies that is being worked
+        /// @author Jose A.
+        /// </summary>
         private void CompanyListAddRest(CookTime.REST_API_CompanyListModel.Head head)
         {
             if (head.Next != null)
@@ -203,53 +251,96 @@ namespace CookTime.Views
                 CompanyListReturn();
             }
         }
+        /// <summary>
+        /// This method binds the array list data into the list view item source for visual aid
+        /// @author Jose A.
+        /// </summary>
         public void UserListReturn()
         {
             RecommendedUser.ItemsSource = UserList;
         }
+        /// <summary>
+        /// This method binds the array list data into the list view item source for visual aid
+        /// @author Jose A.
+        /// </summary>
         public void RecipeListReturn()
         {
             RecommendedRecipes.ItemsSource = RecipeList;
         }
+        /// <summary>
+        /// This method binds the array list data into the list view item source for visual aid
+        /// @author Jose A.
+        /// </summary>
         public void CompanyListReturn()
         {
             RecommendedCompanies.ItemsSource = CompanyList;
         }
+        /// <summary>
+        /// This method instances the array list we are goint to work on
+        /// @author Jose A.
+        /// </summary>
         public void InitUserList()
         {
             UserList = new ArrayList();
         }
+        /// <summary>
+        /// This method instances the array list we are goint to work on
+        /// @author Jose A.
+        /// </summary>
         public void InitCompanyList()
         {
             CompanyList = new ArrayList();
         }
+        /// <summary>
+        /// This method instances the array list we are goint to work on
+        /// @author Jose A.
+        /// </summary>
         public void InitRecipeList()
         {
             RecipeList = new ArrayList();
         }
 
-
+        /// <summary>
+        /// This method pushes a new home page into the pages stack
+        /// @author Jose A.
+        /// </summary>
         private void Home_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new HomePage());
 
         }
+        /// <summary>
+        /// This method pushes a new search page into the pages stack
+        /// @author Jose A.
+        /// </summary>
         private void Search_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new Search());
 
         }
+        /// <summary>
+        /// This method pushes a new profile page into the pages stack
+        /// @author Jose A.
+        /// </summary>
         private void Profile_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new Profile1());
 
         }
+        /// <summary>
+        /// This method pushes a new profile page into the pages stack using a user from the recommended section
+        /// @author Jose A.
+        /// </summary>
         private void Profile_View(object sender, EventArgs e)
         {
             CookTime.REST_API_UserModel.User item = (CookTime.REST_API_UserModel.User)RecommendedUser.SelectedItem;
             Navigation.PushAsync(new ProfileView(item));
 
         }
+        /// <summary>
+        /// This method pushes a new recipe view page into the pages stack using a recipe from the recommended section
+        /// @author Jose A.
+        /// </summary>
         private void Recipe_View(object sender, EventArgs e)
         {
             Recipe item = (Recipe)RecommendedRecipes.SelectedItem;
@@ -257,6 +348,10 @@ namespace CookTime.Views
             
 
         }
+        /// <summary>
+        /// This method pushes a new company view page into the pages stack using a company from the recommended section
+        /// @author Jose A.
+        /// </summary>
         private void Company_View(object sender, EventArgs e)
         {
             CookTime.REST_API_CompanyModel.Company item = (CookTime.REST_API_CompanyModel.Company)RecommendedCompanies.SelectedItem;
@@ -264,7 +359,10 @@ namespace CookTime.Views
 
         }
 
-
+        /// <summary>
+        /// This method manages all the logic and server interaction needed for the 4 possible ways of searching users, companies, recipes by name and recipes by filters
+        /// @author Jose A.
+        /// </summary>
         private void Searching(object sender, EventArgs e)
         {
             var searchValidate = search1.Text;
@@ -357,13 +455,10 @@ namespace CookTime.Views
             }
 
         }
-        public async void SearchUsers()
-        {
-            HttpClient client = new HttpClient();
-            string url = "http://" + LoginPage.ip + ":6969/user";
-        }
-
-
+        /// <summary>
+        /// This method returns a number to manage cases of selection of the filters
+        /// @author Jose A.
+        /// </summary>
         private int Checked_Search()
         {
             if (usersearch.IsChecked && !recipesearch.IsChecked && !companysearch.IsChecked) { return 1; }

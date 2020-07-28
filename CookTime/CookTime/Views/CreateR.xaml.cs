@@ -98,7 +98,10 @@ namespace CookTime.Views
 
 
         }
-
+        /// <summary>
+        /// This method creates a recipe object, serialize it as a json file and post it on the server as a new recipe where in the server it will be handled by server logic and methods
+        /// @author Jose A.
+        /// </summary>
         private async void Share_RecipeC()
         {
 

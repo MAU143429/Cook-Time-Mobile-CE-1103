@@ -24,6 +24,10 @@ namespace CookTime.Views
         public string Duration;
         public int Servings;
         ArrayList ObjectList;
+        /// <summary>
+        /// The constructor manages possible cases when openening a new search window.
+        /// @author Jose A.
+        /// </summary>
         public ShowSearch(int reference, string searchkey,string type,string duration, int servings)
         {
             InitializeComponent();
@@ -57,6 +61,10 @@ namespace CookTime.Views
             }
             
         }
+        /// <summary>
+        /// This method pulls the search in case it was an user search
+        /// @author Jose A.
+        /// </summary>
         private async void Pull_Search_Request_U()
         {
             HttpClient client = new HttpClient();
@@ -66,6 +74,10 @@ namespace CookTime.Views
             UserListModel newmodel = UserListModel.FromJson(json);
             StartList_U(newmodel);
         }
+        /// <summary>
+        /// This method pulls the search in case it was a recipe search just by name
+        /// @author Jose A.
+        /// </summary>
         private async void Search_Name_R()
         {
             HttpClient client = new HttpClient();
@@ -75,6 +87,10 @@ namespace CookTime.Views
             RecipeListModel newmodel = RecipeListModel.FromJson(json);
             StartList_R(newmodel);
         }
+        /// <summary>
+        /// This method pulls the search in case it was a recipe search using filters
+        /// @author Jose A.
+        /// </summary>
         private async void Pull_Search_Request_R()
         {
             HttpClient client = new HttpClient();
@@ -92,6 +108,10 @@ namespace CookTime.Views
             RecipeListModel newmodel = RecipeListModel.FromJson(json);
             StartList_R(newmodel);
         }
+        /// <summary>
+        /// This method pulls the search in case it was a company search
+        /// @author Jose A.
+        /// </summary>
         private async void Pull_Search_Request_C()
         {
             HttpClient client = new HttpClient();
@@ -101,6 +121,10 @@ namespace CookTime.Views
             CompanyListModel newmodel = CompanyListModel.FromJson(json);
             StartList_C(newmodel);
         }
+        /// <summary>
+        /// This method starts the list traverse by first adding the data from the head for user lists.
+        /// @author Jose A.
+        /// </summary>
         public void StartList_U(UserListModel model)
         {
             InitList();
@@ -115,6 +139,10 @@ namespace CookTime.Views
                 ListReturn();
             }
         }
+        /// <summary>
+        /// This method starts the list traverse by first adding the data from the head for recipe lists.
+        /// @author Jose A.
+        /// </summary>
         public void StartList_R(RecipeListModel model)
         {
             InitList();
@@ -129,6 +157,10 @@ namespace CookTime.Views
                 ListReturn();
             }
         }
+        /// <summary>
+        /// This method starts the list traverse by first adding the data from the head for company lists.
+        /// @author Jose A.
+        /// </summary>
         public void StartList_C(CompanyListModel model)
         {
             InitList();
@@ -143,6 +175,10 @@ namespace CookTime.Views
                 ListReturn();
             }
         }
+        /// <summary>
+        /// This method adds the data object to the used arraylist for users
+        /// @author Jose A.
+        /// </summary>
         private void ListAdd_U(CookTime.REST_API_UserListModel.Next next)
         {
             if (next.NextNext != null)
@@ -156,6 +192,10 @@ namespace CookTime.Views
                 ListReturn();
             }
         }
+        /// <summary>
+        /// This method adds the data object to the used arraylist for recipes
+        /// @author Jose A.
+        /// </summary>
         private void ListAdd_R(CookTime.REST_API_RecipeListModel.Next next)
         {
             if (next.NextNext != null)
@@ -169,6 +209,10 @@ namespace CookTime.Views
                 ListReturn();
             }
         }
+        /// <summary>
+        /// This method adds the data object to the used arraylist for companies
+        /// @author Jose A.
+        /// </summary>
         private void ListAdd_C(CookTime.REST_API_CompanyListModel.Next next)
         {
             if (next.NextNext != null)
@@ -182,6 +226,10 @@ namespace CookTime.Views
                 ListReturn();
             }
         }
+        /// <summary>
+        /// This method adds the data object to the used arraylist for users
+        /// @author Jose A.
+        /// </summary>
         private void ListAddRest_U(CookTime.REST_API_UserListModel.Head head)
         {
             if (head.Next != null)
@@ -195,6 +243,10 @@ namespace CookTime.Views
                 ListReturn();
             }
         }
+        /// <summary>
+        /// This method adds the data object to the used arraylist for recipes
+        /// @author Jose A.
+        /// </summary>
         private void ListAddRest_R(CookTime.REST_API_RecipeListModel.Head head)
         {
             if (head.Next != null)
@@ -208,6 +260,10 @@ namespace CookTime.Views
                 ListReturn();
             }
         }
+        /// <summary>
+        /// This method adds the data object to the used arraylist for companies
+        /// @author Jose A.
+        /// </summary>
         private void ListAddRest_C(CookTime.REST_API_CompanyListModel.Head head)
         {
             if (head.Next != null)
@@ -221,15 +277,27 @@ namespace CookTime.Views
                 ListReturn();
             }
         }
+        /// <summary>
+        /// This method binds every data object of the arraylist to the item source of the list view (visual aid)
+        /// @author Jose A.
+        /// </summary>
         public void ListReturn()
         {
             ListaObjects.ItemsSource = ObjectList;
            
         }
+        /// <summary>
+        /// This method creates the instance it is going to work with
+        /// @author Jose A.
+        /// </summary>
         public void InitList()
         {
             ObjectList = new ArrayList();
         }
+        /// <summary>
+        /// This method opens a user, profile or company view pages in case one of those is selected
+        /// @author Jose A.
+        /// </summary>
         private void View_Recipe(object sender, EventArgs e)
         {
             if (Reference == 1)

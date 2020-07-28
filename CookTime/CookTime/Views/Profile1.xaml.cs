@@ -60,7 +60,10 @@ namespace CookTime.Views
                 CompanyProfile.IsEnabled = false;
             }
         }
-
+        /// <summary>
+        /// This method brings all the user's recipes from the server and starts the list travel
+        /// @author Jose A.
+        /// </summary>
         private async void Pull_Search_Request()
         {
             HttpClient client = new HttpClient();
@@ -80,7 +83,10 @@ namespace CookTime.Views
 
 
         }
-
+        /// <summary>
+        /// This method starts the list traversing by adding the head.data to the arraylist
+        /// @author Jose A.
+        /// </summary>
         public void StartList(RecipeListModel model)
         {
             InitList();
@@ -95,6 +101,10 @@ namespace CookTime.Views
                 ListReturn();
             }
         }
+        /// <summary>
+        /// This method is for traversing the list and adding every Data object it encounters
+        /// @author Jose A.
+        /// </summary>
         private void ListAdd(CookTime.REST_API_RecipeListModel.Next next)
         {
             if (next.NextNext != null)
@@ -108,6 +118,10 @@ namespace CookTime.Views
                 ListReturn();
             }
         }
+        /// <summary>
+        /// This method is for traversing the list and adding every Data object it encounters
+        /// @author Jose A.
+        /// </summary>
         private void ListAddRest(CookTime.REST_API_RecipeListModel.Head head)
         {
             if (head.Next != null)
@@ -121,11 +135,19 @@ namespace CookTime.Views
                 ListReturn();
             }
         }
+        /// <summary>
+        /// This method binds every data on the arraylist into the listview (visua aid)
+        /// @author Jose A.
+        /// </summary>
         public void ListReturn()
         {
             ListaR.ItemsSource = RecipeList;
             Console.WriteLine(RecipeList[0]);
         }
+        /// <summary>
+        /// This method instances the used arraylist
+        /// @author Jose A.
+        /// </summary>
         public void InitList()
         {
             RecipeList = new ArrayList();
@@ -204,7 +226,10 @@ namespace CookTime.Views
 
         }
 
-
+        /// <summary>
+        /// This method brings every recipe from an especific user sorted by difficulty
+        /// @author Jose A.
+        /// </summary>
         private async void Sort_Difficulty(object sender, EventArgs e)
         {
             HttpClient client = new HttpClient();
@@ -215,7 +240,10 @@ namespace CookTime.Views
             StartList(recipeList);
 
         }
-
+        /// <summary>
+        /// This method brings every recipe from an especific user sorted by date
+        /// @author Jose A.
+        /// </summary>
         private async void Sort_Date(object sender, EventArgs e)
         {
             HttpClient client = new HttpClient();
@@ -225,7 +253,10 @@ namespace CookTime.Views
             RecipeListModel recipeList = RecipeListModel.FromJson(json);
             StartList(recipeList);
         }
-
+        /// <summary>
+        /// This method brings every recipe from an especific user sorted by ratings
+        /// @author Jose A.
+        /// </summary>
         private async void Sort_Rating(object sender, EventArgs e)
         {
             HttpClient client = new HttpClient();
@@ -247,7 +278,10 @@ namespace CookTime.Views
             Recipe item = (Recipe)ListaR.SelectedItem;
             Navigation.PushAsync(new ViewRecipe(item));
         }
-  
+        /// <summary>
+        /// This method updates the data of the user currently using the app.
+        /// @author Jose A.
+        /// </summary>
         public async void updateuser(object sender, EventArgs e)
         {
 

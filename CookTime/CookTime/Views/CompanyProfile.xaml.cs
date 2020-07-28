@@ -64,7 +64,10 @@ namespace CookTime.Views
 
 
         }
-
+        /// <summary>
+        /// This method brings the company binded to the user from the server.
+        /// @author Jose A.
+        /// </summary>
         private async void Pull_Company_Request()
         {
             HttpClient client = new HttpClient();
@@ -194,12 +197,19 @@ namespace CookTime.Views
             Navigation.PushAsync(new AddMember());
 
         }
-
+        /// <summary>
+        /// This method selects an especific recipe from the listview, casts it to Recipe object and start a Recipe View page with that recipe's information
+        /// @author Jose A.
+        /// </summary>
         public void View_Recipe(object sender, EventArgs e)
         {
             Recipe item = (Recipe)ListaRCP.SelectedItem;
             Navigation.PushAsync(new ViewRecipe(item));
         }
+        /// <summary>
+        /// This method brings all the recipes from an especific user sorted by difficulty
+        /// @author Jose A.
+        /// </summary>
         private async void Sort_Difficulty(object sender, EventArgs e)
         {
             HttpClient client = new HttpClient();
@@ -210,7 +220,10 @@ namespace CookTime.Views
             StartList(recipeList);
 
         }
-
+        /// <summary>
+        /// This method brings all the recipes from an especific user sorted by date
+        /// @author Jose A.
+        /// </summary>
         private async void Sort_Date(object sender, EventArgs e)
         {
             HttpClient client = new HttpClient();
@@ -220,7 +233,10 @@ namespace CookTime.Views
             RecipeListModel recipeList = RecipeListModel.FromJson(json);
             StartList(recipeList);
         }
-
+        /// <summary>
+        /// This method brings all the recipes from an especific user sorted by rating
+        /// @author Jose A.
+        /// </summary>
         private async void Sort_Rating(object sender, EventArgs e)
         {
             HttpClient client = new HttpClient();

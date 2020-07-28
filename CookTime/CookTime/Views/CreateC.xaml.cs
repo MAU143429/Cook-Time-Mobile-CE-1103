@@ -41,7 +41,10 @@ namespace CookTime.Views
             Navigation.PushAsync(new Profile1());
 
         }
-        
+        /// <summary>
+        /// This method creates a new company object, serializes it as a json file and sends it to the server for storing in the company tree.
+        /// @author Jose A.
+        /// </summary>
         private async void Publish_Company() {
 
             var email = LoginPage.CURRENTUSER.Email;
@@ -56,10 +59,6 @@ namespace CookTime.Views
             company.Posts = 0;
             company.Following = null;
             company.Members = null;
-            
-
-
-
             HttpClient client = new HttpClient();
             string url = "http://" + LoginPage.ip + ":6969/newCompany/"+ LoginPage.CURRENTUSER.Email;
             String jsonNewUser = JsonConvert.SerializeObject(company);
@@ -74,7 +73,10 @@ namespace CookTime.Views
 
             
         }
-
+        /// <summary>
+        /// This method changes the user's boolean of "hasCompany" from false to true when a new company has been created and binded to him/her
+        /// @author Jose A.
+        /// </summary>
         private async void changehascompany()
         {
             HttpClient client = new HttpClient();

@@ -77,7 +77,10 @@ namespace CookTime.Views
             }
 
         }
-
+        /// <summary>
+        /// This method simply updates the user information, everytime a change has been made to itself.
+        /// @author Jose A.
+        /// </summary>
         public static async void updateUser()
         {
             HttpClient cliente = new HttpClient();

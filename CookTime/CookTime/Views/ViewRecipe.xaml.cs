@@ -66,7 +66,10 @@ namespace CookTime.Views
             
             
         }
-
+        /// <summary>
+        /// This method updates the availability of the rate recipe in case you are the owner of the recipe and disables the delete recipe button in case you are not the recipe author
+        /// @author Jose A.
+        /// </summary>
         private void update()
         {
             if (showrecipe.Author == LoginPage.CURRENTUSER.Email)
@@ -136,11 +139,19 @@ namespace CookTime.Views
             }
 
         }
+        /// <summary>
+        /// This method binds every data in the arraylist to the item source of the listview (visual aid)
+        /// @author Jose A.
+        /// </summary>
         public void ListReturn()
         {
             ListaRecipe.ItemsSource = RecipeList;
             Console.WriteLine(RecipeList[0]);
         }
+        /// <summary>
+        /// This method instances the recipe array list it is going to use.
+        /// @author Jose A.
+        /// </summary>
         public void InitList()
         {
             RecipeList = new ArrayList();

@@ -34,7 +34,10 @@ namespace CookTime.Views
             InitializeComponent();
             Pull_Search_Request_U();
         }
-
+        /// <summary>
+        /// Method that brings the memeber list from the selected company
+        /// @author Mauricio C.
+        /// </summary>
         private async void Pull_Search_Request_U()
         {
             HttpClient client = new HttpClient();
@@ -44,6 +47,10 @@ namespace CookTime.Views
             UserListModel newmodel = UserListModel.FromJson(json);
             StartList_U(newmodel);
         }
+        /// <summary>
+        /// Travels the list to add data to the array list
+        /// @author Mauricio C.
+        /// </summary>
         public void StartList_U(UserListModel model)
         {
             InitList();
@@ -58,6 +65,10 @@ namespace CookTime.Views
                 ListReturn();
             }
         }
+        /// <summary>
+        /// Travels the list to add data to the array list
+        /// @author Mauricio C.
+        /// </summary>
         private void ListAdd_U(CookTime.REST_API_UserListModel.Next next)
         {
             if (next.NextNext != null)
@@ -71,6 +82,10 @@ namespace CookTime.Views
                 ListReturn();
             }
         }
+        /// <summary>
+        /// Travels the list to add data to the array list
+        /// @author Mauricio C.
+        /// </summary>
         private void ListAddRest_U(CookTime.REST_API_UserListModel.Head head)
         {
             if (head.Next != null)
@@ -84,11 +99,19 @@ namespace CookTime.Views
                 ListReturn();
             }
         }
+        /// <summary>
+        /// Binds the data from the arraylist to the listview (visual aid)
+        /// @author Mauricio C.
+        /// </summary>
         public void ListReturn()
         {
             ListaM.ItemsSource = ObjectList;
 
         }
+        /// <summary>
+        /// Initialize the working array list
+        /// @author Mauricio C.
+        /// </summary>
         public void InitList()
         {
             ObjectList = new ArrayList();

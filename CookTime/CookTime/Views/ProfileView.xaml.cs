@@ -152,6 +152,10 @@ namespace CookTime.Views
             Navigation.PushAsync(new ViewRecipe(item));
 
         }
+        /// <summary>
+        /// This method brings every recipe from an especific user sorted by difficulty
+        /// @author Jose A.
+        /// </summary>
         private async void Sort_Difficulty(object sender, EventArgs e)
         {
             HttpClient client = new HttpClient();
@@ -162,7 +166,10 @@ namespace CookTime.Views
             StartList(recipeList);
 
         }
-
+        /// <summary>
+        /// This method brings every recipe from an especific user sorted by date
+        /// @author Jose A.
+        /// </summary>
         private async void Sort_Date(object sender, EventArgs e)
         {
             HttpClient client = new HttpClient();
@@ -172,7 +179,10 @@ namespace CookTime.Views
             RecipeListModel recipeList = RecipeListModel.FromJson(json);
             StartList(recipeList);
         }
-
+        /// <summary>
+        /// This method brings every recipe from an especific user sorted by rating
+        /// @author Jose A.
+        /// </summary>
         private async void Sort_Rating(object sender, EventArgs e)
         {
             HttpClient client = new HttpClient();

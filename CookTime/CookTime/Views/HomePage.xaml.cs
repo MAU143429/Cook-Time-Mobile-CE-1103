@@ -32,7 +32,10 @@ namespace CookTime.Views
             Pull_Search_Request();
             Notification_Alert();
         }
-
+        /// <summary>
+        /// This method notifies the user whenever a user has commented their recipe, followed them of shared their recipe.
+        /// @author Jose A.
+        /// </summary>
         public async void  Notification_Alert()
         {
             if (LoginPage.CURRENTUSER.hasNotification == true)
@@ -45,7 +48,10 @@ namespace CookTime.Views
             }
         }
 
-
+        /// <summary>
+        /// This method brings all the recipes from the recipe tree, the newer first.
+        /// @author Jose A.
+        /// </summary>
         private async void Pull_Search_Request()
         {
             HttpClient client = new HttpClient();
@@ -64,7 +70,10 @@ namespace CookTime.Views
             }
 
         }
-
+        /// <summary>
+        /// This method starts the list travel with the first key wich is "head"
+        /// @author Jose A.
+        /// </summary>
         public void StartList(RecipeListModel model)
         {
             InitList();
@@ -79,6 +88,10 @@ namespace CookTime.Views
                 ListReturn();
             }
         }
+        /// <summary>
+        /// This method is for traversing the list and adding every Data object
+        /// @author Jose A.
+        /// </summary>
         private void ListAdd(CookTime.REST_API_RecipeListModel.Next next)
         {
             if (next.NextNext != null)
@@ -92,6 +105,10 @@ namespace CookTime.Views
                 ListReturn();
             }
         }
+        /// <summary>
+        /// This method is for traversing the list and adding every Data object
+        /// @author Jose A.
+        /// </summary>
         private void ListAddRest(CookTime.REST_API_RecipeListModel.Head head)
         {
             if (head.Next != null)
@@ -105,6 +122,10 @@ namespace CookTime.Views
                 ListReturn();
             }
         }
+        /// <summary>
+        /// This method changes the value of labels and images everytime a new company is loaded on the newsfeed
+        /// @author Jose A.
+        /// </summary>
         public void ListReturn()
         {
             length = RecipeList.Count;
@@ -116,6 +137,10 @@ namespace CookTime.Views
 
 
         }
+        /// <summary>
+        /// This method instances the used array list
+        /// @author Jose A.
+        /// </summary>
         public void InitList()
         {
             RecipeList = new ArrayList();
